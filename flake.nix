@@ -306,6 +306,7 @@
       default = neovim-full;
       neovim-full = nvimWrapped (mainDevTools ++ subDevTools);
       neovim-light = nvimWrapped mainDevTools;
+      neovim-minimal = nvimWrapped [];
       config = nvimConfig;
     });
   };
