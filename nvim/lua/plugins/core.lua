@@ -22,14 +22,20 @@ return {
     name = "better-escape.nvim",
     dir = "@better_escape_nvim@",
     event = "InsertCharPre",
-    opts = { timeout = 300 },
+    opts = {
+      mapping = { "jj" },
+      timeout = 200,
+    },
   },
 
   -- Better pane navigation
   {
     name = "smart-splits.nvim",
     dir = "@smart_splits_nvim@",
-    opts = { ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" }, ignored_buftypes = { "nofile" } },
+    opts = {
+      ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
+      ignored_buftypes = { "nofile" },
+    },
   },
 
   -- Better buffer remove

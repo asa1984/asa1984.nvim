@@ -75,60 +75,8 @@ return {
 					"Trouble",
 				},
 			},
-			-- context_patterns = {
-			--   "class",
-			--   "return",
-			--   "function",
-			--   "method",
-			--   "^if",
-			--   "^while",
-			--   "jsx_element",
-			--   "^for",
-			--   "^object",
-			--   "^table",
-			--   "block",
-			--   "arguments",
-			--   "if_statement",
-			--   "else_clause",
-			--   "jsx_element",
-			--   "jsx_self_closing_element",
-			--   "try_statement",
-			--   "catch_clause",
-			--   "import_statement",
-			--   "operation_type",
-			-- },
 		},
 	},
-
-	-- Fold
-	-- {
-	--   name = "nvim-ufo",
-	--   dir = "@nvim_ufo@",
-	--   event = "BufReadPost",
-	--   dependencies = {
-	--     { name = "promise-async", dir = "@promise_async@" },
-	--     {
-	--       name = "statuscol.nvim",
-	--       dir = "@statuscol_nvim@",
-	--       config = function()
-	--         local builtin = require("statuscol.builtin")
-	--         require("statuscol").setup({
-	--           relculright = true,
-	--           segments = {
-	--             { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
-	--             { text = { "%s" },                  click = "v:lua.ScSa" },
-	--             { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-	--           },
-	--         })
-	--       end,
-	--     },
-	--   },
-	--   opts = {
-	--     provider_selector = function()
-	--       return { "treesitter", "indent" }
-	--     end,
-	--   },
-	-- },
 
 	-- Scrollbar
 	{
@@ -177,7 +125,6 @@ return {
 			{ name = "nui.nvim", dir = "@nui_nvim@" },
 		},
 		opts = function()
-			local get_icon = require("utils").get_icon
 			return {
 				close_if_last_window = true,
 				window = {
@@ -241,6 +188,7 @@ return {
 		end,
 	},
 
+	-- Highlight git changes
 	{
 		name = "gitsigns.nvim",
 		dir = "@gitsigns_nvim@",
