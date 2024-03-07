@@ -253,6 +253,8 @@
         # Nix
         alejandra
         nil
+        # Rust
+        rust-analyzer
         # TOML
         taplo
       ];
@@ -277,10 +279,8 @@
         # Protocol Buffers
         buf-language-server
         # Python
-        black
+        ruff
         pyright
-        # Rust
-        # rust-analyzer
         # Shell
         shellcheck
         shfmt

@@ -3,7 +3,7 @@ return {
 	{
 		name = "nvim-lspconfig",
 		dir = "@nvim_lspconfig@",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { name = "neodev.nvim", dir = "@neodev_nvim@", opts = {} },
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -101,181 +101,7 @@ return {
 		end,
 	},
 
-	-- Rust
-	{
-		name = "rust-tools.nvim",
-		dir = "@rust_tools_nvim@",
-		event = "BufRead",
-		opts = {
-			tools = { autoSetHints = true },
-		},
-	},
-
-	-- Managing crates.io dependencies
-	{
-		name = "crates.nvim",
-		dir = "@crates_nvim@",
-		event = "BufRead Cargo.toml",
-		config = function()
-			require("crates").setup()
-		end,
-	},
-
-	{
-		name = "none-ls.nvim",
-		dir = "@none_ls_nvim@",
-		event = "BufRead",
-		opts = function()
-			local nls = require("null-ls")
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-			return {
-				sources = {
-					-- C/C++
-					nls.builtins.formatting.clang_format,
-					-- CUE
-					nls.builtins.formatting.cue_fmt,
-					-- Deno
-					-- nls.builtins.formatting.deno_fmt.with({
-					-- 	filetypes = {
-					-- 		"javascript",
-					-- 		"javascriptreact",
-					-- 		"json",
-					-- 		"jsonc",
-					-- 		"typescript",
-					-- 		"typescriptreact",
-					-- 	},
-					-- 	condition = function(utils)
-					-- 		return not (utils.has_file({ ".prettierrc", ".prettierrc.js", "package.json" }))
-					-- 	end,
-					-- }),
-					-- nls.builtins.diagnostics.deno_lint.with({
-					--   condition = function(utils)
-					--     return not (
-					--       utils.root_has_file("eslint.config.js")
-					--       or utils.root_has_file("eslint.config.cjs")
-					--       or utils.root_has_file("eslint.config.mjs")
-					--       or utils.root_has_file(".eslintrc")
-					--       or utils.root_has_file(".eslintrc.js")
-					--       or utils.root_has_file(".eslintrc.cjs")
-					--       or utils.root_has_file(".eslintrc.mjs")
-					--       or utils.root_has_file(".eslintrc.json")
-					--       or utils.root_has_file(".eslintrc.yml")
-					--       or utils.root_has_file(".eslintrc.yaml")
-					--     )
-					--   end,
-					-- }),
-					-- JavaScript/TypeScript/Others
-					nls.builtins.formatting.prettier.with({
-						prefer_local = "node_modules/.bin",
-						filetypes = {
-							-- "javascript",
-							-- "javascriptreact",
-							-- "typescript",
-							-- "typescriptreact",
-							"vue",
-							"css",
-							"scss",
-							"less",
-							"html",
-							-- "json",
-							-- "jsonc",
-							"yaml",
-							"markdown",
-							"markdown.mdx",
-							"graphql",
-							"handlebars",
-						},
-					}),
-					-- nls.builtins.formatting.biome,
-					-- nls.builtins.diagnostics.eslint.with({
-					--   prefer_local = "node_modules/.bin",
-					--   condition = function(utils)
-					--     return utils.root_has_file("eslint.config.js")
-					--         or utils.root_has_file("eslint.config.cjs")
-					--         or utils.root_has_file("eslint.config.mjs")
-					--         or utils.root_has_file(".eslintrc")
-					--         or utils.root_has_file(".eslintrc.js")
-					--         or utils.root_has_file(".eslintrc.cjs")
-					--         or utils.root_has_file(".eslintrc.mjs")
-					--         or utils.root_has_file(".eslintrc.json")
-					--         or utils.root_has_file(".eslintrc.yml")
-					--         or utils.root_has_file(".eslintrc.yaml")
-					--   end,
-					-- }),
-					-- Go
-					nls.builtins.formatting.gofmt,
-					-- Haskell
-					nls.builtins.formatting.fourmolu,
-					-- Lua
-					nls.builtins.formatting.stylua,
-					-- Nix
-					nls.builtins.formatting.alejandra,
-					-- OCaml
-					nls.builtins.formatting.ocamlformat,
-					-- Python
-					nls.builtins.formatting.black,
-					-- Rust
-					nls.builtins.formatting.rustfmt.with({
-						extra_args = function(params)
-							local Path = require("plenary.path")
-							local cargo_toml = Path:new(params.root .. "/" .. "Cargo.toml")
-
-							if cargo_toml:exists() and cargo_toml:is_file() then
-								for _, line in ipairs(cargo_toml:readlines()) do
-									local edition = line:match([[^edition%s*=%s*%"(%d+)%"]])
-									if edition then
-										return { "--edition=" .. edition }
-									end
-								end
-							end
-							-- default edition when we don't find `Cargo.toml` or the `edition` in it.
-							return { "--edition=2021" }
-						end,
-					}),
-					-- Shell
-					nls.builtins.diagnostics.shellcheck,
-					nls.builtins.formatting.shfmt,
-					-- -- SQL
-					-- nls.builtins.formatting.sql_formatter,
-					-- Protocol Buffers
-					nls.builtins.formatting.buf,
-					-- Terraform
-					nls.builtins.formatting.terraform_fmt,
-					-- TOML
-					nls.builtins.formatting.taplo,
-					-- Zig
-					nls.builtins.formatting.zigfmt,
-				},
-
-				-- Format on save
-				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({
-									bufnr = bufnr,
-									filter = function(fmt_client)
-										return fmt_client.name == "null-ls"
-									end,
-								})
-							end,
-						})
-					end
-				end,
-			}
-		end,
-	},
-
-	{
-		name = "typst.vim",
-		dir = "@typst_vim@",
-		ft = "typst",
-		lazy = false,
-	},
-
+	-- Formatter
 	{
 		name = "conform.nvim",
 		dir = "@conform_nvim@",
@@ -296,11 +122,32 @@ return {
 		opts = {
 			-- -- Define your formatters
 			formatters_by_ft = {
-				javascript = { { "biomejs", "prettier" } },
-				typescript = { { "biomejs", "prettier" } },
-				jsvascriptreact = { { "biomejs", "prettier" } },
-				typescriptreact = { { "biomejs", "prettier" } },
+				c = { "clang_format" },
+				go = { "gofmt" },
+				haskell = { "fourmolu" },
+				lua = { "stylua" },
+				nix = { "alejandra" },
+				ocaml = { "ocamlformat" },
+				proto = { "buf" },
+				python = { "ruff_format" },
+				rust = { "rustfmt" },
+				sh = { "shfmt" },
+				toml = { "taplo" },
 				typst = { "typstfmt" },
+				zig = { "zigfmt" },
+
+				javascript = { { "biome", "prettier" } },
+				typescript = { { "biome", "prettier" } },
+				jsvascriptreact = { { "biome", "prettier" } },
+				typescriptreact = { { "biome", "prettier" } },
+				json = { { "biome", "prettier" } },
+				yaml = { "prettier" },
+				graphql = { "prettier" },
+				svelte = { "prettier" },
+				markdown = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				scss = { "prettier" },
 			},
 			-- Set up format-on-save
 			format_on_save = {
@@ -315,28 +162,58 @@ return {
 				},
 			},
 		},
-		-- init = function()
-		-- 	-- If you want the formatexpr, here is the place to set it
-		-- 	vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		-- end,
 	},
+
+	-- Linter
 	{
 		name = "nvim-lint",
 		dir = "@nvim_lint@",
-		opts = {
-			linters_by_ft = {
-				javascript = { "biomejs" },
-				typescript = { "biomejs" },
-				jsvascriptreact = { "biomejs" },
-				typescriptreact = { "biomejs" },
-			},
-		},
-		init = function()
-			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				python = { "ruff" },
+				sh = { "shellcheck" },
+
+				javascript = { "biomejs", "eslint" },
+				typescript = { "biomejs", "eslint" },
+				jsvascriptreact = { "biomejs", "eslint" },
+				typescriptreact = { "biomejs", "eslint" },
+			}
+
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 				callback = function()
 					require("lint").try_lint()
 				end,
 			})
 		end,
+	},
+
+	-- Rust
+	{
+		name = "rust-tools.nvim",
+		dir = "@rust_tools_nvim@",
+		event = "BufRead",
+		opts = {
+			tools = { autoSetHints = true },
+		},
+	},
+
+	-- Managing crates.io dependencies
+	{
+		name = "crates.nvim",
+		dir = "@crates_nvim@",
+		event = "BufRead Cargo.toml",
+		config = function()
+			require("crates").setup()
+		end,
+	},
+
+	-- Typst
+	{
+		name = "typst.vim",
+		dir = "@typst_vim@",
+		ft = "typst",
+		lazy = false,
 	},
 }
