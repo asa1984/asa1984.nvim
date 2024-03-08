@@ -193,6 +193,10 @@
       url = "github:nvim-telescope/telescope-file-browser.nvim";
       flake = false;
     };
+    presence_nvim = {
+      url = "github:andweeb/presence.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

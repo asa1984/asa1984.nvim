@@ -580,6 +580,22 @@
         "type": "github"
       }
     },
+    "presence_nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674984077,
+        "narHash": "sha256-ZpsunLsn//zYgUtmAm5FqKVueVd/Pa1r55ZDqxCimBk=",
+        "owner": "andweeb",
+        "repo": "presence.nvim",
+        "rev": "87c857a56b7703f976d3a5ef15967d80508df6e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andweeb",
+        "repo": "presence.nvim",
+        "type": "github"
+      }
+    },
     "promise_async": {
       "flake": false,
       "locked": {
@@ -634,6 +650,7 @@
         "nvim_ufo": "nvim_ufo",
         "nvim_web_devicons": "nvim_web_devicons",
         "plenary_nvim": "plenary_nvim",
+        "presence_nvim": "presence_nvim",
         "promise_async": "promise_async",
         "rust_tools_nvim": "rust_tools_nvim",
         "smart_splits_nvim": "smart_splits_nvim",

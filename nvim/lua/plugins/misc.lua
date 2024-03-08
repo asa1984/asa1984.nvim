@@ -19,4 +19,11 @@ return {
 		event = "BufRead",
 		opts = { enable_tailwind = true },
 	},
+
+	-- Discord rich presence
+	{
+		name = "presence.nvim",
+		dir = "@presence_nvim@",
+		event = "BufRead",
+	},
 }
