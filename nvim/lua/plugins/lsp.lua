@@ -126,7 +126,7 @@ return {
 				go = { "gofmt" },
 				haskell = { "fourmolu" },
 				lua = { "stylua" },
-				nix = { "alejandra" },
+				nix = { "nixfmt" },
 				ocaml = { "ocamlformat" },
 				proto = { "buf" },
 				python = { "ruff_format" },

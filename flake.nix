@@ -199,119 +199,114 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    flake-utils,
-    ...
-  }: let
-    allSystems = [
-      "aarch64-linux" # 64-bit ARM Linux
-      "x86_64-linux" # 64-bit x86 Linux
-      "aarch64-darwin" # 64-bit ARM macOS
-      "x86_64-darwin" # 64-bit x86 macOS
-    ];
-    forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
-  in {
-    packages = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-      lib = pkgs.lib;
-
-      # Vim plugin sources
-      vimPluginInputs = builtins.removeAttrs inputs ["nixpkgs" "flake-utils"];
-
-      # Vim plugins
-      plugins =
-        (builtins.mapAttrs (
-            name: value:
-              pkgs.vimUtils.buildVimPlugin {
-                pname = name;
-                version = "latest";
-                src = value;
-              }
-          )
-          vimPluginInputs)
-        // {
-          nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
-          lazy_nvim = pkgs.callPackage ./pkgs/lazy-nvim.nix {};
-        };
-
-      mainDevTools = with pkgs; [
-        # For telescope.nvim
-        ripgrep
-        # Git TUI
-        lazygit
-
-        # HTML/CSS
-        nodePackages.vscode-langservers-extracted
-        # JavaScript/TypeScript
-        biome
-        deno
-        nodePackages.eslint
-        nodePackages.prettier
-        nodePackages.typescript-language-server
-        nodePackages."@tailwindcss/language-server"
-        # Lua
-        lua-language-server
-        stylua
-        # Nix
-        alejandra
-        nil
-        # Rust
-        rust-analyzer
-        # TOML
-        taplo
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
+    let
+      allSystems = [
+        "aarch64-linux" # 64-bit ARM Linux
+        "x86_64-linux" # 64-bit x86 Linux
+        "aarch64-darwin" # 64-bit ARM macOS
+        "x86_64-darwin" # 64-bit x86 macOS
       ];
+      forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
+    in {
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      packages = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          lib = pkgs.lib;
 
-      subDevTools = with pkgs; [
-        # Bash
-        nodePackages.bash-language-server
-        # C/C++
-        clang-tools
-        # Docker
-        nodePackages.dockerfile-language-server-nodejs
-        # Go
-        gopls
-        # GraphQL
-        nodePackages.graphql-language-service-cli
-        # Haskell
-        haskell-language-server
-        haskellPackages.fourmolu
-        # OCaml
-        ocamlPackages.ocaml-lsp
-        ocamlformat
-        # Protocol Buffers
-        buf-language-server
-        # Python
-        ruff
-        pyright
-        # Shell
-        shellcheck
-        shfmt
-        # Typst
-        typst-lsp
-        typstfmt
-        # Zig
-        zls
-      ];
+          # Vim plugin sources
+          vimPluginInputs =
+            builtins.removeAttrs inputs [ "nixpkgs" "flake-utils" ];
 
-      nvimConfig = pkgs.callPackage ./config.nix {inherit self plugins;};
-      neovim-base = pkgs.neovim-unwrapped.override {
-        # pkgs.neovim builtin treesitter-parsers will conflict with nvim-treesitter
-        # so, we need to remove it
-        treesitter-parsers = {};
-      };
-      nvimWrapped = extraPackages:
-        pkgs.writeShellScriptBin "nvim" ''
-          PATH=$PATH:${lib.makeBinPath extraPackages}
-          MY_CONFIG_PATH=${nvimConfig} ${neovim-base}/bin/nvim -u ${nvimConfig}/init.lua "$@"
-        '';
-    in rec {
-      default = neovim-full;
-      neovim-full = nvimWrapped (mainDevTools ++ subDevTools);
-      neovim-light = nvimWrapped mainDevTools;
-      neovim-minimal = nvimWrapped [];
-      config = nvimConfig;
-    });
-  };
+          # Vim plugins
+          plugins = (builtins.mapAttrs (name: value:
+            pkgs.vimUtils.buildVimPlugin {
+              pname = name;
+              version = "latest";
+              src = value;
+            }) vimPluginInputs) // {
+              nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
+              lazy_nvim = pkgs.callPackage ./pkgs/lazy-nvim.nix { };
+            };
+
+          mainDevTools = with pkgs; [
+            # For telescope.nvim
+            ripgrep
+            # Git TUI
+            lazygit
+
+            # HTML/CSS
+            nodePackages.vscode-langservers-extracted
+            # JavaScript/TypeScript
+            biome
+            deno
+            nodePackages.eslint
+            nodePackages.prettier
+            nodePackages.typescript-language-server
+            nodePackages."@tailwindcss/language-server"
+            # Lua
+            lua-language-server
+            stylua
+            # Nix
+            nixfmt
+            nil
+            # Rust
+            rust-analyzer
+            # TOML
+            taplo
+          ];
+
+          subDevTools = with pkgs; [
+            # Bash
+            nodePackages.bash-language-server
+            # C/C++
+            clang-tools
+            # Docker
+            nodePackages.dockerfile-language-server-nodejs
+            # Go
+            gopls
+            # GraphQL
+            nodePackages.graphql-language-service-cli
+            # Haskell
+            haskell-language-server
+            haskellPackages.fourmolu
+            # OCaml
+            ocamlPackages.ocaml-lsp
+            ocamlformat
+            # Protocol Buffers
+            buf-language-server
+            # Python
+            ruff
+            pyright
+            # Shell
+            shellcheck
+            shfmt
+            # Typst
+            typst-lsp
+            typstfmt
+            # Zig
+            zls
+          ];
+
+          nvimConfig = pkgs.callPackage ./config.nix { inherit self plugins; };
+          neovim-base = pkgs.neovim-unwrapped.override {
+            # pkgs.neovim builtin treesitter-parsers will conflict with nvim-treesitter
+            # so, we need to remove it
+            treesitter-parsers = { };
+          };
+          nvimWrapped = extraPackages:
+            pkgs.writeShellScriptBin "nvim" ''
+              PATH=$PATH:${lib.makeBinPath extraPackages}
+              MY_CONFIG_PATH=${nvimConfig} ${neovim-base}/bin/nvim -u ${nvimConfig}/init.lua "$@"
+            '';
+        in rec {
+          default = neovim-full;
+          neovim-full = nvimWrapped (mainDevTools ++ subDevTools);
+          neovim-light = nvimWrapped mainDevTools;
+          neovim-minimal = nvimWrapped [ ];
+          config = nvimConfig;
+        });
+    };
 }
