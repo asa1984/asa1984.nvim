@@ -8,13 +8,22 @@ return {
 			{ name = "cmp-buffer", dir = "@cmp_buffer@" },
 			{ name = "cmp-cmdline", dir = "@cmp_cmdline@" },
 			{ name = "cmp-path", dir = "@cmp_path@" },
-			{ name = "cmp_luasnip", dir = "@cmp_luasnip@" },
-			{ name = "vim-vsnip", dir = "@vim_vsnip@" },
+			{
+				name = "cmp_luasnip",
+				dir = "@cmp_luasnip@",
+				dependencies = {
+					name = "luasnip",
+					dir = "@luasnip@",
+				},
+			},
 			{ name = "lspkind.nvim", dir = "@lspkind_nvim@" },
+			{ name = "cmp-skkeleton", dir = "@cmp_skkeleton@" },
+			{ name = "copilot-cmp", dir = "@copilot_cmp@", config = true },
 		},
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
+			local luasnip = require("luasnip")
 
 			cmp.setup({
 				formatting = {
@@ -24,7 +33,7 @@ return {
 				},
 				snippet = {
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				window = {
@@ -45,9 +54,10 @@ return {
 					{ name = "buffer" },
 					{ name = "vsnip" },
 					{ name = "path" },
+					{ name = "skkeleton" },
+					{ name = "copilot" },
 				},
 			})
-
 			-- Cmdline
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -72,15 +82,7 @@ return {
 		event = "InsertEnter",
 		opts = {
 			suggestion = {
-				auto_trigger = true,
-				keymap = {
-					accept = "<C-j>",
-					accept_word = false,
-					accept_line = false,
-					next = "<M-o>",
-					prev = "<M-i>",
-					dismiss = "<C-S-e>",
-				},
+				enabled = false,
 			},
 			filetypes = { markdown = true },
 		},

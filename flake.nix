@@ -37,10 +37,6 @@
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;
     };
-    vim_vsnip = {
-      url = "github:hrsh7th/vim-vsnip";
-      flake = false;
-    };
     lspkind_nvim = {
       url = "github:onsails/lspkind.nvim";
       flake = false;
@@ -197,6 +193,22 @@
       url = "github:andweeb/presence.nvim";
       flake = false;
     };
+    skkeleton = {
+      url = "github:vim-skk/skkeleton";
+      flake = false;
+    };
+    cmp_skkeleton = {
+      url = "github:uga-rosa/cmp-skkeleton";
+      flake = false;
+    };
+    copilot_cmp = {
+      url = "github:zbirenbaum/copilot-cmp";
+      flake = false;
+    };
+    luasnip = {
+      url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
@@ -216,6 +228,22 @@
           pkgs = nixpkgs.legacyPackages.${system};
           lib = pkgs.lib;
 
+          skkeleton = pkgs.vimUtils.buildVimPlugin {
+            pname = "skkeleton";
+            version = "latest";
+            src = inputs.skkeleton;
+            dependencies = [ pkgs.vimPlugins.denops-vim ];
+            dontBuild = true;
+          };
+
+          cmp-skkeleton = pkgs.vimUtils.buildVimPlugin {
+            pname = "cmp-skkeleton";
+            version = "latest";
+            src = inputs.cmp_skkeleton;
+            dependencies = [ skkeleton ];
+            dontBuild = true;
+          };
+
           # Vim plugin sources
           vimPluginInputs =
             builtins.removeAttrs inputs [ "nixpkgs" "flake-utils" ];
@@ -227,8 +255,11 @@
               version = "latest";
               src = value;
             }) vimPluginInputs) // {
-              nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
               lazy_nvim = pkgs.callPackage ./pkgs/lazy-nvim.nix { };
+              nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
+              denops_vim = pkgs.vimPlugins.denops-vim;
+              cmp_skkeleton = cmp-skkeleton;
+              skk_dict = "${pkgs.skk-dicts}/share/SKK-JISYO.L";
             };
 
           mainDevTools = with pkgs; [
