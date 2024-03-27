@@ -5,14 +5,87 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    heirline_nvim = {
-      url = "github:rebelot/heirline.nvim";
+    # Colorscheme
+    tokyonight_nvim = {
+      url = "github:folke/tokyonight.nvim";
       flake = false;
     };
-    alpha_nvim = {
-      url = "github:goolord/alpha-nvim";
+
+    # Make neovim better
+    vimdoc_ja = {
+      url = "github:vim-jp/vimdoc-ja";
       flake = false;
     };
+    better_escape_nvim = {
+      url = "github:max397574/better-escape.nvim";
+      flake = false;
+    };
+    smart_splits_nvim = {
+      url = "github:mrjones2014/smart-splits.nvim";
+      flake = false;
+    };
+    mini_bufremove = {
+      url = "github:echasnovski/mini.bufremove";
+      flake = false;
+    };
+    nvim_hlslens = {
+      url = "github:kevinhwang91/nvim-hlslens";
+      flake = false;
+    };
+
+    # Coding
+    comment_nvim = {
+      url = "github:numToStr/Comment.nvim";
+      flake = false;
+    };
+    nvim_autopairs = {
+      url = "github:windwp/nvim-autopairs";
+      flake = false;
+    };
+    nvim_ts_autotag = {
+      url = "github:windwp/nvim-ts-autotag";
+      flake = false;
+    };
+
+    # LSP
+    nvim_lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+    lspkind_nvim = {
+      url = "github:onsails/lspkind.nvim";
+      flake = false;
+    };
+    lspsaga_nvim = {
+      url = "github:nvimdev/lspsaga.nvim";
+      flake = false;
+    };
+    nvim_lint = {
+      url = "github:mfussenegger/nvim-lint";
+      flake = false;
+    };
+    conform_nvim = {
+      url = "github:stevearc/conform.nvim";
+      flake = false;
+    };
+    rust_tools_nvim = {
+      url = "github:simrat39/rust-tools.nvim";
+      flake = false;
+    };
+    crates_nvim = {
+      url = "github:saecki/crates.nvim";
+      flake = false;
+    };
+    typst_vim = {
+      url = "github:kaarmu/typst.vim";
+      flake = false;
+    };
+    neodev_nvim = {
+      url = "github:folke/neodev.nvim";
+      flake = false;
+    };
+
+    # Completion
     nvim_cmp = {
       url = "github:hrsh7th/nvim-cmp";
       flake = false;
@@ -37,74 +110,74 @@
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;
     };
-    lspkind_nvim = {
-      url = "github:onsails/lspkind.nvim";
+    copilot_cmp = {
+      url = "github:zbirenbaum/copilot-cmp";
       flake = false;
     };
-    tokyonight_nvim = {
-      url = "github:folke/tokyonight.nvim";
+    cmp_skkeleton = {
+      url = "github:uga-rosa/cmp-skkeleton";
       flake = false;
     };
-    vimdoc_ja = {
-      url = "github:vim-jp/vimdoc-ja";
+    luasnip = {
+      url = "github:L3MON4D3/LuaSnip";
       flake = false;
     };
     copilot_lua = {
       url = "github:zbirenbaum/copilot.lua";
       flake = false;
     };
-    better_escape_nvim = {
-      url = "github:max397574/better-escape.nvim";
+
+    # UI
+    alpha_nvim = {
+      url = "github:goolord/alpha-nvim";
       flake = false;
     };
-    smart_splits_nvim = {
-      url = "github:mrjones2014/smart-splits.nvim";
+    heirline_nvim = {
+      url = "github:rebelot/heirline.nvim";
       flake = false;
     };
-    mini_bufremove = {
-      url = "github:echasnovski/mini.bufremove";
+    neo_tree_nvim = {
+      url = "github:nvim-neo-tree/neo-tree.nvim/v3.x";
       flake = false;
     };
-    comment_nvim = {
-      url = "github:numToStr/Comment.nvim";
+    noice_nvim = {
+      url = "github:folke/noice.nvim";
       flake = false;
     };
-    nvim_autopairs = {
-      url = "github:windwp/nvim-autopairs";
+    telescope_nvim = {
+      url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
-    nvim_ts_autotag = {
-      url = "github:windwp/nvim-ts-autotag";
+    telescope_file_browser_nvim = {
+      url = "github:nvim-telescope/telescope-file-browser.nvim";
       flake = false;
     };
-    none_ls_nvim = {
-      url = "github:nvimtools/none-ls.nvim/0.7-compat";
+    toggleterm_nvim = {
+      url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
-    typst_vim = {
-      url = "github:kaarmu/typst.vim";
+    indent_blankline_nvim = {
+      url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
     };
-    conform_nvim = {
-      url = "github:stevearc/conform.nvim";
+    nvim_scrollbar = {
+      url = "github:petertriho/nvim-scrollbar";
       flake = false;
     };
-    nvim_lspconfig = {
-      url = "github:neovim/nvim-lspconfig";
+    statuscol_nvim = {
+      url = "github:luukvbaal/statuscol.nvim";
       flake = false;
     };
-    rust_tools_nvim = {
-      url = "github:simrat39/rust-tools.nvim";
+    gitsigns_nvim = {
+      url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    crates_nvim = {
-      url = "github:saecki/crates.nvim";
+    nvim_web_devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
-    lspsaga_nvim = {
-      url = "github:nvimdev/lspsaga.nvim";
-      flake = false;
-    };
+
+    # Misc
     twilight_nvim = {
       url = "github:folke/twilight.nvim";
       flake = false;
@@ -117,96 +190,30 @@
       url = "github:brenoprata10/nvim-highlight-colors";
       flake = false;
     };
-    neo_tree_nvim = {
-      url = "github:nvim-neo-tree/neo-tree.nvim/v3.x";
-      flake = false;
-    };
-    noice_nvim = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
-    nui_nvim = {
-      url = "github:folke/nui.nvim";
-      flake = false;
-    };
-    telescope_nvim = {
-      url = "github:nvim-telescope/telescope.nvim";
-      flake = false;
-    };
-    plenary_nvim = {
-      url = "github:nvim-lua/plenary.nvim";
-      flake = false;
-    };
     hmts_nvim = {
       url = "github:calops/hmts.nvim";
-      flake = false;
-    };
-    toggleterm_nvim = {
-      url = "github:akinsho/toggleterm.nvim";
-      flake = false;
-    };
-    indent_blankline_nvim = {
-      url = "github:lukas-reineke/indent-blankline.nvim";
-      flake = false;
-    };
-    nvim_ufo = {
-      url = "github:kevinhwang91/nvim-ufo";
-      flake = false;
-    };
-    nvim_scrollbar = {
-      url = "github:petertriho/nvim-scrollbar";
-      flake = false;
-    };
-    nvim_hlslens = {
-      url = "github:kevinhwang91/nvim-hlslens";
-      flake = false;
-    };
-    gitsigns_nvim = {
-      url = "github:lewis6991/gitsigns.nvim";
-      flake = false;
-    };
-    promise_async = {
-      url = "github:kevinhwang91/promise-async";
-      flake = false;
-    };
-    statuscol_nvim = {
-      url = "github:luukvbaal/statuscol.nvim";
-      flake = false;
-    };
-    nvim_web_devicons = {
-      url = "github:nvim-tree/nvim-web-devicons";
-      flake = false;
-    };
-    neodev_nvim = {
-      url = "github:folke/neodev.nvim";
-      flake = false;
-    };
-    nvim_lint = {
-      url = "github:mfussenegger/nvim-lint";
-      flake = false;
-    };
-    telescope_file_browser_nvim = {
-      url = "github:nvim-telescope/telescope-file-browser.nvim";
-      flake = false;
-    };
-    presence_nvim = {
-      url = "github:andweeb/presence.nvim";
       flake = false;
     };
     skkeleton = {
       url = "github:vim-skk/skkeleton";
       flake = false;
     };
-    cmp_skkeleton = {
-      url = "github:uga-rosa/cmp-skkeleton";
+    presence_nvim = {
+      url = "github:andweeb/presence.nvim";
       flake = false;
     };
-    copilot_cmp = {
-      url = "github:zbirenbaum/copilot-cmp";
+
+    # Internal libraries
+    plenary_nvim = {
+      url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
-    luasnip = {
-      url = "github:L3MON4D3/LuaSnip";
+    promise_async = {
+      url = "github:kevinhwang91/promise-async";
+      flake = false;
+    };
+    nui_nvim = {
+      url = "github:folke/nui.nvim";
       flake = false;
     };
   };

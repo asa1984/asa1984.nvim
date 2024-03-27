@@ -419,23 +419,6 @@
         "type": "github"
       }
     },
-    "none_ls_nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670703598,
-        "narHash": "sha256-3lJDy8tvFOpd2V4BCXjRKBednYlC6MG9pZbRp5G9SfU=",
-        "owner": "nvimtools",
-        "repo": "none-ls.nvim",
-        "rev": "6cc54779b494043aa5be9c711c1af1e891880535",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvimtools",
-        "ref": "0.7-compat",
-        "repo": "none-ls.nvim",
-        "type": "github"
-      }
-    },
     "nui_nvim": {
       "flake": false,
       "locked": {
@@ -580,22 +563,6 @@
         "type": "github"
       }
     },
-    "nvim_ufo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709039338,
-        "narHash": "sha256-CqeJHhg9G6Ym2dR3HYZzE6vABlq750KRCtIkGikTzZ4=",
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
-        "rev": "239ae620d818ffa1319ca3056546df71906d4bfb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
-        "type": "github"
-      }
-    },
     "nvim_web_devicons": {
       "flake": false,
       "locked": {
@@ -688,7 +655,6 @@
         "neodev_nvim": "neodev_nvim",
         "nixpkgs": "nixpkgs",
         "noice_nvim": "noice_nvim",
-        "none_ls_nvim": "none_ls_nvim",
         "nui_nvim": "nui_nvim",
         "nvim_autopairs": "nvim_autopairs",
         "nvim_cmp": "nvim_cmp",
@@ -698,7 +664,6 @@
         "nvim_lspconfig": "nvim_lspconfig",
         "nvim_scrollbar": "nvim_scrollbar",
         "nvim_ts_autotag": "nvim_ts_autotag",
-        "nvim_ufo": "nvim_ufo",
         "nvim_web_devicons": "nvim_web_devicons",
         "plenary_nvim": "plenary_nvim",
         "presence_nvim": "presence_nvim",
