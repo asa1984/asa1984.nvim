@@ -226,7 +226,13 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
     let
       allSystems = [
         "aarch64-linux" # 64-bit ARM Linux
@@ -235,10 +241,11 @@
         "x86_64-darwin" # 64-bit x86 macOS
       ];
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
-    in {
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
-      packages = forAllSystems (system:
+    in
+    {
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           lib = pkgs.lib;
@@ -260,16 +267,25 @@
           };
 
           # Vim plugin sources
-          vimPluginInputs =
-            builtins.removeAttrs inputs [ "nixpkgs" "flake-utils" ];
+          vimPluginInputs = builtins.removeAttrs inputs [
+            "nixpkgs"
+            "flake-utils"
+          ];
 
           # Vim plugins
-          plugins = (builtins.mapAttrs (name: value:
-            pkgs.vimUtils.buildVimPlugin {
-              pname = name;
-              version = "latest";
-              src = value;
-            }) vimPluginInputs) // {
+          plugins =
+            (builtins.mapAttrs
+              (
+                name: value:
+                pkgs.vimUtils.buildVimPlugin {
+                  pname = name;
+                  version = "latest";
+                  src = value;
+                }
+              )
+              vimPluginInputs
+            )
+            // {
               lazy_nvim = pkgs.callPackage ./pkgs/lazy-nvim.nix { };
               nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
               denops_vim = pkgs.vimPlugins.denops-vim;
@@ -296,7 +312,7 @@
             lua-language-server
             stylua
             # Nix
-            nixfmt
+            nixfmt-rfc-style
             nil
             # Rust
             rust-analyzer
@@ -342,17 +358,20 @@
             # so, we need to remove it
             treesitter-parsers = { };
           };
-          nvimWrapped = extraPackages:
+          nvimWrapped =
+            extraPackages:
             pkgs.writeShellScriptBin "nvim" ''
               PATH=$PATH:${lib.makeBinPath extraPackages}
               MY_CONFIG_PATH=${nvimConfig} ${neovim-base}/bin/nvim -u ${nvimConfig}/init.lua "$@"
             '';
-        in rec {
+        in
+        rec {
           default = neovim-full;
           neovim-full = nvimWrapped (mainDevTools ++ subDevTools);
           neovim-light = nvimWrapped mainDevTools;
           neovim-minimal = nvimWrapped [ ];
           config = nvimConfig;
-        });
+        }
+      );
     };
 }
