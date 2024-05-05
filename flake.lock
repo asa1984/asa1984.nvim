@@ -563,6 +563,22 @@
         "type": "github"
       }
     },
+    "nvim_ts_context_commentstring": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713335068,
+        "narHash": "sha256-MnlhT17hR+tewbtLjaecxXxV1/ywzoqCL5MNtZsVYYk=",
+        "owner": "JoosepAlviste",
+        "repo": "nvim-ts-context-commentstring",
+        "rev": "a6382f744f584bbf71d0a563af789af7190aabda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JoosepAlviste",
+        "repo": "nvim-ts-context-commentstring",
+        "type": "github"
+      }
+    },
     "nvim_web_devicons": {
       "flake": false,
       "locked": {
@@ -664,6 +680,7 @@
         "nvim_lspconfig": "nvim_lspconfig",
         "nvim_scrollbar": "nvim_scrollbar",
         "nvim_ts_autotag": "nvim_ts_autotag",
+        "nvim_ts_context_commentstring": "nvim_ts_context_commentstring",
         "nvim_web_devicons": "nvim_web_devicons",
         "plenary_nvim": "plenary_nvim",
         "presence_nvim": "presence_nvim",
@@ -676,6 +693,7 @@
         "telescope_nvim": "telescope_nvim",
         "toggleterm_nvim": "toggleterm_nvim",
         "tokyonight_nvim": "tokyonight_nvim",
+        "trouble_nvim": "trouble_nvim",
         "twilight_nvim": "twilight_nvim",
         "typst_vim": "typst_vim",
         "vimdoc_ja": "vimdoc_ja",
@@ -822,6 +840,22 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
+    "trouble_nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711693365,
+        "narHash": "sha256-kIQ72fqAsiMF9jq0MzC6peaHJddYn5PRNXfYFHTQB5Q=",
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "rev": "b9cf677f20bb2faa2dacfa870b084e568dca9572",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "trouble.nvim",
         "type": "github"
       }
     },

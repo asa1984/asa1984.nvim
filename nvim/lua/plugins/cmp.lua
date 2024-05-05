@@ -18,7 +18,6 @@ return {
 			},
 			{ name = "lspkind.nvim", dir = "@lspkind_nvim@" },
 			{ name = "cmp-skkeleton", dir = "@cmp_skkeleton@" },
-			{ name = "copilot-cmp", dir = "@copilot_cmp@", config = true },
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -55,7 +54,6 @@ return {
 					{ name = "vsnip" },
 					{ name = "path" },
 					{ name = "skkeleton" },
-					{ name = "copilot" },
 				},
 			})
 			-- Cmdline
@@ -82,9 +80,14 @@ return {
 		event = "InsertEnter",
 		opts = {
 			suggestion = {
-				enabled = false,
+				enabled = true,
+				auto_trigger = true,
 			},
-			filetypes = { markdown = true },
+			filetypes = {
+				markdown = true,
+				gitcommit = true,
+				yaml = true,
+			},
 		},
 	},
 }

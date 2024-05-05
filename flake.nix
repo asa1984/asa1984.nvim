@@ -38,6 +38,10 @@
       url = "github:numToStr/Comment.nvim";
       flake = false;
     };
+    nvim_ts_context_commentstring = {
+      url = "github:JoosepAlviste/nvim-ts-context-commentstring";
+      flake = false;
+    };
     nvim_autopairs = {
       url = "github:windwp/nvim-autopairs";
       flake = false;
@@ -82,6 +86,10 @@
     };
     neodev_nvim = {
       url = "github:folke/neodev.nvim";
+      flake = false;
+    };
+    trouble_nvim = {
+      url = "github:folke/trouble.nvim";
       flake = false;
     };
 

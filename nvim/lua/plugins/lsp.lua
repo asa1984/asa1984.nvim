@@ -109,7 +109,6 @@ return {
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				-- Customize or remove this keymap to your liking
 				"<leader>f",
 				function()
 					require("conform").format({ async = true, lsp_fallback = true })
@@ -118,23 +117,18 @@ return {
 				desc = "Format buffer",
 			},
 		},
-		-- Everything in opts will be passed to setup()
 		opts = {
-			-- -- Define your formatters
 			formatters_by_ft = {
 				c = { "clang_format" },
-				go = { "gofmt" },
 				haskell = { "fourmolu" },
 				lua = { "stylua" },
 				nix = { "nixfmt" },
 				ocaml = { "ocamlformat" },
 				proto = { "buf" },
 				python = { "ruff_format" },
-				rust = { "rustfmt" },
 				sh = { "shfmt" },
 				toml = { "taplo" },
 				typst = { "typstfmt" },
-				zig = { "zigfmt" },
 
 				javascript = { { "biome", "prettier" } },
 				typescript = { { "biome", "prettier" } },
@@ -149,11 +143,12 @@ return {
 				css = { "prettier" },
 				scss = { "prettier" },
 			},
-			-- Set up format-on-save
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
+			-- Formatter options
+			options = {
+				-- for typstfmt
+				default_edition = "2021",
 			},
+			-- Define custom formatters
 			formatters = {
 				typstfmt = {
 					command = "typstfmt",
@@ -161,7 +156,21 @@ return {
 					stdin = false,
 				},
 			},
+			-- Set up format-on-save
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
 		},
+	},
+
+	-- Diagnostics
+	{
+		name = "trouble.nvim",
+		dir = "@trouble_nvim@",
+		event = "BufRead",
+		dependencies = { name = "nvim-web-devicons", dir = "@nvim_web_devicons@" },
+		opts = {},
 	},
 
 	-- Linter
