@@ -258,6 +258,22 @@
         "type": "github"
       }
     },
+    "hlchunk_nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702261271,
+        "narHash": "sha256-fvFvV7KAOo7xtOCjhGS5bDUzwd10DndAKs3++dunED8=",
+        "owner": "shellRaining",
+        "repo": "hlchunk.nvim",
+        "rev": "882d1bc86d459fa8884398223c841fd09ea61b6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shellRaining",
+        "repo": "hlchunk.nvim",
+        "type": "github"
+      }
+    },
     "hmts_nvim": {
       "flake": false,
       "locked": {
@@ -271,22 +287,6 @@
       "original": {
         "owner": "calops",
         "repo": "hmts.nvim",
-        "type": "github"
-      }
-    },
-    "indent_blankline_nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1707806353,
-        "narHash": "sha256-ZzsQVLP7EmHeVEkSvbENce/hk1HANN+qL8Vv7FaOiV0=",
-        "owner": "lukas-reineke",
-        "repo": "indent-blankline.nvim",
-        "rev": "821a7acd88587d966f7e464b0b3031dfe7f5680c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lukas-reineke",
-        "repo": "indent-blankline.nvim",
         "type": "github"
       }
     },
@@ -335,6 +335,22 @@
       "original": {
         "owner": "L3MON4D3",
         "repo": "LuaSnip",
+        "type": "github"
+      }
+    },
+    "markdown_nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714790389,
+        "narHash": "sha256-CM4ouxuZdbGXxcPWyLK5hgZaFtt4XqcI12yBeSejw/c=",
+        "owner": "MeanderingProgrammer",
+        "repo": "markdown.nvim",
+        "rev": "556dcc2c36f240653adef87bc8973025a1ad73e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MeanderingProgrammer",
+        "repo": "markdown.nvim",
         "type": "github"
       }
     },
@@ -531,6 +547,22 @@
         "type": "github"
       }
     },
+    "nvim_markdown": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712081407,
+        "narHash": "sha256-3qkWNiUL4j7I/oigDPD8RymzFvBXzx4KwTgQqAny8Bs=",
+        "owner": "ixru",
+        "repo": "nvim-markdown",
+        "rev": "75639723c1a3a44366f80cff11383baf0799bcb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ixru",
+        "repo": "nvim-markdown",
+        "type": "github"
+      }
+    },
     "nvim_scrollbar": {
       "flake": false,
       "locked": {
@@ -661,11 +693,12 @@
         "flake-utils": "flake-utils",
         "gitsigns_nvim": "gitsigns_nvim",
         "heirline_nvim": "heirline_nvim",
+        "hlchunk_nvim": "hlchunk_nvim",
         "hmts_nvim": "hmts_nvim",
-        "indent_blankline_nvim": "indent_blankline_nvim",
         "lspkind_nvim": "lspkind_nvim",
         "lspsaga_nvim": "lspsaga_nvim",
         "luasnip": "luasnip",
+        "markdown_nvim": "markdown_nvim",
         "mini_bufremove": "mini_bufremove",
         "neo_tree_nvim": "neo_tree_nvim",
         "neodev_nvim": "neodev_nvim",
@@ -678,6 +711,7 @@
         "nvim_hlslens": "nvim_hlslens",
         "nvim_lint": "nvim_lint",
         "nvim_lspconfig": "nvim_lspconfig",
+        "nvim_markdown": "nvim_markdown",
         "nvim_scrollbar": "nvim_scrollbar",
         "nvim_ts_autotag": "nvim_ts_autotag",
         "nvim_ts_context_commentstring": "nvim_ts_context_commentstring",

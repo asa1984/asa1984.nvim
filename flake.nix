@@ -164,8 +164,8 @@
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
-    indent_blankline_nvim = {
-      url = "github:lukas-reineke/indent-blankline.nvim";
+    hlchunk_nvim = {
+      url = "github:shellRaining/hlchunk.nvim";
       flake = false;
     };
     nvim_scrollbar = {
@@ -186,6 +186,14 @@
     };
 
     # Misc
+    markdown_nvim = {
+      url = "github:MeanderingProgrammer/markdown.nvim";
+      flake = false;
+    };
+    nvim_markdown = {
+      url = "github:ixru/nvim-markdown";
+      flake = false;
+    };
     twilight_nvim = {
       url = "github:folke/twilight.nvim";
       flake = false;

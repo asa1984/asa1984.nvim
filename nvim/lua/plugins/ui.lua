@@ -55,27 +55,19 @@ return {
 
 	-- Indent
 	{
-		name = "indent-blankline.nvim",
-		dir = "@indent_blankline_nvim@",
-		event = "BufRead",
-		main = "ibl",
-		opts = {
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"help",
-					"startify",
-					"aerial",
-					"alpha",
-					"dashboard",
-					"lazy",
-					"neogitstatus",
-					"NvimTree",
-					"neo-tree",
-					"Trouble",
-				},
-			},
+		name = "hlchunk.nivm",
+		dir = "@hlchunk_nvim@",
+		dependencies = {
+			{ name = "nvim-treesitter", dir = "@nvim_treesitter@" },
 		},
+		event = "BufRead",
+		config = function()
+			require("hlchunk").setup({
+				chunk = { enable = true, use_treesitter = false },
+				line_num = { enable = false },
+				blank = { enable = false },
+			})
+		end,
 	},
 
 	-- Scrollbar
