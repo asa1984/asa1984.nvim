@@ -282,17 +282,14 @@
 
           # Vim plugins
           plugins =
-            (builtins.mapAttrs
-              (
-                name: value:
-                pkgs.vimUtils.buildVimPlugin {
-                  pname = name;
-                  version = "latest";
-                  src = value;
-                }
-              )
-              vimPluginInputs
-            )
+            (builtins.mapAttrs (
+              name: value:
+              pkgs.vimUtils.buildVimPlugin {
+                pname = name;
+                version = "latest";
+                src = value;
+              }
+            ) vimPluginInputs)
             // {
               lazy_nvim = pkgs.callPackage ./pkgs/lazy-nvim.nix { };
               nvim_treesitter = pkgs.vimPlugins.nvim-treesitter;
@@ -361,11 +358,7 @@
           ];
 
           nvimConfig = pkgs.callPackage ./config.nix { inherit self plugins; };
-          neovim-base = pkgs.neovim-unwrapped.override {
-            # pkgs.neovim builtin treesitter-parsers will conflict with nvim-treesitter
-            # so, we need to remove it
-            treesitter-parsers = { };
-          };
+          neovim-base = pkgs.neovim-unwrapped;
           nvimWrapped =
             extraPackages:
             pkgs.writeShellScriptBin "nvim" ''
