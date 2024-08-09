@@ -70,17 +70,14 @@ return {
 		},
 	},
 
-	-- Auto enclose JSX tags
+	-- Auto enclose HTML/XML/JSX tags
 	{
 		name = "nvim-ts-autotag",
 		dir = "@nvim_ts_autotag@",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				autotag = {
-					enable = true,
-				},
-			})
-		end,
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ name = "nvim-treesitter", dir = "@nvim_treesitter@" },
+		},
+		config = true,
 	},
 }
