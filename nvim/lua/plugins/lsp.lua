@@ -10,8 +10,31 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+			local node_root_dir = lspconfig.util.root_pattern("package.json")
+			local is_node_repo = node_root_dir(vim.api.nvim_buf_get_name(0)) ~= nil
+			if is_node_repo then
+				lspconfig.tsserver.setup({})
+			else
+				lspconfig.denols.setup({
+					init_options = {
+						lint = true,
+						unstable = true,
+						suggest = {
+							imports = {
+								hosts = {
+									["https://deno.land"] = true,
+									["https://cdn.nest.land"] = true,
+									["https://crux.land"] = true,
+								},
+							},
+						},
+					},
+				})
+			end
+
 			-- Bash
 			lspconfig.bashls.setup({})
+
 			-- C/C++
 			local clang_capabilities = vim.lsp.protocol.make_client_capabilities() -- null-ls.nvim issue#428
 			clang_capabilities.offsetEncoding = { "utf-16" }
@@ -19,47 +42,33 @@ return {
 				capabilities = clang_capabilities,
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 			})
+
 			-- CSS
 			lspconfig.cssls.setup({ capabilities = capabilities })
+
 			-- CUE
 			lspconfig.dagger.setup({})
-			-- Deno
-			lspconfig.denols.setup({
-				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-				single_file = true,
-				init_options = {
-					lint = true,
-					unstable = true,
-					suggest = {
-						imports = {
-							hosts = {
-								["https://deno.land"] = true,
-								["https://cdn.nest.land"] = true,
-								["https://crux.land"] = true,
-							},
-						},
-					},
-				},
-			})
 			vim.g.markdown_fenced_languages = { "ts=typescript" }
+
 			-- Docker
 			lspconfig.dockerls.setup({})
+
 			-- Go
 			lspconfig.gopls.setup({})
+
 			-- GraphQL
 			lspconfig.graphql.setup({})
+
 			-- Haskell
 			lspconfig.hls.setup({})
+
 			-- HTML
 			lspconfig.html.setup({ capabilities = capabilities })
-			-- JavaScript/TypeScript
-			lspconfig.tsserver.setup({
-				root_dir = lspconfig.util.root_pattern("package.json"),
-				single_file_support = false,
-			})
 			lspconfig.biome.setup({})
+
 			-- JSON
 			lspconfig.jsonls.setup({ capabilities = capabilities })
+
 			-- Lua
 			lspconfig.lua_ls.setup({
 				settings = {
@@ -68,24 +77,34 @@ return {
 					},
 				},
 			})
+
 			-- Nix
 			lspconfig.nil_ls.setup({})
+
 			-- OCaml
 			lspconfig.ocamllsp.setup({})
+
 			-- Prisma
 			lspconfig.prismals.setup({})
+
 			-- Protocol Buffers
 			lspconfig.bufls.setup({})
+
 			-- Python
 			lspconfig.pyright.setup({})
+
 			-- Svelte
 			lspconfig.svelte.setup({})
+
 			-- TailwindCSS
 			lspconfig.tailwindcss.setup({})
+
 			-- Terraform
 			lspconfig.terraformls.setup({})
+
 			-- Typst
 			lspconfig.typst_lsp.setup({})
+
 			-- Zig
 			lspconfig.zls.setup({})
 
