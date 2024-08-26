@@ -312,6 +312,7 @@
             nodePackages.eslint
             nodePackages.prettier
             nodePackages.typescript-language-server
+            nodePackages."@astrojs/language-server"
             nodePackages."@tailwindcss/language-server"
             # Lua
             lua-language-server

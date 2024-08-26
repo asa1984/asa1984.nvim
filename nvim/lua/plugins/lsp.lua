@@ -32,6 +32,9 @@ return {
 				})
 			end
 
+			-- Astro
+			lspconfig.astro.setup({})
+
 			-- Bash
 			lspconfig.bashls.setup({})
 
@@ -149,6 +152,7 @@ return {
 				toml = { "taplo" },
 				typst = { "typstfmt" },
 
+				astro = { "prettier" },
 				javascript = { { "biome", "prettier" } },
 				typescript = { { "biome", "prettier" } },
 				jsvascriptreact = { { "biome", "prettier" } },
