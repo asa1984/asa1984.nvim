@@ -26,6 +26,11 @@ let
     dependencies = [ skkeleton ];
     dontBuild = true;
   };
+
+  ts-error-translator-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.ts-error-translator-nvim) pname version src;
+    dontBuild = true;
+  };
 in
 [
   vimdoc-ja
@@ -33,6 +38,7 @@ in
   hlchunk-nvim
   skkeleton
   cmp-skkeleton
+  ts-error-translator-nvim
 ]
 ++ (with pkgs.vimPlugins; [
   # Core

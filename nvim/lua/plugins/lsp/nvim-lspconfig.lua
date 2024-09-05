@@ -82,6 +82,10 @@ return {
             name = "schemastore.nvim",
             dir = "@schemastore_nvim@",
         },
+        {
+            name = "ts-error-translator.nvim",
+            dir = "@ts_error_translator_nvim@",
+        },
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -89,14 +93,18 @@ return {
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
         -- Format of diagnostics
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+            require("ts-error-translator").translate_diagnostics(err, result, ctx, config)
+            vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+        end
+
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = {
                 format = function(diagnostic)
-                    return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+                    return string.format("%s (%s)", diagnostic.message, diagnostic.source)
                 end,
             },
         })
-
         ----------------------
         -- General settings --
         ----------------------

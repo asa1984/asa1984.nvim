@@ -22,3 +22,8 @@ fetch.github = "echasnovski/mini.bufremove"
 src.github = "shellRaining/hlchunk.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[ts-error-translator-nvim]
+src.github = "dmmulroy/ts-error-translator.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v$ver.tar.gz"

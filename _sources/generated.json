@@ -74,6 +74,21 @@
         },
         "version": "882ec0c10856aadd0c2bf843b9b04cf16272a19b"
     },
+    "ts-error-translator-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "ts-error-translator-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-f/DPq0stJhCPHR3bei174Z8RdgfglZVJdlWmNRITJiA=",
+            "type": "url",
+            "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.1.0.tar.gz"
+        },
+        "version": "1.1.0"
+    },
     "vimdoc-ja": {
         "cargoLocks": null,
         "date": "2024-09-03",

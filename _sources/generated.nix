@@ -45,6 +45,14 @@
     };
     date = "2024-09-03";
   };
+  ts-error-translator-nvim = {
+    pname = "ts-error-translator-nvim";
+    version = "1.1.0";
+    src = fetchurl {
+      url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.1.0.tar.gz";
+      sha256 = "sha256-f/DPq0stJhCPHR3bei174Z8RdgfglZVJdlWmNRITJiA=";
+    };
+  };
   vimdoc-ja = {
     pname = "vimdoc-ja";
     version = "1fa7e5b4f332aec82d70db4524f80be3be45e992";
