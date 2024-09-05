@@ -69,6 +69,7 @@ in
   neodev-nvim
   trouble-nvim
   SchemaStore-nvim
+  tiny-inline-diagnostic-nvim
 
   # Completion
   nvim-cmp
