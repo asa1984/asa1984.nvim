@@ -45,6 +45,7 @@ return {
 
                 -- Config like
                 json = prettier_like_formatters,
+                jsonc = prettier_like_formatters,
                 toml = { "taplo" },
                 yaml = { "prettier" },
 
@@ -67,6 +68,7 @@ return {
                 nix = { "nixfmt" },
                 ocaml = { "ocamlformat" },
                 python = { "ruff_format" },
+                rust = { lsp_format = "fallback" },
 
                 -- Schema
                 graphql = { "prettier" },
