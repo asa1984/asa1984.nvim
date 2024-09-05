@@ -14,7 +14,7 @@ return {
     {
         name = "vimdoc-ja",
         dir = "@vimdoc_ja@",
-        ft = "help",
+        event = "VeryLazy",
     },
 
     -- Better escape
