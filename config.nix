@@ -1,5 +1,4 @@
 {
-  self,
   plugins,
   lib,
   stdenv,
@@ -57,7 +56,7 @@ stdenv.mkDerivation (
   // {
     pname = "asa1984-nvim-config";
     version = "latest";
-    src = "${self}/nvim";
+    src = ./nvim;
 
     installPhase = ''
       mkdir -p $out

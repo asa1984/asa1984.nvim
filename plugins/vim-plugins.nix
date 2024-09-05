@@ -1,12 +1,5 @@
 { pkgs, sources }:
 let
-  # in
-  #vimdoc-ja
-  #mini.bufremove
-  #cmp-skkeleton
-  # hlchunk-nvim
-  # nvim-markdown
-
   vimdoc-ja = pkgs.vimUtils.buildVimPlugin {
     inherit (sources.vimdoc-ja) pname version src;
     dontBuild = true;
@@ -14,6 +7,11 @@ let
 
   mini-bufremove = pkgs.vimUtils.buildVimPlugin {
     inherit (sources.mini-bufremove) pname version src;
+    dontBuild = true;
+  };
+
+  hlchunk-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.hlchunk-nvim) pname version src;
     dontBuild = true;
   };
 
@@ -28,20 +26,18 @@ let
     dependencies = [ skkeleton ];
     dontBuild = true;
   };
-
-  hlchunk-nvim = pkgs.vimUtils.buildVimPlugin {
-    inherit (sources.hlchunk-nvim) pname version src;
-    dontBuild = true;
-  };
 in
 [
   vimdoc-ja
   mini-bufremove
-  cmp-skkeleton
   hlchunk-nvim
   skkeleton
+  cmp-skkeleton
 ]
 ++ (with pkgs.vimPlugins; [
+  # Core
+  nvim-treesitter
+
   # Colorscheme
   tokyonight-nvim
 
