@@ -92,19 +92,12 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        -- Format of diagnostics
+        -- Translate TypeScript error messages
         vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
             require("ts-error-translator").translate_diagnostics(err, result, ctx, config)
             vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
         end
 
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = {
-                format = function(diagnostic)
-                    return string.format("%s (%s)", diagnostic.message, diagnostic.source)
-                end,
-            },
-        })
         ----------------------
         -- General settings --
         ----------------------
