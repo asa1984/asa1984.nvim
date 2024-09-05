@@ -43,21 +43,10 @@ return {
 
     -- Comment
     {
-        name = "Comment.nvim",
-        dir = "@comment_nvim@",
-        event = "BufRead",
-        dependencies = {
-            {
-                name = "nvim-ts-context-commentstring",
-                dir = "@nvim_ts_context_commentstring@",
-                opts = { enable_autocmd = false },
-            },
-        },
-        config = function()
-            require("Comment").setup({
-                pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-            })
-        end,
+        name = "ts-comments-nvim",
+        dir = "@ts_comments_nvim@",
+        opts = {},
+        event = "VeryLazy",
     },
 
     -- Auto enclose deliminators

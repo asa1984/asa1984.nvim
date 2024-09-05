@@ -57,6 +57,7 @@ in
   nvim-ts-context-commentstring
   nvim-autopairs
   nvim-ts-autotag
+  ts-comments-nvim
 
   # LSP
   nvim-lspconfig
