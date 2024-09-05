@@ -60,5 +60,17 @@
           config = nvimConfig;
         }
       );
+      lib = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          mkNeovimWrapper = import ./wrapper.nix pkgs;
+        in
+        {
+          # mkNeovimWrapper :: [extraPackages] -> derivation
+          install = mkNeovimWrapper;
+        }
+      );
     };
+
 }
