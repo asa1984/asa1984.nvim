@@ -62,6 +62,7 @@ in
   typst-vim
   neodev-nvim
   trouble-nvim
+  SchemaStore-nvim
 
   # Completion
   nvim-cmp
