@@ -68,7 +68,7 @@
         in
         {
           # mkNeovimWrapper :: [extraPackages] -> derivation
-          install = mkNeovimWrapper;
+          inherit mkNeovimWrapper;
         }
       );
     };
