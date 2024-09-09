@@ -82,6 +82,7 @@ in
   copilot-cmp
   luasnip
   copilot-lua
+  CopilotChat-nvim
 
   # UI
   alpha-nvim
