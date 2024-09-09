@@ -27,7 +27,8 @@ return {
             cmp.setup({
                 formatting = {
                     format = lspkind.cmp_format({
-                        mode = "text",
+                        mode = "symbol_text",
+                        before = require("tailwind-tools.cmp").lspkind_format,
                     }),
                 },
                 snippet = {

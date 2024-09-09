@@ -31,6 +31,11 @@ let
     inherit (sources.ts-error-translator-nvim) pname version src;
     dontBuild = true;
   };
+
+  tailwind-tools-nvim = pkgs.vimUtils.buildVimPlugin {
+    inherit (sources.tailwind-tools-nvim) pname version src;
+    dontBuild = true;
+  };
 in
 [
   vimdoc-ja
@@ -39,6 +44,7 @@ in
   skkeleton
   cmp-skkeleton
   ts-error-translator-nvim
+  tailwind-tools-nvim
 ]
 ++ (with pkgs.vimPlugins; [
   # Colorscheme
