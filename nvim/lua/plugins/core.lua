@@ -69,4 +69,12 @@ return {
         },
         config = true,
     },
+
+    -- Better sort
+    {
+        name = "sort.nvim",
+        dir = "@sort_nvim@",
+        cmd = "Sort",
+        config = true,
+    },
 }

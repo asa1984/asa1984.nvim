@@ -51,6 +51,7 @@ in
   better-escape-nvim
   nvim-hlslens
   smart-splits-nvim
+  sort-nvim
 
   # Coding
   comment-nvim
