@@ -41,13 +41,13 @@ in
   ts-error-translator-nvim
 ]
 ++ (with pkgs.vimPlugins; [
-  # Core
-  nvim-treesitter
-
   # Colorscheme
   tokyonight-nvim
 
-  # Make neovim better
+  # Syntax highlighting
+  nvim-treesitter
+
+  # Core
   better-escape-nvim
   nvim-hlslens
   smart-splits-nvim
@@ -64,7 +64,6 @@ in
   nvim-lspconfig
   lspkind-nvim
   lspsaga-nvim
-  conform-nvim
   rust-tools-nvim
   crates-nvim
   typst-vim
@@ -72,6 +71,9 @@ in
   trouble-nvim
   SchemaStore-nvim
   tiny-inline-diagnostic-nvim
+
+  # Formatter
+  conform-nvim
 
   # Completion
   nvim-cmp
@@ -82,8 +84,13 @@ in
   cmp_luasnip
   copilot-cmp
   luasnip
+
+  # GitHub Copilot
   copilot-lua
   CopilotChat-nvim
+
+  # Git
+  gitsigns-nvim
 
   # UI
   alpha-nvim
@@ -95,7 +102,6 @@ in
   toggleterm-nvim
   nvim-scrollbar
   statuscol-nvim
-  gitsigns-nvim
   nvim-web-devicons
 
   # Misc

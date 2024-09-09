@@ -1,4 +1,5 @@
 local get_icon = require("utils").get_icon
+
 return {
     -- Startup
     {
@@ -156,35 +157,5 @@ return {
                 },
             }
         end,
-    },
-
-    -- Better LSP UI
-    {
-        name = "lspsaga.nvim",
-        dir = "@lspsaga_nvim@",
-        event = "LspAttach",
-        dependencies = {
-            { name = "nvim-treesitter", dir = "@nvim_treesitter@" },
-            { name = "nvim-web-devicons", dir = "@nvim_web_devicons@" },
-        },
-        opts = function()
-            return {
-                ui = {
-                    border = "rounded",
-                    code_action = get_icon("DiagnosticHint"),
-                },
-                lightbulb = {
-                    sign = false,
-                },
-            }
-        end,
-    },
-
-    -- Highlight git changes
-    {
-        name = "gitsigns.nvim",
-        dir = "@gitsigns_nvim@",
-        event = { "BufRead", "BufNewFile" },
-        opts = {},
     },
 }

@@ -66,8 +66,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Save file
 vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>")
 vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>")
--- vim.keymap.set("i", "<C-s>", require("plugins.lsp.utils").save_and_format)
--- vim.keymap.set("n", "<C-s>", require("plugins.lsp.utils").save_and_format)
 
 -- Better move
 vim.keymap.set("n", "j", "gj")
