@@ -21,10 +21,16 @@ return {
     {
         name = "better-escape.nvim",
         dir = "@better_escape_nvim@",
-        event = "InsertCharPre",
+        event = "InsertEnter",
         opts = {
-            mapping = { "jj" },
             timeout = 200,
+            default_mappings = false,
+            mappings = {
+                i = { j = { j = "<Esc>" } },
+                c = { j = { j = "<Esc>" } },
+                v = { j = { k = "<Esc>" } },
+                s = { j = { k = "<Esc>" } },
+            },
         },
     },
 
