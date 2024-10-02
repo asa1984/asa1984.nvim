@@ -3,13 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs@{
       self,
       nixpkgs,
-      flake-utils,
+      git-hooks,
       ...
     }:
     let
@@ -22,24 +28,6 @@
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
     {
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              stylua
-              lua-language-server
-              nvfetcher
-            ];
-          };
-        }
-      );
-
       packages = forAllSystems (
         system:
         let
@@ -60,6 +48,7 @@
           config = nvimConfig;
         }
       );
+
       lib = forAllSystems (
         system:
         let
@@ -71,6 +60,34 @@
           inherit mkNeovimWrapper;
         }
       );
-    };
 
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              stylua
+              lua-language-server
+              nvfetcher
+            ];
+          };
+        }
+      );
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      checks = forAllSystems (system: {
+        pre-commit-check = git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt-rfc-style.enable = true;
+            stylua.enable = true;
+            actionlint.enable = true;
+          };
+        };
+      });
+    };
 }
