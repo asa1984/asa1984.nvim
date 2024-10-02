@@ -1,2 +1,4 @@
 result
 *.log
+.direnv
+.pre-commit-config.yaml

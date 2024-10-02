@@ -61,24 +61,6 @@
         }
       );
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              stylua
-              lua-language-server
-              nvfetcher
-            ];
-          };
-        }
-      );
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
       checks = forAllSystems (system: {
         pre-commit-check = git-hooks.lib.${system}.run {
           src = ./.;
@@ -89,5 +71,22 @@
           };
         };
       });
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            inherit (self.checks.${system}.pre-commit-check) shellHook;
+            packages = with pkgs; [
+              stylua
+              lua-language-server
+              nvfetcher
+            ];
+          };
+        }
+      );
     };
 }
