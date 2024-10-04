@@ -20,12 +20,12 @@ then, Neovim starts with pre-configured settings!
 
 ## :package: Packages
 
-| Name           | Description                                     |
-| -------------- | ----------------------------------------------- |
-| neovim-full    | Neovim with all development tools               |
-| neovim-light   | Neovim with development tools that I mainly use |
-| neovim-minimal | Neovim without any development tools            |
-| config         | Only the configuration files                    |
+| Name           | Description                                    |
+| -------------- | ---------------------------------------------- |
+| neovim-full    | Neovim + All development tools                 |
+| neovim-light   | Neovim + Primary development tools             |
+| neovim-minimal | Neovim without any development tools (default) |
+| config         | The configuration files                        |
 
 ## :book: References
 
