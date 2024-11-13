@@ -1,14 +1,19 @@
+-- This function does not mutate the original table
+local function merge_table_immutable(original, override)
+    return setmetatable(override, { __index = original })
+end
+
 return {
     {
         name = "conform.nvim",
         dir = "@conform_nvim@",
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
+        dependencies = {
+            { name = "neoconf.nvim", dir = "@neoconf_nvim@" },
+        },
         config = function()
-            -- This function does not mutate the original table
-            local function merge_table_immutable(original, override)
-                return setmetatable(override, { __index = original })
-            end
+            local neoconf = require("neoconf")
 
             local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), { require_cwd = true })
             local prettier_for_project =
@@ -20,6 +25,10 @@ return {
             -- If denols is attached as LSP, use `deno fmt`
             -- Otherwise, use formatters for Node.js like environment
             local function js_like_formatters()
+                if neoconf.get("formatter.eslint.enable") then
+                    return { lsp_format = "fallback" }
+                end
+
                 local clients = vim.lsp.get_clients()
                 for _, client in pairs(clients) do
                     if client.name == "denols" then

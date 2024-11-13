@@ -77,6 +77,7 @@ in
   trouble-nvim
   SchemaStore-nvim
   tiny-inline-diagnostic-nvim
+  neoconf-nvim
 
   # Formatter
   conform-nvim
