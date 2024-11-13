@@ -10,6 +10,7 @@ return {
             { name = "schemastore.nvim", dir = "@schemastore_nvim@" },
             -- Better error message for TypeScript
             { name = "ts-error-translator.nvim", dir = "@ts_error_translator_nvim@" },
+            { name = "neoconf.nvim", dir = "@neoconf_nvim@", config = true },
         },
         config = function()
             local lspconfig = require("lspconfig")
@@ -42,7 +43,7 @@ return {
             local node_root_dir = lspconfig.util.root_pattern("package.json")
             local is_node_repo = node_root_dir(vim.api.nvim_buf_get_name(0)) ~= nil
             if is_node_repo then
-                lspconfig.tsserver.setup({})
+                lspconfig.ts_ls.setup({})
             else
                 lspconfig.denols.setup({
                     init_options = {
@@ -64,7 +65,7 @@ return {
             -- ESLint
             lspconfig.eslint.setup({
                 settings = {
-                    format = false,
+                    format = true,
                 },
             })
 
