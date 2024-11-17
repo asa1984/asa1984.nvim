@@ -60,7 +60,7 @@
     ocamlformat
 
     # Protocol Buffers
-    buf-language-server
+    buf
 
     # Python
     ruff
