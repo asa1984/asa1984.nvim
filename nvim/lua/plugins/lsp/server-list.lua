@@ -63,5 +63,5 @@ return {
     "terraformls",
 
     ---- Typst
-    "typst_lsp",
+    "tinymist",
 }

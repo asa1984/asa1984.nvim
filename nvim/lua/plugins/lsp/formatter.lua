@@ -86,7 +86,7 @@ return {
 
                     -- Misc
                     sh = { "shfmt" },
-                    typst = { "typstfmt" },
+                    typst = { "typstyle" },
                 },
                 default_format_opts = {
                     lsp_format = "fallback",

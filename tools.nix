@@ -71,8 +71,8 @@
     shfmt
 
     # Typst
-    typst-lsp
-    typstfmt
+    tinymist
+    typstyle
 
     # Zig
     zls
