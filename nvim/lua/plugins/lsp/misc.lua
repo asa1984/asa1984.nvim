@@ -34,12 +34,4 @@ return {
         },
         opts = {},
     },
-
-    -- Typst
-    {
-        name = "typst.vim",
-        dir = "@typst_vim@",
-        ft = "typst",
-        lazy = false,
-    },
 }

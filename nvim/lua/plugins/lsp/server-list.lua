@@ -61,7 +61,4 @@ return {
 
     ---- Terraform
     "terraformls",
-
-    ---- Typst
-    "tinymist",
 }

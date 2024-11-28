@@ -40,6 +40,7 @@ let
             toml
             tsx
             typescript
+            typst
             vim
             yaml
             zig
