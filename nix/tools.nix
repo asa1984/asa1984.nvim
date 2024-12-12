@@ -1,5 +1,4 @@
-{ pkgs }:
-{
+pkgs: {
   primarry = with pkgs; [
     # Inner tools
     ## For telescope.nvim
