@@ -22,13 +22,14 @@ then, Neovim starts with pre-configured settings!
 
 | Name           | Description                                    |
 | -------------- | ---------------------------------------------- |
-| neovim-full    | Neovim + All development tools                 |
-| neovim-light   | Neovim + Primary development tools             |
 | neovim-minimal | Neovim without any development tools (default) |
+| neovim-light   | Neovim + Primary development tools             |
+| neovim-full    | Neovim + All development tools                 |
 | config         | The configuration files                        |
 
 ## :book: References
 
 - [一般構築魔法(Nix)のVimへの応用について](https://zenn.dev/natsukium/articles/b4899d7b1e6a9a)
 - [natsukium/dotfiles](https://github.com/natsukium/dotfiles)
-- [Nixpkgs 23.11 manual](https://nixos.org/manual/nixpkgs/stable/)
+- [Nixpkgs Reference Manual 24.11](https://nixos.org/manual/nixpkgs/stable/)
+- [lazy.nvim on NixOS - Nixalted Website](https://nixalted.com)
