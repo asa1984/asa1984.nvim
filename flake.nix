@@ -29,24 +29,29 @@
       forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
     {
+      overlays = import ./nix/overlays;
+
       packages = forAllSystems (
         system:
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [ neovim-nightly-overlay.overlays.default ];
+            overlays = [
+              neovim-nightly-overlay.overlays.default
+              self.overlays.default
+            ];
           };
 
           plugins = import ./nix/plugins.nix pkgs;
           tools = import ./nix/tools.nix pkgs;
           nvimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
-          mkNeovimWrapper = import ./nix/wrapper.nix pkgs;
+          makeNeovimWrapper = import ./nix/wrapper.nix pkgs;
         in
         rec {
           default = neovim-minimal;
-          neovim-full = mkNeovimWrapper (tools.primarry ++ tools.secondary);
-          neovim-light = mkNeovimWrapper tools.primarry;
-          neovim-minimal = mkNeovimWrapper [ ];
+          neovim-minimal = makeNeovimWrapper [ ];
+          neovim-light = makeNeovimWrapper tools.primarry;
+          neovim-full = makeNeovimWrapper (tools.primarry ++ tools.secondary);
           config = nvimConfig;
         }
       );
@@ -55,11 +60,11 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          mkNeovimWrapper = import ./nix/wrapper.nix pkgs;
+          makeNeovimWrapper = import ./nix/wrapper.nix pkgs;
         in
         {
-          # mkNeovimWrapper :: [extraPackages] -> derivation
-          inherit mkNeovimWrapper;
+          # makeNeovimWrapper :: [extraPackages] -> derivation
+          inherit makeNeovimWrapper;
         }
       );
 
