@@ -28,6 +28,28 @@ return {
                 },
                 opts = { skip = true },
             },
+
+            -- TODO: Remove this filter
+            {
+                filter = {
+                    event = "notify",
+                    kind = "warn",
+                    find = "position_encoding param is required in vim.lsp.util.make_range_params. Defaulting to position encoding of the first client.",
+                },
+                { opts = { skip = true } },
+            },
+
+            -- Ignore messages from copilot.lua https://github.com/zbirenbaum/copilot.lua/issues/321
+            {
+                filter = {
+                    event = "msg_show",
+                    any = {
+                        { find = "Agent service not initialized" },
+                        { find = "Not authenticated: NotSignedIn" },
+                    },
+                },
+                opts = { skip = true },
+            },
         },
     },
 }

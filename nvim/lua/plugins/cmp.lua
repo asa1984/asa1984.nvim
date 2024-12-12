@@ -17,7 +17,7 @@ return {
                 },
             },
             { name = "lspkind.nvim", dir = "@lspkind_nvim@" },
-            { name = "cmp-skkeleton", dir = "@cmp_skkeleton@" },
+            -- { name = "cmp-skkeleton", dir = "@cmp_skkeleton@" },
         },
         config = function()
             local cmp = require("cmp")

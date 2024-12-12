@@ -3,17 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    git-hooks.url = "github:cachix/git-hooks.nix";
 
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-    };
+    neovim-nightly-overlay.inputs.git-hooks.follows = "git-hooks";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
+    git-hooks.inputs.nixpkgs-stable.follows = "nixpkgs";
   };
 
   outputs =
     inputs@{
       self,
+      neovim-nightly-overlay,
       nixpkgs,
       git-hooks,
       ...
@@ -31,7 +32,10 @@
       packages = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ neovim-nightly-overlay.overlays.default ];
+          };
 
           plugins = import ./plugins { inherit pkgs; };
           tools = import ./tools.nix { inherit pkgs; };

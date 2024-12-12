@@ -32,3 +32,8 @@ fetch.url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/t
 src.github = "luckasRanarison/tailwind-tools.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[noice-nvim]
+src.github = "folke/noice.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/folke/noice.nvim/archive/refs/tags/v$ver.tar.gz"

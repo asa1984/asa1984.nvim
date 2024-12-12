@@ -5,5 +5,5 @@ let
 in
 pkgs.writeShellScriptBin "nvim" ''
   PATH=$PATH:${pkgs.lib.makeBinPath extraPackages}
-  MY_CONFIG_PATH=${nvimConfig} ${pkgs.neovim-unwrapped}/bin/nvim -u ${nvimConfig}/init.lua "$@"
+  MY_CONFIG_PATH=${nvimConfig} ${pkgs.neovim}/bin/nvim -u ${nvimConfig}/init.lua "$@"
 ''

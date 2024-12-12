@@ -28,27 +28,35 @@
   };
   mini-bufremove = {
     pname = "mini-bufremove";
-    version = "1ee294a97e091d3cf967974df622c0d887890dc2";
+    version = "285bdac9596ee7375db50c0f76ed04336dcd2685";
     src = fetchFromGitHub {
       owner = "echasnovski";
       repo = "mini.bufremove";
-      rev = "1ee294a97e091d3cf967974df622c0d887890dc2";
+      rev = "285bdac9596ee7375db50c0f76ed04336dcd2685";
       fetchSubmodules = false;
-      sha256 = "sha256-tYE7ib/F3emDxHaeEW/k/P31/gKknLsw63H9T5yAEEo=";
+      sha256 = "sha256-CB6ZIlrCQlh2W44Knnb10REDcvj4jcYkW/9CiOaoH2E=";
     };
-    date = "2024-07-01";
+    date = "2024-11-04";
+  };
+  noice-nvim = {
+    pname = "noice-nvim";
+    version = "4.8.0";
+    src = fetchurl {
+      url = "https://github.com/folke/noice.nvim/archive/refs/tags/v4.8.0.tar.gz";
+      sha256 = "sha256-RbA0pKpLzMboPrE835T6hcjmL51tlfUJwsW+t4fAtOM=";
+    };
   };
   skkeleton = {
     pname = "skkeleton";
-    version = "882ec0c10856aadd0c2bf843b9b04cf16272a19b";
+    version = "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61";
     src = fetchFromGitHub {
       owner = "vim-skk";
       repo = "skkeleton";
-      rev = "882ec0c10856aadd0c2bf843b9b04cf16272a19b";
+      rev = "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61";
       fetchSubmodules = false;
-      sha256 = "sha256-b3tDU4iz0tV3mebSPlmvXDSrvw8hdR5w0EPyDXjaiqA=";
+      sha256 = "sha256-7oTJGGkUb3K8nzcPqlJrm316ECmgswy/+N8cTQghv3k=";
     };
-    date = "2024-09-03";
+    date = "2024-10-14";
   };
   tailwind-tools-nvim = {
     pname = "tailwind-tools-nvim";
@@ -60,22 +68,22 @@
   };
   ts-error-translator-nvim = {
     pname = "ts-error-translator-nvim";
-    version = "1.1.0";
+    version = "1.2.0";
     src = fetchurl {
-      url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.1.0.tar.gz";
-      sha256 = "sha256-f/DPq0stJhCPHR3bei174Z8RdgfglZVJdlWmNRITJiA=";
+      url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.2.0.tar.gz";
+      sha256 = "sha256-lM/fbs5iGBBnPcKsKolpvamJjZxDC+x69OBAoUIz4lE=";
     };
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "0be81cc61b75a508a7e26646ab8ac0bac8f80635";
+    version = "f81682b1484d9052930e526a59714eca19bdaf83";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "0be81cc61b75a508a7e26646ab8ac0bac8f80635";
+      rev = "f81682b1484d9052930e526a59714eca19bdaf83";
       fetchSubmodules = false;
-      sha256 = "sha256-ocdPCyvDhgWurrZ/bE0aw1O+Ube08TNdgy2tFVIUnW0=";
+      sha256 = "sha256-3eVZ+RMsHvtortnWOsvuFVrqNapqOHvrspDonrtMCkU=";
     };
-    date = "2024-09-09";
+    date = "2024-12-11";
   };
 }
