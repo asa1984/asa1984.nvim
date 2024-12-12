@@ -36,7 +36,7 @@
     },
     "mini-bufremove": {
         "cargoLocks": null,
-        "date": "2024-07-01",
+        "date": "2024-11-04",
         "extract": null,
         "name": "mini-bufremove",
         "passthru": null,
@@ -48,15 +48,30 @@
             "name": null,
             "owner": "echasnovski",
             "repo": "mini.bufremove",
-            "rev": "1ee294a97e091d3cf967974df622c0d887890dc2",
-            "sha256": "sha256-tYE7ib/F3emDxHaeEW/k/P31/gKknLsw63H9T5yAEEo=",
+            "rev": "285bdac9596ee7375db50c0f76ed04336dcd2685",
+            "sha256": "sha256-CB6ZIlrCQlh2W44Knnb10REDcvj4jcYkW/9CiOaoH2E=",
             "type": "github"
         },
-        "version": "1ee294a97e091d3cf967974df622c0d887890dc2"
+        "version": "285bdac9596ee7375db50c0f76ed04336dcd2685"
+    },
+    "noice-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "noice-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-RbA0pKpLzMboPrE835T6hcjmL51tlfUJwsW+t4fAtOM=",
+            "type": "url",
+            "url": "https://github.com/folke/noice.nvim/archive/refs/tags/v4.8.0.tar.gz"
+        },
+        "version": "4.8.0"
     },
     "skkeleton": {
         "cargoLocks": null,
-        "date": "2024-09-03",
+        "date": "2024-10-14",
         "extract": null,
         "name": "skkeleton",
         "passthru": null,
@@ -68,11 +83,11 @@
             "name": null,
             "owner": "vim-skk",
             "repo": "skkeleton",
-            "rev": "882ec0c10856aadd0c2bf843b9b04cf16272a19b",
-            "sha256": "sha256-b3tDU4iz0tV3mebSPlmvXDSrvw8hdR5w0EPyDXjaiqA=",
+            "rev": "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61",
+            "sha256": "sha256-7oTJGGkUb3K8nzcPqlJrm316ECmgswy/+N8cTQghv3k=",
             "type": "github"
         },
-        "version": "882ec0c10856aadd0c2bf843b9b04cf16272a19b"
+        "version": "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61"
     },
     "tailwind-tools-nvim": {
         "cargoLocks": null,
@@ -98,15 +113,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-f/DPq0stJhCPHR3bei174Z8RdgfglZVJdlWmNRITJiA=",
+            "sha256": "sha256-lM/fbs5iGBBnPcKsKolpvamJjZxDC+x69OBAoUIz4lE=",
             "type": "url",
-            "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.1.0.tar.gz"
+            "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.2.0.tar.gz"
         },
-        "version": "1.1.0"
+        "version": "1.2.0"
     },
     "vimdoc-ja": {
         "cargoLocks": null,
-        "date": "2024-09-09",
+        "date": "2024-12-11",
         "extract": null,
         "name": "vimdoc-ja",
         "passthru": null,
@@ -118,10 +133,10 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "0be81cc61b75a508a7e26646ab8ac0bac8f80635",
-            "sha256": "sha256-ocdPCyvDhgWurrZ/bE0aw1O+Ube08TNdgy2tFVIUnW0=",
+            "rev": "f81682b1484d9052930e526a59714eca19bdaf83",
+            "sha256": "sha256-3eVZ+RMsHvtortnWOsvuFVrqNapqOHvrspDonrtMCkU=",
             "type": "github"
         },
-        "version": "0be81cc61b75a508a7e26646ab8ac0bac8f80635"
+        "version": "f81682b1484d9052930e526a59714eca19bdaf83"
     }
 }

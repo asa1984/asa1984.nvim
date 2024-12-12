@@ -1,5 +1,7 @@
 vim.loader.enable() -- You need to enable vim.loader before loading plugins
 
+vim.g.mapleader = " " -- You need to set this before lazy loading
+
 local lazypath = "@lazy_nvim@"
 vim.opt.rtp:prepend(lazypath)
 
@@ -7,8 +9,6 @@ require("lazy").setup({
     defaults = { lazy = true },
     spec = "plugins",
 })
-
-vim.g.mapleader = " "
 
 -- Character code
 vim.encoding = "utf-8"
