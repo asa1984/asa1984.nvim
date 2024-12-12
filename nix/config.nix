@@ -16,7 +16,7 @@ let
     // {
       pname = "asa1984-nvim-config";
       version = "latest";
-      src = ./nvim;
+      src = ../nvim;
 
       installPhase = ''
         mkdir -p $out

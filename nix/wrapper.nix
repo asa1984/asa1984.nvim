@@ -1,6 +1,6 @@
 pkgs: extraPackages:
 let
-  plugins = import ./plugins { inherit pkgs; };
+  plugins = import ./plugins.nix pkgs;
   nvimConfig = pkgs.callPackage ./config.nix { inherit plugins; };
 in
 pkgs.writeShellScriptBin "nvim" ''

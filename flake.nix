@@ -37,12 +37,10 @@
             overlays = [ neovim-nightly-overlay.overlays.default ];
           };
 
-          plugins = import ./plugins { inherit pkgs; };
-          tools = import ./tools.nix { inherit pkgs; };
-
-          nvimConfig = pkgs.callPackage ./config.nix { inherit plugins; };
-
-          mkNeovimWrapper = import ./wrapper.nix pkgs;
+          plugins = import ./nix/plugins.nix pkgs;
+          tools = import ./nix/tools.nix pkgs;
+          nvimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
+          mkNeovimWrapper = import ./nix/wrapper.nix pkgs;
         in
         rec {
           default = neovim-minimal;
@@ -57,7 +55,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          mkNeovimWrapper = import ./wrapper.nix pkgs;
+          mkNeovimWrapper = import ./nix/wrapper.nix pkgs;
         in
         {
           # mkNeovimWrapper :: [extraPackages] -> derivation
