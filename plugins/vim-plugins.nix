@@ -23,6 +23,8 @@ let
 in
 plugins
 ++ (with pkgs.vimPlugins; [
+  lazy-nvim
+
   # Colorscheme
   tokyonight-nvim
 

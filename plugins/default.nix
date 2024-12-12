@@ -17,19 +17,8 @@ let
       (pkgs.lib.toLower pname);
 
   pkgListToAttr =
-    pkgList:
-    pkgs.lib.foldl' (
-      acc: pkg:
-      let
-        pname = pkg.pname;
-      in
-      acc // { "${normalizePname pname}" = pkg; }
-    ) { } pkgList;
+    pkgList: pkgs.lib.foldl' (acc: pkg: acc // { "${normalizePname pkg.pname}" = pkg; }) { } pkgList;
 
-  plugins = (pkgListToAttr (import ./vim-plugins.nix { inherit pkgs sources; })) // {
-    lazy_nvim = pkgs.callPackage ./lazy-nvim.nix { };
-    skk_dict = "${pkgs.skkDictionaries.l}/share/SKK-JISYO.L";
-  };
-
+  plugins = (pkgListToAttr (import ./vim-plugins.nix { inherit pkgs sources; }));
 in
 plugins
