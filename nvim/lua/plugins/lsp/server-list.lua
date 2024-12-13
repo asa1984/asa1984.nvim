@@ -50,7 +50,7 @@ return {
     "graphql",
 
     ---- Protocol Buffers
-    "buf_ls",
+    "bufls",
 
     ---- Prisma ORM
     "prismals",
