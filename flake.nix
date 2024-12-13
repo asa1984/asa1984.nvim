@@ -37,7 +37,7 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              neovim-nightly-overlay.overlays.default
+              # neovim-nightly-overlay.overlays.default # This cause build-error on aarch64-darwin
               self.overlays.default
             ];
           };
@@ -45,7 +45,8 @@
           plugins = import ./nix/plugins.nix pkgs;
           tools = import ./nix/tools.nix pkgs;
           nvimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
-          makeNeovimWrapper = import ./nix/wrapper.nix pkgs;
+          neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
+          makeNeovimWrapper = import ./nix/wrapper.nix neovim-nightly pkgs;
         in
         rec {
           default = neovim-minimal;
