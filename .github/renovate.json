@@ -4,11 +4,10 @@
   "timezone": "Asia/Tokyo",
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["every weekend"]
+    "schedule": ["after 4am on suturday", "before 8am on suturday"]
   },
   "automerge": true,
   "automergeStrategy": "rebase",
-  "platformAutomerge": true,
   "nix": {
     "enabled": true
   }
