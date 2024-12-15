@@ -44,17 +44,18 @@
 
           plugins = import ./nix/plugins.nix pkgs;
           tools = import ./nix/tools.nix pkgs;
-          nvimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
           neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
           makeNeovimWrapper = import ./nix/wrapper.nix neovim-nightly pkgs;
+          neovimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
         in
         rec {
           default = neovim-minimal;
           neovim-minimal = makeNeovimWrapper [ ];
           neovim-light = makeNeovimWrapper tools.primarry;
           neovim-full = makeNeovimWrapper (tools.primarry ++ tools.secondary);
-          config = nvimConfig;
+          config = neovimConfig;
         }
+        // (import ./nix/pkgs { inherit pkgs; }).vimPlugins
       );
 
       lib = forAllSystems (
