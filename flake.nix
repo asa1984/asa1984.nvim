@@ -61,8 +61,14 @@
       lib = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-          makeNeovimWrapper = import ./nix/wrapper.nix pkgs;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              self.overlays.default
+            ];
+          };
+          neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
+          makeNeovimWrapper = import ./nix/wrapper.nix neovim-nightly pkgs;
         in
         {
           # makeNeovimWrapper :: [extraPackages] -> derivation
