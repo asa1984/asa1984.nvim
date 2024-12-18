@@ -61,7 +61,12 @@
       lib = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              self.overlays.default
+            ];
+          };
           makeNeovimWrapper = import ./nix/wrapper.nix pkgs;
         in
         {
