@@ -40,10 +40,10 @@
   };
   noice-nvim = {
     pname = "noice-nvim";
-    version = "4.8.0";
+    version = "4.9.0";
     src = fetchurl {
-      url = "https://github.com/folke/noice.nvim/archive/refs/tags/v4.8.0.tar.gz";
-      sha256 = "sha256-RbA0pKpLzMboPrE835T6hcjmL51tlfUJwsW+t4fAtOM=";
+      url = "https://github.com/folke/noice.nvim/archive/refs/tags/v4.9.0.tar.gz";
+      sha256 = "sha256-USL0HyaQR+YY2VdjYX0UL+Aj0eFiL9On/dKeQ+kZhts=";
     };
   };
   skkeleton = {
@@ -73,6 +73,18 @@
       url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.2.0.tar.gz";
       sha256 = "sha256-lM/fbs5iGBBnPcKsKolpvamJjZxDC+x69OBAoUIz4lE=";
     };
+  };
+  vim-stylus = {
+    pname = "vim-stylus";
+    version = "99031823d216c4433fb5c2661a33a43fbebaff61";
+    src = fetchFromGitHub {
+      owner = "wavded";
+      repo = "vim-stylus";
+      rev = "99031823d216c4433fb5c2661a33a43fbebaff61";
+      fetchSubmodules = false;
+      sha256 = "sha256-tIVBNAAj78jJnoaejs850L+b4aTfp/UDFQQCxauAAcw=";
+    };
+    date = "2023-02-03";
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
