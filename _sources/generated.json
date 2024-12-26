@@ -63,11 +63,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-RbA0pKpLzMboPrE835T6hcjmL51tlfUJwsW+t4fAtOM=",
+            "sha256": "sha256-USL0HyaQR+YY2VdjYX0UL+Aj0eFiL9On/dKeQ+kZhts=",
             "type": "url",
-            "url": "https://github.com/folke/noice.nvim/archive/refs/tags/v4.8.0.tar.gz"
+            "url": "https://github.com/folke/noice.nvim/archive/refs/tags/v4.9.0.tar.gz"
         },
-        "version": "4.8.0"
+        "version": "4.9.0"
     },
     "skkeleton": {
         "cargoLocks": null,
@@ -118,6 +118,26 @@
             "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.2.0.tar.gz"
         },
         "version": "1.2.0"
+    },
+    "vim-stylus": {
+        "cargoLocks": null,
+        "date": "2023-02-03",
+        "extract": null,
+        "name": "vim-stylus",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "wavded",
+            "repo": "vim-stylus",
+            "rev": "99031823d216c4433fb5c2661a33a43fbebaff61",
+            "sha256": "sha256-tIVBNAAj78jJnoaejs850L+b4aTfp/UDFQQCxauAAcw=",
+            "type": "github"
+        },
+        "version": "99031823d216c4433fb5c2661a33a43fbebaff61"
     },
     "vimdoc-ja": {
         "cargoLocks": null,

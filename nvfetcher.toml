@@ -37,3 +37,8 @@ fetch.url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs
 src.github = "folke/noice.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/folke/noice.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[vim-stylus]
+src.git = "https://github.com/wavded/vim-stylus"
+src.branch = "master"
+fetch.github = "wavded/vim-stylus"

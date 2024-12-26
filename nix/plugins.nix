@@ -24,6 +24,7 @@ let
     tailwind-tools-nvim
     ts-error-translator-nvim
     vimdoc-ja
+    vim-stylus
 
     # Plugin manager
     lazy-nvim
