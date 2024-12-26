@@ -77,6 +77,7 @@ return {
                 -- Enable code snippets
                 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
                 capabilities = capabilities,
+                filetypes = { "css", "scss", "less", "stylus" },
             })
 
             -- JSON

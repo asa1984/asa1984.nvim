@@ -48,4 +48,11 @@ return {
         dir = "@presence_nvim@",
         event = "BufRead",
     },
+
+    -- Stylus syntax highlighting
+    {
+        name = "vim-stylus",
+        dir = "@vim_stylus@",
+        ft = "stylus",
+    },
 }
