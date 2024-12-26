@@ -14,11 +14,11 @@ return {
         },
         config = function()
             local neoconf = require("neoconf")
+            local util = require("conform.util")
 
             local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), { require_cwd = true })
             local prettier_for_project =
                 merge_table_immutable(require("conform.formatters.prettier"), { require_cwd = true })
-
             local prettier_like_formatters =
                 { "biome_for_project", "prettier_for_project", "prettier", stop_after_first = true }
 
@@ -43,6 +43,37 @@ return {
                     biome_for_project = biome_for_project,
                     prettier_for_project = prettier_for_project,
                     stylua = { require_cwd = true },
+                    stylus_supremacy = {
+                        command = util.from_node_modules("stylus-supremacy"),
+                        stdin = false,
+                        args = function(_, ctx)
+                            local stylus_supremacy_settings_path =
+                                vim.fs.find(".stylus-supremacy.json", { path = ctx.dirname, upward = true })[1]
+                            local vscode_settings_path =
+                                vim.fs.find(".vscode/settings.json", { path = ctx.dirname, upward = true })[1]
+
+                            return stylus_supremacy_settings_path ~= nil
+                                    and {
+                                        "format",
+                                        "--replace",
+                                        "--options",
+                                        stylus_supremacy_settings_path,
+                                        "$FILENAME",
+                                    }
+                                or vscode_settings_path ~= nil and {
+                                    "format",
+                                    "--replace",
+                                    "--options",
+                                    vscode_settings_path,
+                                    "$FILENAME",
+                                }
+                                or { "format", "--replace", "$FILENAME" }
+                        end,
+                        cwd = util.root_file({
+                            ".stylus-supremacy.json",
+                            ".vscode",
+                        }),
+                    },
                 },
                 formatters_by_ft = {
                     -- Markup
@@ -52,6 +83,7 @@ return {
                     -- CSS
                     css = { "prettier" },
                     scss = { "prettier" },
+                    stylus = { "stylus_supremacy" },
 
                     -- Config like
                     json = prettier_like_formatters,
