@@ -64,7 +64,13 @@ return {
         event = "BufRead",
         config = function()
             require("hlchunk").setup({
-                chunk = { enable = true, use_treesitter = false },
+                chunk = {
+                    enable = true,
+                    use_treesitter = true,
+                    duration = 100,
+                    delay = 200,
+                },
+                indent = { enable = false },
                 line_num = { enable = false },
                 blank = { enable = false },
             })
