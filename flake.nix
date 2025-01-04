@@ -2,13 +2,17 @@
   description = "asa1984's neovim";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    git-hooks.url = "github:cachix/git-hooks.nix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    neovim-nightly-overlay.inputs.git-hooks.follows = "git-hooks";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    git-hooks.inputs.flake-compat.follows = "";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
-    git-hooks.inputs.nixpkgs-stable.follows = "nixpkgs";
+    neovim-nightly-overlay.inputs.flake-compat.follows = "";
+    neovim-nightly-overlay.inputs.git-hooks.follows = "";
+    neovim-nightly-overlay.inputs.hercules-ci-effects.follows = "";
+    neovim-nightly-overlay.inputs.treefmt-nix.follows = "";
   };
 
   outputs =
