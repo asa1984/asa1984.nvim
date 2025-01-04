@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-config: |
+            accept-flake-config = true
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Check flake.nix
         run: nix flake check
