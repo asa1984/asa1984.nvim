@@ -48,15 +48,15 @@
 
           plugins = import ./nix/plugins.nix pkgs;
           tools = import ./nix/tools.nix pkgs;
-          neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
-          makeNeovimWrapper = import ./nix/wrapper.nix neovim-nightly pkgs;
           neovimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
+
+          inherit (self.lib.${system}) makeNeovimWrapper;
         in
         rec {
           default = neovim-minimal;
-          neovim-minimal = makeNeovimWrapper [ ];
-          neovim-light = makeNeovimWrapper tools.primarry;
-          neovim-full = makeNeovimWrapper (tools.primarry ++ tools.secondary);
+          neovim-minimal = makeNeovimWrapper { extraPackages = [ ]; };
+          neovim-light = makeNeovimWrapper { extraPackages = tools.primarry; };
+          neovim-full = makeNeovimWrapper { extraPackages = tools.primarry ++ tools.secondary; };
           config = neovimConfig;
         }
         // (import ./nix/pkgs { inherit pkgs; }).vimPlugins
@@ -67,16 +67,38 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [
-              self.overlays.default
-            ];
+            overlays = [ self.overlays.default ];
           };
           neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
-          makeNeovimWrapper = import ./nix/wrapper.nix neovim-nightly pkgs;
+          makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
+            inherit pkgs;
+            neovim = neovim-nightly;
+          };
         in
         {
-          # makeNeovimWrapper :: [extraPackages] -> derivation
+          # makeNeovimWrapper :: { extraPackages: List<Derivation> } -> Derivation
           inherit makeNeovimWrapper;
+        }
+      );
+
+      hmModules = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+          tools = import ./nix/tools.nix pkgs;
+          inputs = {
+            self = self;
+            system = system;
+            tools = tools;
+          };
+        in
+        {
+          default = import ./nix/modules/hm-module.nix {
+            inherit inputs system tools;
+          };
         }
       );
 

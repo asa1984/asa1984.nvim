@@ -1,7 +1,13 @@
-neovim: pkgs: extraPackages:
+{
+  neovim,
+  pkgs,
+}:
+{
+  extraPackages,
+}:
 let
-  plugins = import ./plugins.nix pkgs;
-  nvimConfig = pkgs.callPackage ./config.nix { inherit plugins; };
+  plugins = import ../plugins.nix pkgs;
+  nvimConfig = pkgs.callPackage ../config.nix { inherit plugins; };
 in
 pkgs.writeShellScriptBin "nvim" ''
   PATH=$PATH:${pkgs.lib.makeBinPath extraPackages}
