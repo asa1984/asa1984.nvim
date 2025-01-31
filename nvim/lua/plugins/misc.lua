@@ -55,4 +55,7 @@ return {
         dir = "@vim_stylus@",
         ft = "stylus",
     },
+
+    -- Enable tree-sitter highlight for inline code in .nix files
+    { name = "hmts.nvim", dir = "@hmts_nvim@", event = "BufRead", version = "*" },
 }

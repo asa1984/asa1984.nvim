@@ -1,3 +1,4 @@
+-- Better messages and notifications
 return {
     name = "noice.nvim",
     dir = "@noice_nvim@",

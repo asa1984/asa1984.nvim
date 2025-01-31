@@ -1,3 +1,4 @@
+-- Fuzzy finder
 return {
     name = "telescope.nvim",
     dir = "@telescope_nvim@",

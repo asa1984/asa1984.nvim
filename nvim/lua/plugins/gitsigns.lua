@@ -1,5 +1,5 @@
+-- Highlight git changes
 return {
-    -- Highlight git changes
     {
         name = "gitsigns.nvim",
         dir = "@gitsigns_nvim@",
