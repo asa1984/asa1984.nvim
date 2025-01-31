@@ -38,6 +38,12 @@ return {
         config = function()
             local select = require("CopilotChat.select")
             require("CopilotChat").setup({
+                mappings = {
+                    reset = {
+                        insert = "<C-r>",
+                        normal = "<C-r>",
+                    },
+                },
                 prompts = {
                     Explain = {
                         prompt = "/COPILOT_EXPLAIN カーソル上のコードの説明を段落をつけて書いてください。",
