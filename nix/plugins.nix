@@ -40,6 +40,7 @@ let
     nvim-hlslens
     smart-splits-nvim
     sort-nvim
+    which-key-nvim
 
     # Coding
     comment-nvim
