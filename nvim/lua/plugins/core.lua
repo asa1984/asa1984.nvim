@@ -42,10 +42,115 @@ return {
             ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
             ignored_buftypes = { "nofile" },
         },
+        keys = {
+            {
+                "<C-h>",
+                function()
+                    require("smart-splits").move_cursor_left()
+                end,
+                desc = "Move cursor left pane",
+            },
+            {
+                "<C-j>",
+                function()
+                    require("smart-splits").move_cursor_down()
+                end,
+                desc = "Move cursor down pane",
+            },
+            {
+                "<C-k>",
+                function()
+                    require("smart-splits").move_cursor_up()
+                end,
+                desc = "Move cursor up pane",
+            },
+            {
+                "<C-l>",
+                function()
+                    require("smart-splits").move_cursor_right()
+                end,
+                desc = "Move cursor right pane",
+            },
+            {
+                "<C-Left>",
+                function()
+                    require("smart-splits").resize_left()
+                end,
+                desc = "Resize left pane",
+            },
+            {
+                "<C-Down>",
+                function()
+                    require("smart-splits").resize_down()
+                end,
+                desc = "Resize down pane",
+            },
+            {
+                "<C-Up>",
+                function()
+                    require("smart-splits").resize_up()
+                end,
+                desc = "Resize up pane",
+            },
+            {
+                "<C-Right>",
+                function()
+                    require("smart-splits").resize_right()
+                end,
+                desc = "Resize right pane",
+            },
+            {
+                "<leader><leader>h",
+                function()
+                    require("smart-splits").swap_buf_left()
+                end,
+                desc = "Swap buffer left",
+            },
+            {
+                "<leader><leader>j",
+                function()
+                    require("smart-splits").swap_buf_down()
+                end,
+                desc = "Swap buffer down",
+            },
+            {
+                "<leader><leader>k",
+                function()
+                    require("smart-splits").swap_buf_up()
+                end,
+                desc = "Swap buffer up",
+            },
+            {
+                "<leader><leader>l",
+                function()
+                    require("smart-splits").swap_buf_right()
+                end,
+                desc = "Swap buffer right",
+            },
+        },
     },
 
     -- Better buffer remove
-    { name = "mini.bufremove", dir = "@mini_bufremove@" },
+    {
+        name = "mini.bufremove",
+        dir = "@mini_bufremove@",
+        keys = {
+            {
+                ";q",
+                function()
+                    require("mini.bufremove").delete(0, false)
+                end,
+                desc = "Close tab",
+            },
+            {
+                ";Q",
+                function()
+                    require("mini.bufremove").delete(0, true)
+                end,
+                desc = "Close tab (force)",
+            },
+        },
+    },
 
     -- Comment
     {

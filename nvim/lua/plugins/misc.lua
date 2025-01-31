@@ -32,6 +32,13 @@ return {
                 gitsigns = true,
             },
         },
+        keys = {
+            {
+                "<leader>z",
+                "<cmd>ZenMode<cr>",
+                desc = "Toggle zen mode",
+            },
+        },
     },
 
     -- Highlight color codes
