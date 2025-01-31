@@ -1,5 +1,5 @@
-local utils = require("heirline.utils")
 local conditions = require("heirline.conditions")
+local utils = require("heirline.utils")
 local get_icon = require("utils").get_icon
 
 local FileIcon = {
