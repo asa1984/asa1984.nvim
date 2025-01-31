@@ -61,14 +61,14 @@ return {
         dependencies = {
             { name = "nvim-treesitter", dir = "@nvim_treesitter@" },
         },
-        event = "BufRead",
+        event = { "BufRead", "BufNewFile" },
         config = function()
             require("hlchunk").setup({
                 chunk = {
                     enable = true,
                     use_treesitter = true,
-                    duration = 100,
-                    delay = 200,
+                    duration = 0,
+                    delay = 0,
                 },
                 indent = { enable = false },
                 line_num = { enable = false },
@@ -131,6 +131,7 @@ return {
                     mappings = {
                         ["<space>"] = false,
                     },
+                    position = "right",
                 },
                 filesystem = {
                     filtered_items = {
@@ -163,5 +164,64 @@ return {
                 },
             }
         end,
+    },
+
+    -- Statuscolumn
+    {
+        name = "statuscol.nvim",
+        dir = "@statuscol_nvim@",
+        event = "BufReadPre",
+        config = function()
+            local builtin = require("statuscol.builtin")
+
+            require("statuscol").setup({
+                bt_ignore = { "terminal", "nofile" },
+                relculright = true,
+                segments = {
+                    {
+                        text = { builtin.foldfunc },
+                        click = "v:lua.ScFa",
+                    },
+                    {
+                        text = { " " },
+                        click = "v:lua.ScFa",
+                    },
+                    {
+                        sign = {
+                            namespace = { "diagnostic/signs" },
+                            maxwidth = 2,
+                            auto = true,
+                        },
+                    },
+                    {
+                        text = { builtin.lnumfunc },
+                    },
+                    {
+                        sign = {
+                            namespace = { "gitsigns" },
+                            maxwidth = 1,
+                            colwidth = 1,
+                            wrap = true,
+                        },
+                    },
+                },
+            })
+        end,
+    },
+
+    -- Fold
+    {
+        name = "nvim-ufo",
+        dir = "@nvim_ufo@",
+        event = "BufReadPost",
+        dependencies = {
+            { name = "promise-async", dir = "@promise_async@" },
+            { name = "statuscol.nvim", dir = "@statuscol_nvim@" },
+        },
+        opts = {
+            provider_selector = function()
+                return { "treesitter", "indent" }
+            end,
+        },
     },
 }

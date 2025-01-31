@@ -84,12 +84,13 @@ let
     alpha-nvim
     heirline-nvim
     neo-tree-nvim
-    telescope-nvim
-    telescope-file-browser-nvim
-    toggleterm-nvim
     nvim-scrollbar
-    statuscol-nvim
+    nvim-ufo
     nvim-web-devicons
+    statuscol-nvim
+    telescope-file-browser-nvim
+    telescope-nvim
+    toggleterm-nvim
 
     # Misc
     denops-vim
