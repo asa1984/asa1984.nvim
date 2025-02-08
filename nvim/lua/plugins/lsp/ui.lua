@@ -32,11 +32,6 @@ return {
                 desc = "Show hover documentation",
             },
             {
-                "gd",
-                "<cmd>Lspsaga goto_definition<cr>",
-                desc = "Go to definition",
-            },
-            {
                 "<Plug>(lsp)a",
                 "<cmd>Lspsaga code_action<cr>",
                 desc = "Code action",

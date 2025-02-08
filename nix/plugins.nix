@@ -20,8 +20,8 @@ let
     # Overlays
     gitlinker-nvim
     hlchunk-nvim
-    mini-bufremove
     noice-nvim
+    snacks-nvim
     tailwind-tools-nvim
     ts-error-translator-nvim
     vim-stylus
@@ -89,13 +89,10 @@ let
     # UI
     alpha-nvim
     heirline-nvim
-    neo-tree-nvim
     nvim-scrollbar
     nvim-ufo
     nvim-web-devicons
     statuscol-nvim
-    telescope-file-browser-nvim
-    telescope-nvim
     toggleterm-nvim
 
     # Misc

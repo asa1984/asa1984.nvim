@@ -13,11 +13,6 @@ src.git = "https://github.com/uga-rosa/cmp-skkeleton"
 src.branch = "main"
 fetch.github = "uga-rosa/cmp-skkeleton"
 
-[mini-bufremove]
-src.git = "https://github.com/echasnovski/mini.bufremove"
-src.branch = "main"
-fetch.github = "echasnovski/mini.bufremove"
-
 [hlchunk-nvim]
 src.github = "shellRaining/hlchunk.nvim"
 src.prefix = "v"
@@ -47,3 +42,8 @@ fetch.github = "wavded/vim-stylus"
 src.github = "linrongbin16/gitlinker.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[snacks-nvim]
+src.github = "folke/snacks.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v$ver.tar.gz"

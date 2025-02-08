@@ -34,18 +34,6 @@
       sha256 = "sha256-eYwifigTRrXrW6xpFqLlqYFAftt64yweRGvvAvE7o5U=";
     };
   };
-  mini-bufremove = {
-    pname = "mini-bufremove";
-    version = "bba1d8b413d37081756f59200b8cf756181e5b9a";
-    src = fetchFromGitHub {
-      owner = "echasnovski";
-      repo = "mini.bufremove";
-      rev = "bba1d8b413d37081756f59200b8cf756181e5b9a";
-      fetchSubmodules = false;
-      sha256 = "sha256-xH8Jl6ZoRsjuzRe8J+vyTsWYzdjwP3QxWtUlpb8ScFE=";
-    };
-    date = "2025-01-31";
-  };
   noice-nvim = {
     pname = "noice-nvim";
     version = "4.10.0";
@@ -65,6 +53,14 @@
       sha256 = "sha256-V86J+8rg1/5ZUL9t0k2S5H+z7KZ1DZwLwmb5yM0+vts=";
     };
     date = "2025-01-05";
+  };
+  snacks-nvim = {
+    pname = "snacks-nvim";
+    version = "2.20.0";
+    src = fetchurl {
+      url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.20.0.tar.gz";
+      sha256 = "sha256-rJxkv8wdDwQJLh5G3qucF7eWPEZ9X6nsjdVagyfq9xk=";
+    };
   };
   tailwind-tools-nvim = {
     pname = "tailwind-tools-nvim";

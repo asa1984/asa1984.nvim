@@ -39,8 +39,8 @@ return {
         name = "smart-splits.nvim",
         dir = "@smart_splits_nvim@",
         opts = {
-            ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
-            ignored_buftypes = { "nofile" },
+            ignored_buftypes = { "nofile", "quickfix", "qf", "prompt" },
+            ignored_filetypes = { "snacks_picker_list" },
         },
         keys = {
             {
@@ -126,28 +126,6 @@ return {
                     require("smart-splits").swap_buf_right()
                 end,
                 desc = "Swap buffer right",
-            },
-        },
-    },
-
-    -- Better buffer remove
-    {
-        name = "mini.bufremove",
-        dir = "@mini_bufremove@",
-        keys = {
-            {
-                ";q",
-                function()
-                    require("mini.bufremove").delete(0, false)
-                end,
-                desc = "Close tab",
-            },
-            {
-                ";Q",
-                function()
-                    require("mini.bufremove").delete(0, true)
-                end,
-                desc = "Close tab (force)",
             },
         },
     },
