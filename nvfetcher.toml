@@ -42,3 +42,8 @@ fetch.url = "https://github.com/folke/noice.nvim/archive/refs/tags/v$ver.tar.gz"
 src.git = "https://github.com/wavded/vim-stylus"
 src.branch = "master"
 fetch.github = "wavded/vim-stylus"
+
+[gitlinker-nvim]
+src.github = "linrongbin16/gitlinker.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v$ver.tar.gz"

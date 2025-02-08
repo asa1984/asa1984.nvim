@@ -18,13 +18,14 @@ let
 
   plugins = with pkgs.vimPlugins; [
     # Overlays
+    gitlinker-nvim
     hlchunk-nvim
     mini-bufremove
     noice-nvim
     tailwind-tools-nvim
     ts-error-translator-nvim
-    vimdoc-ja
     vim-stylus
+    vimdoc-ja
 
     # Agent
     avante-nvim
@@ -83,6 +84,7 @@ let
 
     # Git
     gitsigns-nvim
+    gitlinker-nvim
 
     # UI
     alpha-nvim

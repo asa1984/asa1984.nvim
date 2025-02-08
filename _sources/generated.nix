@@ -18,6 +18,14 @@
     };
     date = "2023-11-26";
   };
+  gitlinker-nvim = {
+    pname = "gitlinker-nvim";
+    version = "5.0.1";
+    src = fetchurl {
+      url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.0.1.tar.gz";
+      sha256 = "sha256-XQyILnYPYe95rO+pnv8Tyx1i7UNI775AqVk7Sb8G/6M=";
+    };
+  };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
     version = "1.3.0";
@@ -28,35 +36,35 @@
   };
   mini-bufremove = {
     pname = "mini-bufremove";
-    version = "285bdac9596ee7375db50c0f76ed04336dcd2685";
+    version = "bba1d8b413d37081756f59200b8cf756181e5b9a";
     src = fetchFromGitHub {
       owner = "echasnovski";
       repo = "mini.bufremove";
-      rev = "285bdac9596ee7375db50c0f76ed04336dcd2685";
+      rev = "bba1d8b413d37081756f59200b8cf756181e5b9a";
       fetchSubmodules = false;
-      sha256 = "sha256-CB6ZIlrCQlh2W44Knnb10REDcvj4jcYkW/9CiOaoH2E=";
+      sha256 = "sha256-xH8Jl6ZoRsjuzRe8J+vyTsWYzdjwP3QxWtUlpb8ScFE=";
     };
-    date = "2024-11-04";
+    date = "2025-01-31";
   };
   noice-nvim = {
     pname = "noice-nvim";
-    version = "4.9.0";
+    version = "4.10.0";
     src = fetchurl {
-      url = "https://github.com/folke/noice.nvim/archive/refs/tags/v4.9.0.tar.gz";
-      sha256 = "sha256-USL0HyaQR+YY2VdjYX0UL+Aj0eFiL9On/dKeQ+kZhts=";
+      url = "https://github.com/folke/noice.nvim/archive/refs/tags/v4.10.0.tar.gz";
+      sha256 = "sha256-L9VGtlqsAezmi45ElHEmUFKCnrNQh8BA0ao9MJoyRr8=";
     };
   };
   skkeleton = {
     pname = "skkeleton";
-    version = "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61";
+    version = "8bb1b8782227291c8cbe2aa62a9af732557690cc";
     src = fetchFromGitHub {
       owner = "vim-skk";
       repo = "skkeleton";
-      rev = "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61";
+      rev = "8bb1b8782227291c8cbe2aa62a9af732557690cc";
       fetchSubmodules = false;
-      sha256 = "sha256-7oTJGGkUb3K8nzcPqlJrm316ECmgswy/+N8cTQghv3k=";
+      sha256 = "sha256-V86J+8rg1/5ZUL9t0k2S5H+z7KZ1DZwLwmb5yM0+vts=";
     };
-    date = "2024-10-14";
+    date = "2025-01-05";
   };
   tailwind-tools-nvim = {
     pname = "tailwind-tools-nvim";
@@ -88,14 +96,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "f81682b1484d9052930e526a59714eca19bdaf83";
+    version = "74272d91f482412f4342b5f1b22ef245b7a1cbc2";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "f81682b1484d9052930e526a59714eca19bdaf83";
+      rev = "74272d91f482412f4342b5f1b22ef245b7a1cbc2";
       fetchSubmodules = false;
-      sha256 = "sha256-3eVZ+RMsHvtortnWOsvuFVrqNapqOHvrspDonrtMCkU=";
+      sha256 = "sha256-fS5Xfz4wUfXv2WQzXt3zFq9eSv1rwPZ/8bDk4I5VzFE=";
     };
-    date = "2024-12-11";
+    date = "2025-02-07";
   };
 }

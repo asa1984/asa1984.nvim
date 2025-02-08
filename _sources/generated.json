@@ -19,6 +19,21 @@
         },
         "version": "2c268a407e9e843abd03c6fa77485541a4ddcd9a"
     },
+    "gitlinker-nvim": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "gitlinker-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-XQyILnYPYe95rO+pnv8Tyx1i7UNI775AqVk7Sb8G/6M=",
+            "type": "url",
+            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.0.1.tar.gz"
+        },
+        "version": "5.0.1"
+    },
     "hlchunk-nvim": {
         "cargoLocks": null,
         "date": null,
@@ -36,7 +51,7 @@
     },
     "mini-bufremove": {
         "cargoLocks": null,
-        "date": "2024-11-04",
+        "date": "2025-01-31",
         "extract": null,
         "name": "mini-bufremove",
         "passthru": null,
@@ -48,11 +63,11 @@
             "name": null,
             "owner": "echasnovski",
             "repo": "mini.bufremove",
-            "rev": "285bdac9596ee7375db50c0f76ed04336dcd2685",
-            "sha256": "sha256-CB6ZIlrCQlh2W44Knnb10REDcvj4jcYkW/9CiOaoH2E=",
+            "rev": "bba1d8b413d37081756f59200b8cf756181e5b9a",
+            "sha256": "sha256-xH8Jl6ZoRsjuzRe8J+vyTsWYzdjwP3QxWtUlpb8ScFE=",
             "type": "github"
         },
-        "version": "285bdac9596ee7375db50c0f76ed04336dcd2685"
+        "version": "bba1d8b413d37081756f59200b8cf756181e5b9a"
     },
     "noice-nvim": {
         "cargoLocks": null,
@@ -63,15 +78,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-USL0HyaQR+YY2VdjYX0UL+Aj0eFiL9On/dKeQ+kZhts=",
+            "sha256": "sha256-L9VGtlqsAezmi45ElHEmUFKCnrNQh8BA0ao9MJoyRr8=",
             "type": "url",
-            "url": "https://github.com/folke/noice.nvim/archive/refs/tags/v4.9.0.tar.gz"
+            "url": "https://github.com/folke/noice.nvim/archive/refs/tags/v4.10.0.tar.gz"
         },
-        "version": "4.9.0"
+        "version": "4.10.0"
     },
     "skkeleton": {
         "cargoLocks": null,
-        "date": "2024-10-14",
+        "date": "2025-01-05",
         "extract": null,
         "name": "skkeleton",
         "passthru": null,
@@ -83,11 +98,11 @@
             "name": null,
             "owner": "vim-skk",
             "repo": "skkeleton",
-            "rev": "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61",
-            "sha256": "sha256-7oTJGGkUb3K8nzcPqlJrm316ECmgswy/+N8cTQghv3k=",
+            "rev": "8bb1b8782227291c8cbe2aa62a9af732557690cc",
+            "sha256": "sha256-V86J+8rg1/5ZUL9t0k2S5H+z7KZ1DZwLwmb5yM0+vts=",
             "type": "github"
         },
-        "version": "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61"
+        "version": "8bb1b8782227291c8cbe2aa62a9af732557690cc"
     },
     "tailwind-tools-nvim": {
         "cargoLocks": null,
@@ -141,7 +156,7 @@
     },
     "vimdoc-ja": {
         "cargoLocks": null,
-        "date": "2024-12-11",
+        "date": "2025-02-07",
         "extract": null,
         "name": "vimdoc-ja",
         "passthru": null,
@@ -153,10 +168,10 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "f81682b1484d9052930e526a59714eca19bdaf83",
-            "sha256": "sha256-3eVZ+RMsHvtortnWOsvuFVrqNapqOHvrspDonrtMCkU=",
+            "rev": "74272d91f482412f4342b5f1b22ef245b7a1cbc2",
+            "sha256": "sha256-fS5Xfz4wUfXv2WQzXt3zFq9eSv1rwPZ/8bDk4I5VzFE=",
             "type": "github"
         },
-        "version": "f81682b1484d9052930e526a59714eca19bdaf83"
+        "version": "74272d91f482412f4342b5f1b22ef245b7a1cbc2"
     }
 }
