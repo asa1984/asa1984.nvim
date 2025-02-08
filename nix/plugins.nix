@@ -26,6 +26,9 @@ let
     vimdoc-ja
     vim-stylus
 
+    # Agent
+    avante-nvim
+
     # Plugin manager
     lazy-nvim
 
@@ -103,8 +106,10 @@ let
     presence-nvim
 
     # Internal libraries
+    dressing-nvim
     plenary-nvim
     promise-async
+    render-markdown-nvim
     nui-nvim
   ];
 in
