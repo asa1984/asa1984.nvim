@@ -28,3 +28,11 @@ jobs:
         run: nix build
       - name: Run Neovim in headless mode
         run: nix run . -- --headless -c "q"
+      - name: Create PR to asa1984/dotfiles
+        uses: asa1984/dotfiles@main
+        with:
+          input: asa1984-nvim
+          token: ${{ secrets.ASA1984_DOTFILES_TOKEN }}
+          title: |
+            chore(deps): update asa1984-nvim
+          body: ""
