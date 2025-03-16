@@ -21,7 +21,9 @@ jobs:
         with:
           extra-config: |
             accept-flake-config = true
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: asa1984/ci-binary-cache-action@v1
+        with:
+          packages: .
       - name: Check flake.nix
         run: nix flake check
       - name: Build Neovim
