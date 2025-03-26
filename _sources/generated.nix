@@ -20,10 +20,10 @@
   };
   gitlinker-nvim = {
     pname = "gitlinker-nvim";
-    version = "5.0.1";
+    version = "5.1.0";
     src = fetchurl {
-      url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.0.1.tar.gz";
-      sha256 = "sha256-XQyILnYPYe95rO+pnv8Tyx1i7UNI775AqVk7Sb8G/6M=";
+      url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.1.0.tar.gz";
+      sha256 = "sha256-RrbUFSXgvr18sXesTxHI3KyLZTBR812fDcjaF+Qel+M=";
     };
   };
   hlchunk-nvim = {
@@ -44,30 +44,30 @@
   };
   skkeleton = {
     pname = "skkeleton";
-    version = "8bb1b8782227291c8cbe2aa62a9af732557690cc";
+    version = "f1f0586c69d84c6ee5f3e5a4ca76cc188161b944";
     src = fetchFromGitHub {
       owner = "vim-skk";
       repo = "skkeleton";
-      rev = "8bb1b8782227291c8cbe2aa62a9af732557690cc";
+      rev = "f1f0586c69d84c6ee5f3e5a4ca76cc188161b944";
       fetchSubmodules = false;
-      sha256 = "sha256-V86J+8rg1/5ZUL9t0k2S5H+z7KZ1DZwLwmb5yM0+vts=";
+      sha256 = "sha256-egAD1VDmoks9WwsEMOgyJmiMRV+p4f6S4sWOMKAew48=";
     };
-    date = "2025-01-05";
+    date = "2025-02-09";
   };
   snacks-nvim = {
     pname = "snacks-nvim";
-    version = "2.20.0";
+    version = "2.22.0";
     src = fetchurl {
-      url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.20.0.tar.gz";
-      sha256 = "sha256-rJxkv8wdDwQJLh5G3qucF7eWPEZ9X6nsjdVagyfq9xk=";
+      url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.22.0.tar.gz";
+      sha256 = "sha256-gWwXLCZIAtzx7fuken5FvG3Rsf7eOM2O3249N+qaFEQ=";
     };
   };
   tailwind-tools-nvim = {
     pname = "tailwind-tools-nvim";
-    version = "0.3.1";
+    version = "0.3.2";
     src = fetchurl {
-      url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v0.3.1.tar.gz";
-      sha256 = "sha256-1FVc+N4nA10Cod4nu95Sjg/HXfctV6jOL43IbYZ8Oic=";
+      url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v0.3.2.tar.gz";
+      sha256 = "sha256-y9M1N20onZoKOpqF0nigcgqWVS0ya52xNG39qNlyydU=";
     };
   };
   ts-error-translator-nvim = {
@@ -92,14 +92,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "74272d91f482412f4342b5f1b22ef245b7a1cbc2";
+    version = "7f89e228b813a650455cbe169a3b3a3aca07259d";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "74272d91f482412f4342b5f1b22ef245b7a1cbc2";
+      rev = "7f89e228b813a650455cbe169a3b3a3aca07259d";
       fetchSubmodules = false;
-      sha256 = "sha256-fS5Xfz4wUfXv2WQzXt3zFq9eSv1rwPZ/8bDk4I5VzFE=";
+      sha256 = "sha256-Vunb/QDlSttcPdSM4F9JDsGqPX+NliEhj9khvbJWrRE=";
     };
-    date = "2025-02-07";
+    date = "2025-03-22";
   };
 }
