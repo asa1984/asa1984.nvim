@@ -15,13 +15,13 @@ pkgs: {
     biome
     deno
     eslint
-    nodePackages.prettier
-    nodePackages.typescript-language-server
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
+    nodePackages.prettier
+    typescript-language-server
 
     ## GraphQL
-    nodePackages.graphql-language-service-cli
+    graphql-language-service-cli
 
     # Programming languages
     ## Lua
