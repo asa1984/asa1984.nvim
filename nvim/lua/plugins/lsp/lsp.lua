@@ -64,6 +64,18 @@ return {
 
             -- ESLint
             lspconfig.eslint.setup({
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "javascript.jsx",
+                    "typescript",
+                    "typescriptreact",
+                    "typescript.tsx",
+                    "vue",
+                    "svelte",
+                    "astro",
+                    "graphql",
+                },
                 settings = {
                     format = true,
                 },
