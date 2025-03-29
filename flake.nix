@@ -9,10 +9,6 @@
 
     git-hooks.inputs.flake-compat.follows = "";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
-    neovim-nightly-overlay.inputs.flake-compat.follows = "";
-    neovim-nightly-overlay.inputs.git-hooks.follows = "";
-    neovim-nightly-overlay.inputs.hercules-ci-effects.follows = "";
-    neovim-nightly-overlay.inputs.treefmt-nix.follows = "";
   };
 
   outputs =
@@ -41,7 +37,6 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              # neovim-nightly-overlay.overlays.default # This cause build-error on aarch64-darwin
               self.overlays.default
             ];
           };
@@ -69,10 +64,9 @@
             inherit system;
             overlays = [ self.overlays.default ];
           };
-          neovim-nightly = neovim-nightly-overlay.packages.${system}.default;
           makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
             inherit pkgs;
-            neovim = neovim-nightly;
+            neovim = pkgs.neovim-unwrapped;
           };
         in
         {
