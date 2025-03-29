@@ -47,3 +47,8 @@ fetch.url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v$
 src.github = "folke/snacks.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[copilot-lua]
+src.git = "https://github.com/zbirenbaum/copilot.lua"
+src.branch = "master"
+fetch.github = "zbirenbaum/copilot.lua"

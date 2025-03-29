@@ -18,6 +18,7 @@ let
 
   plugins = with pkgs.vimPlugins; [
     # Overlays
+    copilot-lua
     gitlinker-nvim
     hlchunk-nvim
     noice-nvim
@@ -79,7 +80,7 @@ let
     luasnip
 
     # GitHub Copilot
-    copilot-lua
+    # copilot-lua
     CopilotChat-nvim
 
     # Git

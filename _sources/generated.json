@@ -20,6 +20,27 @@
         },
         "version": "2c268a407e9e843abd03c6fa77485541a4ddcd9a"
     },
+    "copilot-lua": {
+        "cargoLocks": null,
+        "date": "2025-03-28",
+        "extract": null,
+        "name": "copilot-lua",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "zbirenbaum",
+            "repo": "copilot.lua",
+            "rev": "f7e800b83ccbe512f45725aac6639ba036086474",
+            "sha256": "sha256-53U7iwhIdfrgRq65qMaEtpcO4wvaroiH4bBZPPouyyY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "f7e800b83ccbe512f45725aac6639ba036086474"
+    },
     "gitlinker-nvim": {
         "cargoLocks": null,
         "date": null,
