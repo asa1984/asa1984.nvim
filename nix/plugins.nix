@@ -22,6 +22,7 @@ let
     gitlinker-nvim
     hlchunk-nvim
     noice-nvim
+    nvim-lspconfig
     snacks-nvim
     tailwind-tools-nvim
     ts-error-translator-nvim
@@ -55,7 +56,6 @@ let
     ts-comments-nvim
 
     # LSP
-    nvim-lspconfig
     lspkind-nvim
     lspsaga-nvim
     rust-tools-nvim
