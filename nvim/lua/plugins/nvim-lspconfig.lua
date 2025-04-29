@@ -38,20 +38,12 @@ return {
         })
 
         -- TypeScript (on Node.js)
-        vim.lsp.config("ts_ls", {
-            root_markers = {
-                "package.json",
-            },
+        vim.lsp.config("vtsls", {
             workspace_required = true,
         })
 
         -- Deno
         vim.lsp.config("denols", {
-            root_markers = {
-                "deno.json",
-                "deno.jsonc",
-                "deps.ts",
-            },
             settings = {
                 deno = {
                     lint = true,
@@ -65,7 +57,7 @@ return {
             callback = function(args)
                 local bufnr = args.buf
                 vim.schedule(function()
-                    local nodejsLSPClients = vim.lsp.get_clients({ name = "ts_ls", bufnr = bufnr })
+                    local nodejsLSPClients = vim.lsp.get_clients({ name = "vtsls", bufnr = bufnr })
                     local denoLSPClients = vim.lsp.get_clients({ name = "denols", bufnr = bufnr })
                     if #nodejsLSPClients > 0 and #denoLSPClients > 0 then
                         for _, denoLSPClient in ipairs(denoLSPClients) do
@@ -151,7 +143,7 @@ return {
             "html",
             "svelte",
             "tailwindcss",
-            "ts_ls",
+            "vtsls",
             "vuels",
 
             -- Bash

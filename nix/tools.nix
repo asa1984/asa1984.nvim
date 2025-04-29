@@ -18,7 +18,7 @@ pkgs: {
     nodePackages."@astrojs/language-server"
     nodePackages."@tailwindcss/language-server"
     nodePackages.prettier
-    typescript-language-server
+    vtsls
 
     ## GraphQL
     graphql-language-service-cli
