@@ -6,6 +6,7 @@ vim.fileencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 
 -- Scroll
+vim.opt.scroll = 10
 vim.opt.scrolloff = 8
 
 -- Row
