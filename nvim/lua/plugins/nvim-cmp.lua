@@ -1,7 +1,7 @@
 return {
     name = "nvim-cmp",
     dir = "@nvim_cmp@",
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         { name = "cmp-nvim-lsp", dir = "@cmp_nvim_lsp@" },
         { name = "cmp-buffer", dir = "@cmp_buffer@" },
@@ -57,17 +57,17 @@ return {
         })
         -- Cmdline
         cmp.setup.cmdline({ "/", "?" }, {
-            mapping = cmp.mapping.preset.cmdline(),
+            completion = { completeopt = "menu,menuone,noselect" },
             sources = {
                 { name = "buffer" },
             },
         })
         cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-                { name = "cmdline" },
-            }),
+            completion = { completeopt = "menu,menuone,noselect" },
+            sources = cmp.config.sources(
+                { { name = "path" } },
+                { { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } }
+            ),
         })
     end,
 }
