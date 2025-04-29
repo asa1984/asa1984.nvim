@@ -4,131 +4,87 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    git-hooks.url = "github:cachix/git-hooks.nix";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
-    git-hooks.inputs.flake-compat.follows = "";
-    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
   outputs =
-    inputs@{
-      self,
-      neovim-nightly-overlay,
-      nixpkgs,
-      git-hooks,
-      ...
-    }:
+    inputs:
     let
-      allSystems = [
-        "aarch64-linux" # 64-bit ARM Linux
-        "x86_64-linux" # 64-bit x86 Linux
-        "aarch64-darwin" # 64-bit ARM macOS
-        "x86_64-darwin" # 64-bit x86 macOS
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
       ];
-      forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
     in
-    {
-      overlays = import ./nix/overlays;
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      inherit systems;
 
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs {
+      flake = {
+        overlays = import ./nix/overlays;
+
+        lib =
+          let
+            forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
+          in
+          forAllSystems (
+            system:
+            let
+              pkgs = import inputs.nixpkgs {
+                inherit system;
+                overlays = [ inputs.self.overlays.default ];
+              };
+              makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
+                inherit pkgs;
+                neovim = pkgs.neovim-unwrapped;
+              };
+            in
+            {
+              # makeNeovimWrapper :: { extraPackages: List<Derivation> } -> Derivation
+              inherit makeNeovimWrapper;
+            }
+          );
+      };
+
+      perSystem =
+        {
+          pkgs,
+          self',
+          system,
+          ...
+        }:
+        {
+          _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
             overlays = [
-              self.overlays.default
+              (import ./nix/overlays).default
             ];
           };
 
-          plugins = import ./nix/plugins.nix pkgs;
-          tools = import ./nix/tools.nix pkgs;
-          neovimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
+          packages =
+            let
+              plugins = import ./nix/plugins.nix pkgs;
+              tools = import ./nix/tools.nix pkgs;
+              neovimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
 
-          inherit (self.lib.${system}) makeNeovimWrapper;
-        in
-        rec {
-          default = neovim-minimal;
-          neovim-minimal = makeNeovimWrapper { extraPackages = [ ]; };
-          neovim-light = makeNeovimWrapper { extraPackages = tools.primarry; };
-          neovim-full = makeNeovimWrapper { extraPackages = tools.primarry ++ tools.secondary; };
-          config = neovimConfig;
-        }
-        // (import ./nix/pkgs { inherit pkgs; }).vimPlugins
-      );
+              makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
+                inherit pkgs;
+                neovim = pkgs.neovim-unwrapped;
+              };
+            in
+            rec {
+              default = neovim-minimal;
+              neovim-minimal = makeNeovimWrapper { extraPackages = [ ]; };
+              neovim-light = makeNeovimWrapper { extraPackages = tools.primarry; };
+              neovim-full = makeNeovimWrapper { extraPackages = tools.primarry ++ tools.secondary; };
+              config = neovimConfig;
+            }
+            // (import ./nix/pkgs { inherit pkgs; }).vimPlugins;
 
-      lib = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
-          makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
-            inherit pkgs;
-            neovim = pkgs.neovim-unwrapped;
-          };
-        in
-        {
-          # makeNeovimWrapper :: { extraPackages: List<Derivation> } -> Derivation
-          inherit makeNeovimWrapper;
-        }
-      );
-
-      hmModules = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
-          tools = import ./nix/tools.nix pkgs;
-          inputs = {
-            self = self;
-            system = system;
-            tools = tools;
-          };
-        in
-        {
-          default = import ./nix/modules/hm-module.nix {
-            inherit inputs system tools;
-          };
-        }
-      );
-
-      checks = forAllSystems (system: {
-        pre-commit-check = git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            nixfmt-rfc-style.enable = true;
-            stylua.enable = true;
-            actionlint.enable = true;
-          };
+          formatter = pkgs.nixfmt-tree;
         };
-      });
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
-            packages = with pkgs; [
-              stylua
-              lua-language-server
-              nvfetcher
-            ];
-          };
-        }
-      );
     };
-
-  nixConfig = {
-    extra-substituters = [ "https://nix-community.cachix.org" ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
 }

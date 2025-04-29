@@ -1,54 +1,49 @@
-[vimdoc-ja]
-src.git = "https://github.com/vim-jp/vimdoc-ja"
+[copilot-lua]
+src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"
-fetch.github = "vim-jp/vimdoc-ja"
-
-[skkeleton]
-src.git = "https://github.com/vim-skk/skkeleton"
-src.branch = "main"
-fetch.github = "vim-skk/skkeleton"
-
-[cmp-skkeleton]
-src.git = "https://github.com/uga-rosa/cmp-skkeleton"
-src.branch = "main"
-fetch.github = "uga-rosa/cmp-skkeleton"
-
-[hlchunk-nvim]
-src.github = "shellRaining/hlchunk.nvim"
-src.prefix = "v"
-fetch.url = "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v$ver.tar.gz"
-
-[ts-error-translator-nvim]
-src.github = "dmmulroy/ts-error-translator.nvim"
-src.prefix = "v"
-fetch.url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v$ver.tar.gz"
-
-[tailwind-tools-nvim]
-src.github = "luckasRanarison/tailwind-tools.nvim"
-src.prefix = "v"
-fetch.url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v$ver.tar.gz"
-
-[noice-nvim]
-src.github = "folke/noice.nvim"
-src.prefix = "v"
-fetch.url = "https://github.com/folke/noice.nvim/archive/refs/tags/v$ver.tar.gz"
-
-[vim-stylus]
-src.git = "https://github.com/wavded/vim-stylus"
-src.branch = "master"
-fetch.github = "wavded/vim-stylus"
+fetch.github = "zbirenbaum/copilot.lua"
 
 [gitlinker-nvim]
 src.github = "linrongbin16/gitlinker.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v$ver.tar.gz"
 
+[hlchunk-nvim]
+src.github = "shellRaining/hlchunk.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[noice-nvim]
+src.github = "folke/noice.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/folke/noice.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[nvim-lspconfig]
+src.github = "neovim/nvim-lspconfig"
+src.prefix = "v"
+fetch.url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v$ver.tar.gz"
+
 [snacks-nvim]
 src.github = "folke/snacks.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v$ver.tar.gz"
 
-[copilot-lua]
-src.git = "https://github.com/zbirenbaum/copilot.lua"
+[tailwind-tools-nvim]
+src.github = "luckasRanarison/tailwind-tools.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[ts-error-translator-nvim]
+src.github = "dmmulroy/ts-error-translator.nvim"
+src.prefix = "v"
+fetch.url = "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[vim-stylus]
+src.git = "https://github.com/wavded/vim-stylus"
 src.branch = "master"
-fetch.github = "zbirenbaum/copilot.lua"
+fetch.github = "wavded/vim-stylus"
+
+[vimdoc-ja]
+src.git = "https://github.com/vim-jp/vimdoc-ja"
+src.branch = "master"
+fetch.github = "vim-jp/vimdoc-ja"

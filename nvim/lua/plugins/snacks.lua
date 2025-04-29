@@ -7,6 +7,7 @@ return {
         bufdelete = { enabled = true },
         explorer = { enabled = true },
         gitbrowse = { enabled = true },
+        image = { enabled = true },
         lazygit = { enabled = true },
         notifier = { enabled = true },
         picker = { enabled = true },
