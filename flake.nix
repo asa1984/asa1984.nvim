@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     git-hooks.url = "github:cachix/git-hooks.nix";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     git-hooks.inputs.flake-compat.follows = "";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +13,6 @@
   outputs =
     inputs@{
       self,
-      neovim-nightly-overlay,
       nixpkgs,
       git-hooks,
       ...
