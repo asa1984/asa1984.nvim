@@ -56,15 +56,18 @@ let
     ts-comments-nvim
 
     # LSP
+    SchemaStore-nvim
     lspkind-nvim
     lspsaga-nvim
-    rust-tools-nvim
-    crates-nvim
-    neodev-nvim
-    trouble-nvim
-    SchemaStore-nvim
-    tiny-inline-diagnostic-nvim
     neoconf-nvim
+    neodev-nvim
+    rust-tools-nvim
+    tiny-inline-diagnostic-nvim
+    trouble-nvim
+
+    # Rust
+    rustaceanvim
+    crates-nvim
 
     # Formatter
     conform-nvim
