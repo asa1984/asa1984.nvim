@@ -11,6 +11,7 @@ return {
             excluded_buftypes = {
                 "TelescopePrompt",
                 "neo-tree",
+                "nofile",
                 "noice",
                 "notify",
                 "prompt",
