@@ -15,7 +15,10 @@ return {
         local neoconf = require("neoconf")
         local util = require("conform.util")
 
-        local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), { require_cwd = true })
+        local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), {
+            require_cwd = true,
+            args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
+        })
         local prettier_for_project =
             merge_table_immutable(require("conform.formatters.prettier"), { require_cwd = true })
         local prettier_like_formatters =
