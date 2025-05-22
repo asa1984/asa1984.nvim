@@ -73,14 +73,15 @@ let
     conform-nvim
 
     # Completion
-    nvim-cmp
-    cmp-nvim-lsp
+    blink-cmp
     cmp-buffer
     cmp-cmdline
+    cmp-nvim-lsp
     cmp-path
     cmp_luasnip
     copilot-cmp
     luasnip
+    nvim-cmp
 
     # GitHub Copilot
     # copilot-lua

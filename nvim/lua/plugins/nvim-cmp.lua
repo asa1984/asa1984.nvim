@@ -2,6 +2,7 @@ return {
     name = "nvim-cmp",
     dir = "@nvim_cmp@",
     event = { "InsertEnter", "CmdlineEnter" },
+    cond = false,
     dependencies = {
         { name = "cmp-nvim-lsp", dir = "@cmp_nvim_lsp@" },
         { name = "cmp-buffer", dir = "@cmp_buffer@" },
