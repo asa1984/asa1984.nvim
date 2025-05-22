@@ -24,8 +24,12 @@ return {
             val = {
                 { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
                 { type = "padding", val = 1 },
-                button("f", get_icon("Search") .. "  Telescope", "<cmd>Telescope find_files<cr>"),
-                button("r", get_icon("SearchText") .. "  Ripgrep", "<cmd>Telescope live_grep<cr>"),
+                button("f", get_icon("Search") .. "  File Picker", function()
+                    Snacks.picker.files()
+                end),
+                button("g", get_icon("SearchText") .. "  Grep", function()
+                    Snacks.picker.grep()
+                end),
                 button("l", get_icon("Lazy") .. " Lazy", "<cmd>Lazy<cr>"),
                 button("q", get_icon("BufferClose") .. "  Quit", "<cmd>qa<cr>"),
             },
