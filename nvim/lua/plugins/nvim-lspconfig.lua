@@ -141,6 +141,7 @@ return {
             "denols",
             "eslint",
             "html",
+            "prismals",
             "svelte",
             "tailwindcss",
             "vtsls",
