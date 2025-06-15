@@ -81,6 +81,7 @@ return {
                 -- Markup
                 html = { "prettier" },
                 markdown = { "prettier" },
+                mdx = { "prettier" },
 
                 -- CSS
                 css = { "prettier" },

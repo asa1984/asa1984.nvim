@@ -47,3 +47,8 @@ fetch.github = "wavded/vim-stylus"
 src.git = "https://github.com/vim-jp/vimdoc-ja"
 src.branch = "master"
 fetch.github = "vim-jp/vimdoc-ja"
+
+[mdx-nvim]
+src.git = "https://github.com/davidmh/mdx.nvim"
+src.branch = "main"
+fetch.github = "davidmh/mdx.nvim"

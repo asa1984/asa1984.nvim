@@ -8,15 +8,15 @@
 {
   copilot-lua = {
     pname = "copilot-lua";
-    version = "a5c390f8d8e85b501b22dcb2f30e0cbbd69d5ff0";
+    version = "c1bb86abbed1a52a11ab3944ef00c8410520543d";
     src = fetchFromGitHub {
       owner = "zbirenbaum";
       repo = "copilot.lua";
-      rev = "a5c390f8d8e85b501b22dcb2f30e0cbbd69d5ff0";
+      rev = "c1bb86abbed1a52a11ab3944ef00c8410520543d";
       fetchSubmodules = false;
-      sha256 = "sha256-8zXdRLugrLRK+sg9k9I1MSE5KAdnY017IkquCQisZt4=";
+      sha256 = "sha256-qxHpIsFFLDG/jtk6e1hkOZgDSRA5Q0+DMxxAxckNhIc=";
     };
-    date = "2025-04-25";
+    date = "2025-06-05";
   };
   gitlinker-nvim = {
     pname = "gitlinker-nvim";
@@ -34,6 +34,18 @@
       sha256 = "sha256-eYwifigTRrXrW6xpFqLlqYFAftt64yweRGvvAvE7o5U=";
     };
   };
+  mdx-nvim = {
+    pname = "mdx-nvim";
+    version = "464a74be368dce212cff02f6305845dc7f209ab3";
+    src = fetchFromGitHub {
+      owner = "davidmh";
+      repo = "mdx.nvim";
+      rev = "464a74be368dce212cff02f6305845dc7f209ab3";
+      fetchSubmodules = false;
+      sha256 = "sha256-jpMcrWx/Rg9sMfkQFXnIM8VB5qRuSB/70wuSh6Y5uFk=";
+    };
+    date = "2025-01-04";
+  };
   noice-nvim = {
     pname = "noice-nvim";
     version = "4.10.0";
@@ -44,10 +56,10 @@
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
-    version = "2.1.0";
+    version = "2.3.0";
     src = fetchurl {
-      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.1.0.tar.gz";
-      sha256 = "sha256-QonjF3S80g76GkD1cxPGzujVrbNVYplEVga0NGXasfI=";
+      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.3.0.tar.gz";
+      sha256 = "sha256-62g08J54pK67iVgC6PmeapQ0osRqIiS7gj72AiO0yk8=";
     };
   };
   snacks-nvim = {
@@ -88,14 +100,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "2dcca3e4fb3d0134fa4bf1ca269b93807332fe37";
+    version = "f798fbee93dc18230d0570144061799e4700b2e1";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "2dcca3e4fb3d0134fa4bf1ca269b93807332fe37";
+      rev = "f798fbee93dc18230d0570144061799e4700b2e1";
       fetchSubmodules = false;
-      sha256 = "sha256-ZROA5Te0kF3aGxapBX1pUd5m9ZGlb1XZihFh1fyZNZU=";
+      sha256 = "sha256-f5yfOvZ3dMkr/gP1pJVaBmoptFs86t1Soppya59OUYE=";
     };
-    date = "2025-04-26";
+    date = "2025-06-15";
   };
 }

@@ -20,6 +20,7 @@ let
     # Overlays
     copilot-lua
     gitlinker-nvim
+    mdx-nvim
     hlchunk-nvim
     noice-nvim
     nvim-lspconfig

@@ -65,4 +65,19 @@ return {
 
     -- Enable tree-sitter highlight for inline code in .nix files
     { name = "hmts.nvim", dir = "@hmts_nvim@", event = "BufRead", version = "*" },
+
+    -- Syntax highlighting for MDX files
+    {
+        name = "mdx.nvim",
+        dir = "@mdx_nvim@",
+        ft = { "mdx" },
+        config = true,
+        init = function()
+            vim.filetype.add({
+                extension = {
+                    mdx = "mdx",
+                },
+            })
+        end,
+    },
 }
