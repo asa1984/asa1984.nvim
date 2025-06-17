@@ -1,6 +1,7 @@
 return {
     name = "avante.nvim",
     dir = "@avante_nvim@",
+    cond = false,
     dependencies = {
         -- Requirements
         { name = "dressing.nvim", dir = "@dressing_nvim@" },

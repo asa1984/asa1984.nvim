@@ -18,10 +18,11 @@ let
 
   plugins = with pkgs.vimPlugins; [
     # Overlays
+    claudecode-nvim
     copilot-lua
     gitlinker-nvim
-    mdx-nvim
     hlchunk-nvim
+    mdx-nvim
     noice-nvim
     nvim-lspconfig
     snacks-nvim

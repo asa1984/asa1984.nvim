@@ -1,4 +1,25 @@
 {
+    "claudecode-nvim": {
+        "cargoLocks": null,
+        "date": "2025-06-17",
+        "extract": null,
+        "name": "claudecode-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "coder",
+            "repo": "claudecode.nvim",
+            "rev": "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657",
+            "sha256": "sha256-fNiaaAwDJIdBBhKnp7+7ysw1BwY1l0yput4vnRAFpco=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657"
+    },
     "copilot-lua": {
         "cargoLocks": null,
         "date": "2025-06-05",
@@ -181,11 +202,11 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "f798fbee93dc18230d0570144061799e4700b2e1",
-            "sha256": "sha256-f5yfOvZ3dMkr/gP1pJVaBmoptFs86t1Soppya59OUYE=",
+            "rev": "28c75de6561e7ff3ab346e3c64b66ada0b674cba",
+            "sha256": "sha256-Zg1PNH18hwgsB4gOY0RKnPmsKTo/CmjuMRCcq+bKLBg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "f798fbee93dc18230d0570144061799e4700b2e1"
+        "version": "28c75de6561e7ff3ab346e3c64b66ada0b674cba"
     }
 }

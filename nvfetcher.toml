@@ -1,3 +1,8 @@
+[claudecode-nvim]
+src.git = "https://github.com/coder/claudecode.nvim"
+src.branch = "main"
+fetch.github = "coder/claudecode.nvim"
+
 [copilot-lua]
 src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"
@@ -12,6 +17,11 @@ fetch.url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v$
 src.github = "shellRaining/hlchunk.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v$ver.tar.gz"
+
+[mdx-nvim]
+src.git = "https://github.com/davidmh/mdx.nvim"
+src.branch = "main"
+fetch.github = "davidmh/mdx.nvim"
 
 [noice-nvim]
 src.github = "folke/noice.nvim"
@@ -47,8 +57,3 @@ fetch.github = "wavded/vim-stylus"
 src.git = "https://github.com/vim-jp/vimdoc-ja"
 src.branch = "master"
 fetch.github = "vim-jp/vimdoc-ja"
-
-[mdx-nvim]
-src.git = "https://github.com/davidmh/mdx.nvim"
-src.branch = "main"
-fetch.github = "davidmh/mdx.nvim"

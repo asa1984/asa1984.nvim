@@ -6,6 +6,18 @@
   dockerTools,
 }:
 {
+  claudecode-nvim = {
+    pname = "claudecode-nvim";
+    version = "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657";
+    src = fetchFromGitHub {
+      owner = "coder";
+      repo = "claudecode.nvim";
+      rev = "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657";
+      fetchSubmodules = false;
+      sha256 = "sha256-fNiaaAwDJIdBBhKnp7+7ysw1BwY1l0yput4vnRAFpco=";
+    };
+    date = "2025-06-17";
+  };
   copilot-lua = {
     pname = "copilot-lua";
     version = "c1bb86abbed1a52a11ab3944ef00c8410520543d";
@@ -100,13 +112,13 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "f798fbee93dc18230d0570144061799e4700b2e1";
+    version = "28c75de6561e7ff3ab346e3c64b66ada0b674cba";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "f798fbee93dc18230d0570144061799e4700b2e1";
+      rev = "28c75de6561e7ff3ab346e3c64b66ada0b674cba";
       fetchSubmodules = false;
-      sha256 = "sha256-f5yfOvZ3dMkr/gP1pJVaBmoptFs86t1Soppya59OUYE=";
+      sha256 = "sha256-Zg1PNH18hwgsB4gOY0RKnPmsKTo/CmjuMRCcq+bKLBg=";
     };
     date = "2025-06-15";
   };
