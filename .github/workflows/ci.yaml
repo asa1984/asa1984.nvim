@@ -16,6 +16,14 @@ jobs:
       id-token: "write"
     timeout-minutes: 15
     steps:
+      - id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.SWAMPMAN_APP_ID }}
+          private-key: ${{ secrets.SWAMPMAN_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            dotfiles
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
         with:
@@ -31,10 +39,10 @@ jobs:
       - name: Run Neovim in headless mode
         run: nix run . -- --headless -c "q"
       - name: Create PR to asa1984/dotfiles
-        uses: asa1984/dotfiles@main
-        with:
-          input: asa1984-nvim
-          token: ${{ secrets.ASA1984_DOTFILES_TOKEN }}
-          title: |
-            chore(deps): update asa1984-nvim
-          body: ""
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        run: |
+          gh workflow run update-flake-input.yaml \
+            --repo asa1984/dotfiles \
+            --field input="asa1984-nvim" \
+            --field title="chore(deps): update asa1984-nvim"
