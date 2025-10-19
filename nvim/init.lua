@@ -5,9 +5,6 @@ vim.g.mapleader = " " -- You need to set this before lazy loading
 local lazypath = "@lazy_nvim@"
 vim.opt.rtp:prepend(lazypath)
 
-local configpath = "@asa1984_nvim_config_path@"
-vim.opt.rtp:prepend(configpath)
-
 require("lazy").setup({
     defaults = {
         lazy = true,

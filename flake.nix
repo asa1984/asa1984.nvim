@@ -65,21 +65,17 @@
 
           packages =
             let
-              plugins = import ./nix/plugins.nix pkgs;
               tools = import ./nix/tools.nix pkgs;
-              neovimConfig = pkgs.callPackage ./nix/config.nix { inherit plugins; };
 
               makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
                 inherit pkgs;
-                neovim = pkgs.neovim-unwrapped;
               };
             in
             rec {
               default = neovim-minimal;
-              neovim-minimal = makeNeovimWrapper { extraPackages = [ ]; };
-              neovim-light = makeNeovimWrapper { extraPackages = tools.primarry; };
-              neovim-full = makeNeovimWrapper { extraPackages = tools.primarry ++ tools.secondary; };
-              config = neovimConfig;
+              neovim-minimal = makeNeovimWrapper { };
+              neovim-light = makeNeovimWrapper { tools = tools.primarry; };
+              neovim-full = makeNeovimWrapper { tools = tools.primarry ++ tools.secondary; };
             }
             // (import ./nix/pkgs { inherit pkgs; }).vimPlugins;
 
