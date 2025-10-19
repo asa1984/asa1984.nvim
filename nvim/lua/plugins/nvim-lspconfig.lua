@@ -83,7 +83,9 @@ return {
                 "graphql", -- for graphql-eslint
             },
             settings = {
-                format = true, -- for stylistic
+                codeActionOnSave = {
+                    enable = true,
+                },
             },
         })
 
