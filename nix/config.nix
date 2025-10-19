@@ -1,16 +1,9 @@
 {
   plugins,
-  lib,
   stdenv,
-  vimPlugins,
 }:
 let
-  envVars = plugins // {
-    treesitter_parsers = lib.pipe (builtins.attrValues vimPlugins.nvim-treesitter-parsers) [
-      (builtins.map builtins.toString)
-      (builtins.concatStringsSep ",")
-    ];
-  };
+  envVars = plugins;
   preprocessed = stdenv.mkDerivation (
     envVars
     // {
