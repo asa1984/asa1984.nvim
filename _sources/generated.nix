@@ -8,34 +8,34 @@
 {
   claudecode-nvim = {
     pname = "claudecode-nvim";
-    version = "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657";
+    version = "0de96a855a095ed4595bbd3a50ba7f49d694f2b6";
     src = fetchFromGitHub {
       owner = "coder";
       repo = "claudecode.nvim";
-      rev = "030fa7c1d3c05e0e889ab61fcd0d49cb9bf26657";
+      rev = "0de96a855a095ed4595bbd3a50ba7f49d694f2b6";
       fetchSubmodules = false;
-      sha256 = "sha256-fNiaaAwDJIdBBhKnp7+7ysw1BwY1l0yput4vnRAFpco=";
+      sha256 = "sha256-ZG/B3GrAeBWvT4RuIiRl8hwWOBH7J8KwBlwZvZS+kSE=";
     };
-    date = "2025-06-17";
+    date = "2025-10-16";
   };
   copilot-lua = {
     pname = "copilot-lua";
-    version = "c1bb86abbed1a52a11ab3944ef00c8410520543d";
+    version = "3123983d00ae6859f8bc987d14ebb524bb41b618";
     src = fetchFromGitHub {
       owner = "zbirenbaum";
       repo = "copilot.lua";
-      rev = "c1bb86abbed1a52a11ab3944ef00c8410520543d";
+      rev = "3123983d00ae6859f8bc987d14ebb524bb41b618";
       fetchSubmodules = false;
-      sha256 = "sha256-qxHpIsFFLDG/jtk6e1hkOZgDSRA5Q0+DMxxAxckNhIc=";
+      sha256 = "sha256-LM7JFBhBQ9uSWODzVJYT29cT6ra5fLFz/5uoto4/K30=";
     };
-    date = "2025-06-05";
+    date = "2025-10-17";
   };
   gitlinker-nvim = {
     pname = "gitlinker-nvim";
-    version = "5.1.0";
+    version = "5.2.1";
     src = fetchurl {
-      url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.1.0.tar.gz";
-      sha256 = "sha256-RrbUFSXgvr18sXesTxHI3KyLZTBR812fDcjaF+Qel+M=";
+      url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.2.1.tar.gz";
+      sha256 = "sha256-9AMl0YktcZV6zwsEeeJvzQUfP+JDM4ZAFa1ca8BMkSE=";
     };
   };
   hlchunk-nvim = {
@@ -68,18 +68,18 @@
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
-    version = "2.3.0";
+    version = "2.5.0";
     src = fetchurl {
-      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.3.0.tar.gz";
-      sha256 = "sha256-62g08J54pK67iVgC6PmeapQ0osRqIiS7gj72AiO0yk8=";
+      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.5.0.tar.gz";
+      sha256 = "sha256-qkamikHFhRM2vE/MGRuEAkIMq9W1mVqO0Bc9CvVAX6Y=";
     };
   };
   snacks-nvim = {
     pname = "snacks-nvim";
-    version = "2.22.0";
+    version = "2.23.0";
     src = fetchurl {
-      url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.22.0.tar.gz";
-      sha256 = "sha256-gWwXLCZIAtzx7fuken5FvG3Rsf7eOM2O3249N+qaFEQ=";
+      url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.23.0.tar.gz";
+      sha256 = "sha256-xw33jgnXzaJqyMrXg+UaDumNgQ9CN0MLZzWB9EfjXk4=";
     };
   };
   tailwind-tools-nvim = {
@@ -112,14 +112,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "28c75de6561e7ff3ab346e3c64b66ada0b674cba";
+    version = "740b54984be6c1db5829f86ea189dd2a968ae5ef";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "28c75de6561e7ff3ab346e3c64b66ada0b674cba";
+      rev = "740b54984be6c1db5829f86ea189dd2a968ae5ef";
       fetchSubmodules = false;
-      sha256 = "sha256-Zg1PNH18hwgsB4gOY0RKnPmsKTo/CmjuMRCcq+bKLBg=";
+      sha256 = "sha256-LBuod0/8YQPzTNwclQmhBw4eshYCa1fN5thvPF2AR1U=";
     };
-    date = "2025-06-15";
+    date = "2025-10-19";
   };
 }
