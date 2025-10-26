@@ -35,6 +35,7 @@ pkgs: {
     # Configuration languages
     ## TOML
     taplo
+    prisma-language-server
   ];
 
   secondary = with pkgs; [
