@@ -128,6 +128,10 @@ return {
             },
         })
 
+        vim.lsp.config("oxlint", {
+            cmd = { utils.find_node_modules_bin("oxc_language_server") },
+        })
+
         -- Typst
         vim.lsp.config("tinymist", {
             offset_encoding = "utf-8",
@@ -156,14 +160,14 @@ return {
             "taplo", -- TOML
             "yamlls", -- YAML
 
-            -- Web
+            -- JavaScript/TypeScript ecosystem
             "astro",
             "biome",
             "cssls",
             "denols",
             "eslint",
             "html",
-            "prismals",
+            "oxlint",
             "svelte",
             "tailwindcss",
             "vtsls",
