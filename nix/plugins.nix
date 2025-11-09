@@ -63,7 +63,6 @@ let
     lspsaga-nvim
     neoconf-nvim
     neodev-nvim
-    rust-tools-nvim
     tiny-inline-diagnostic-nvim
     trouble-nvim
 
