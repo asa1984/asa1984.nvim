@@ -6,7 +6,7 @@ end
 return {
     name = "conform.nvim",
     dir = "@conform_nvim@",
-    event = { "BufWritePre" },
+    event = "BufReadPost",
     cmd = { "ConformInfo" },
     dependencies = {
         { name = "neoconf.nvim", dir = "@neoconf_nvim@" },
