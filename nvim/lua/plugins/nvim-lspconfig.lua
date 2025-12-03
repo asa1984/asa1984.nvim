@@ -29,11 +29,6 @@ return {
             end)()
         )
 
-        -- Biome
-        vim.lsp.config("biome", {
-            cmd = { utils.find_node_modules_bin("biome"), "lsp-proxy" },
-        })
-
         -- CSS
         vim.lsp.config("cssls", {
             filetypes = {
