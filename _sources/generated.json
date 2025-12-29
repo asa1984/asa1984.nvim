@@ -1,7 +1,7 @@
 {
     "claudecode-nvim": {
         "cargoLocks": null,
-        "date": "2025-10-16",
+        "date": "2025-12-05",
         "extract": null,
         "name": "claudecode-nvim",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "coder",
             "repo": "claudecode.nvim",
-            "rev": "0de96a855a095ed4595bbd3a50ba7f49d694f2b6",
-            "sha256": "sha256-ZG/B3GrAeBWvT4RuIiRl8hwWOBH7J8KwBlwZvZS+kSE=",
+            "rev": "6091df0e8edcdc92526cec23bbb42f63c0bb5ff2",
+            "sha256": "sha256-PmSYIE7j9C2ckJc9wDIm4KCozXP0z1U9TOdItnDyoDQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "0de96a855a095ed4595bbd3a50ba7f49d694f2b6"
+        "version": "6091df0e8edcdc92526cec23bbb42f63c0bb5ff2"
     },
     "copilot-lua": {
         "cargoLocks": null,
-        "date": "2025-10-17",
+        "date": "2025-12-20",
         "extract": null,
         "name": "copilot-lua",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "zbirenbaum",
             "repo": "copilot.lua",
-            "rev": "3123983d00ae6859f8bc987d14ebb524bb41b618",
-            "sha256": "sha256-LM7JFBhBQ9uSWODzVJYT29cT6ra5fLFz/5uoto4/K30=",
+            "rev": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64",
+            "sha256": "sha256-879050VUJpWBrHxUA3hRpcYbn3KgBGpVpKLdSVOwbIA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "3123983d00ae6859f8bc987d14ebb524bb41b618"
+        "version": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64"
     },
     "gitlinker-nvim": {
         "cargoLocks": null,
@@ -50,11 +50,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-9AMl0YktcZV6zwsEeeJvzQUfP+JDM4ZAFa1ca8BMkSE=",
+            "sha256": "sha256-XtWiSvasYBjsjBB9kugoGyplbUxeyYaOAHikhkL+8TM=",
             "type": "url",
-            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.2.1.tar.gz"
+            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.3.0.tar.gz"
         },
-        "version": "5.2.1"
+        "version": "5.3.0"
     },
     "hlchunk-nvim": {
         "cargoLocks": null,
@@ -73,7 +73,7 @@
     },
     "mdx-nvim": {
         "cargoLocks": null,
-        "date": "2025-01-04",
+        "date": "2025-12-05",
         "extract": null,
         "name": "mdx-nvim",
         "passthru": null,
@@ -85,12 +85,12 @@
             "name": null,
             "owner": "davidmh",
             "repo": "mdx.nvim",
-            "rev": "464a74be368dce212cff02f6305845dc7f209ab3",
-            "sha256": "sha256-jpMcrWx/Rg9sMfkQFXnIM8VB5qRuSB/70wuSh6Y5uFk=",
+            "rev": "30222997ed4c0c7cc7447c4fce360fce87101bbf",
+            "sha256": "sha256-QaPYSTH59j8tUa5rTY8I9VdQWLkhy8SWhNigEXHFn1c=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "464a74be368dce212cff02f6305845dc7f209ab3"
+        "version": "30222997ed4c0c7cc7447c4fce360fce87101bbf"
     },
     "noice-nvim": {
         "cargoLocks": null,
@@ -131,11 +131,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-xw33jgnXzaJqyMrXg+UaDumNgQ9CN0MLZzWB9EfjXk4=",
+            "sha256": "sha256-QBlHP5TrwgZ5waZR6CbfBiEpnrNv5W8TNYIOivv9x0g=",
             "type": "url",
-            "url": "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.23.0.tar.gz"
+            "url": "https://github.com/folke/snacks.nvim/archive/refs/tags/v2.30.0.tar.gz"
         },
-        "version": "2.23.0"
+        "version": "2.30.0"
     },
     "tailwind-tools-nvim": {
         "cargoLocks": null,
@@ -161,11 +161,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lM/fbs5iGBBnPcKsKolpvamJjZxDC+x69OBAoUIz4lE=",
+            "sha256": "sha256-SSLrY2+0shDy/gvZeFmMGlLEZdtbMQT7XBS0WvF8X98=",
             "type": "url",
-            "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v1.2.0.tar.gz"
+            "url": "https://github.com/dmmulroy/ts-error-translator.nvim/archive/refs/tags/v2.0.1.tar.gz"
         },
-        "version": "1.2.0"
+        "version": "2.0.1"
     },
     "vim-stylus": {
         "cargoLocks": null,
@@ -190,7 +190,7 @@
     },
     "vimdoc-ja": {
         "cargoLocks": null,
-        "date": "2025-10-19",
+        "date": "2025-12-27",
         "extract": null,
         "name": "vimdoc-ja",
         "passthru": null,
@@ -202,11 +202,11 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "740b54984be6c1db5829f86ea189dd2a968ae5ef",
-            "sha256": "sha256-LBuod0/8YQPzTNwclQmhBw4eshYCa1fN5thvPF2AR1U=",
+            "rev": "81fdcad027d511d32ae8664c8e4976bf91647334",
+            "sha256": "sha256-E+i7wK6MfRAsW9vDX0AdS2NzxKNU8+aX9DNg+cOVWW8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "740b54984be6c1db5829f86ea189dd2a968ae5ef"
+        "version": "81fdcad027d511d32ae8664c8e4976bf91647334"
     }
 }
