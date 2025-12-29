@@ -5,8 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
 
   outputs =
@@ -34,7 +32,7 @@
             let
               pkgs = import inputs.nixpkgs {
                 inherit system;
-                overlays = [ inputs.self.overlays.default ];
+                overlays = [ (import ./nix/overlays) ];
               };
               makeNeovimWrapper = import ./nix/lib/make-neovim-wrapper.nix {
                 inherit pkgs;

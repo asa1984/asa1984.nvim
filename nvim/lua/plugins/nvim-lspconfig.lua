@@ -162,6 +162,7 @@ return {
             "denols",
             "eslint",
             "html",
+            "mdx_analyzer",
             "oxlint",
             "svelte",
             "tailwindcss",

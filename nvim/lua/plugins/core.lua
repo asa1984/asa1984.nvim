@@ -156,7 +156,11 @@ return {
         dependencies = {
             { name = "nvim-treesitter", dir = "@nvim_treesitter@" },
         },
-        config = true,
+        opts = {
+            aliases = {
+                ["mdx"] = "html",
+            },
+        },
     },
 
     -- Better sort

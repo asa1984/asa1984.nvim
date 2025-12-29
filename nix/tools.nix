@@ -1,41 +1,31 @@
 pkgs: {
   primarry = with pkgs; [
-    # Inner tools
-    ## For telescope.nvim
+    # Neovim plugin dependencies
+    lazygit
     ripgrep
 
-    ## Git TUI
-    lazygit
-
-    # Web
-    ## HTML/CSS
-    nodePackages.vscode-langservers-extracted
-
-    ## JavaScript/TypeScript/Frameworks
+    # Language servers and formatters
     biome
     deno
     eslint
-    nodePackages."@astrojs/language-server"
-    nodePackages."@tailwindcss/language-server"
-    nodePackages.prettier
-    vtsls
-
-    ## GraphQL
     graphql-language-service-cli
-
-    # Programming languages
-    ## Lua
     lua-language-server
-    stylua
-
-    ## Nix
+    mdx-language-server
     nil
     nixfmt-rfc-style
-
-    # Configuration languages
-    ## TOML
-    taplo
+    nodePackages."@astrojs/language-server"
+    nodePackages."@tailwindcss/language-server"
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.prettier
+    nodePackages.vscode-langservers-extracted
     prisma-language-server
+    pyright
+    ruff
+    shellcheck
+    shfmt
+    stylua
+    taplo
+    vtsls
   ];
 
   secondary = with pkgs; [
@@ -44,9 +34,6 @@ pkgs: {
 
     # C/C++
     clang-tools
-
-    # Docker
-    nodePackages.dockerfile-language-server-nodejs
 
     # Go
     gopls
@@ -61,14 +48,6 @@ pkgs: {
 
     # Protocol Buffers
     buf
-
-    # Python
-    ruff
-    pyright
-
-    # Shell
-    shellcheck
-    shfmt
 
     # Typst
     tinymist
