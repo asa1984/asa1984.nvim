@@ -31,11 +31,13 @@ return {
                 button("g", get_icon("SearchText") .. "  Grep", function()
                     Snacks.picker.grep()
                 end),
-                button("l", get_icon("Lazy") .. " Lazy", "<cmd>Lazy<cr>"),
-                button("q", get_icon("BufferClose") .. "  Quit", "<cmd>qa<cr>"),
-                button("<leader>", get_icon("Config") .. "  Config", function()
+                button("r", get_icon("History") .. "  Recent Files", function()
+                    Snacks.picker.grep()
+                end),
+                button("l", get_icon("Git") .. "  Lazygit", function()
                     Snacks.lazygit()
                 end),
+                button("q", get_icon("BufferClose") .. "  Quit", "<cmd>qa<cr>"),
             },
             position = "center",
         }

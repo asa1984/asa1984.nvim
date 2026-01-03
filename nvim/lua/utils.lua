@@ -42,6 +42,7 @@ local icons = {
     GitStaged = "✓",
     GitUnstaged = "✗",
     GitUntracked = "★",
+    History = "",
     LSPLoaded = "",
     LSPLoading1 = "",
     LSPLoading2 = "󰀚",
