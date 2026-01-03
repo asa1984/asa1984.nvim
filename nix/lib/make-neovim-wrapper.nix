@@ -45,20 +45,32 @@ let
     vimAlias = true;
     customLuaRC = # Lua
       ''
-        vim.opt.rtp:prepend("${luaConfig}")
-        vim.opt.runtimepath:append("${treesitterParserPathsString}")
+        local treesitter_parser_paths = os.getenv("TREESITTER_PARSER_PATHS")
+        vim.opt.runtimepath:append(treesitter_parser_paths)
 
-        ${builtins.readFile "${luaConfig}/init.lua"}
+        local config_path = os.getenv("NVIM_LUA_CONFIG_DIR")
+        vim.opt.rtp:prepend(config_path)
+        local init = config_path .. "/init.lua"
+        if vim.fn.filereadable(init) == 1 then
+            vim.cmd("luafile " .. init)
+        end
       '';
   };
 
-  extraWrapperArgs = [
-    "--suffix"
-    "PATH"
-    ":"
-    (pkgs.lib.makeBinPath tools)
-  ];
+  wrappedNeovim = pkgs.wrapNeovimUnstable neovim (
+    config
+    // {
+      wrapperArgs = config.wrapperArgs ++ [
+        "--suffix"
+        "PATH"
+        ":"
+        (pkgs.lib.makeBinPath tools)
+      ];
+    }
+  );
 in
-(pkgs.wrapNeovimUnstable neovim (
-  config // { wrapperArgs = config.wrapperArgs ++ extraWrapperArgs; }
-))
+pkgs.writeShellScriptBin "nvim" ''
+  export NVIM_LUA_CONFIG_DIR="${luaConfig}"
+  export TREESITTER_PARSER_PATHS="${treesitterParserPathsString}"
+  exec ${pkgs.lib.getExe wrappedNeovim} "$@"
+''
