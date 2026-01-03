@@ -9,7 +9,7 @@ return {
             auto_trigger = true,
         },
         filetypes = {
-            markdown = true,
+            markdown = false,
             gitcommit = true,
             yaml = true,
         },
