@@ -4,20 +4,21 @@ local get_icon = require("utils").get_icon
 return {
     name = "alpha.nvim",
     dir = "@alpha_nvim@",
+    dependencies = {
+        { name = "plenary.nvim", dir = "@plenary_nvim@" },
+    },
     event = "VimEnter",
     opts = function()
-        local theme = require("alpha.themes.theta")
-        local config = theme.config
+        local config = require("alpha.themes.theta").config
         local button = require("alpha.themes.dashboard").button
         local logo = {
-            "                                                     ",
-            "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-            "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-            "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-            "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-            "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-            "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-            "                                                     ",
+            "                                                        ",
+            "  ██████  ██████   ██████   █████  ███    ██ ██  ██████ ",
+            " ██    ██ ██   ██ ██       ██   ██ ████   ██ ██ ██      ",
+            " ██    ██ ██████  ██   ███ ███████ ██ ██  ██ ██ ██      ",
+            " ██    ██ ██   ██ ██    ██ ██   ██ ██  ██ ██ ██ ██      ",
+            "  ██████  ██   ██  ██████  ██   ██ ██   ████ ██  ██████ ",
+            "                                                        ",
         }
         local buttons = {
             type = "group",
@@ -32,6 +33,9 @@ return {
                 end),
                 button("l", get_icon("Lazy") .. " Lazy", "<cmd>Lazy<cr>"),
                 button("q", get_icon("BufferClose") .. "  Quit", "<cmd>qa<cr>"),
+                button("<leader>", get_icon("Config") .. "  Config", function()
+                    Snacks.lazygit()
+                end),
             },
             position = "center",
         }
