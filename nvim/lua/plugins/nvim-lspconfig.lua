@@ -145,6 +145,14 @@ return {
             },
         })
 
+        vim.lsp.config("tailwindcss", {
+            settings = {
+                tailwindCSS = {
+                    classFunctions = { "clsx", "cn", "cva", "tv" },
+                },
+            },
+        })
+
         vim.lsp.enable({
             -- Config like
             "buf_ls", -- Protocol Buffers
