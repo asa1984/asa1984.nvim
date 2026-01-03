@@ -1,8 +1,3 @@
-[claudecode-nvim]
-src.git = "https://github.com/coder/claudecode.nvim"
-src.branch = "main"
-fetch.github = "coder/claudecode.nvim"
-
 [copilot-lua]
 src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"
@@ -37,11 +32,6 @@ fetch.url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v$ver.ta
 src.github = "folke/snacks.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/folke/snacks.nvim/archive/refs/tags/v$ver.tar.gz"
-
-[tailwind-tools-nvim]
-src.github = "luckasRanarison/tailwind-tools.nvim"
-src.prefix = "v"
-fetch.url = "https://github.com/luckasRanarison/tailwind-tools.nvim/archive/refs/tags/v$ver.tar.gz"
 
 [ts-error-translator-nvim]
 src.github = "dmmulroy/ts-error-translator.nvim"
