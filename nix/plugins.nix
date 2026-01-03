@@ -18,7 +18,6 @@ let
 
   plugins = with pkgs.vimPlugins; [
     # Overlays
-    claudecode-nvim
     copilot-lua
     gitlinker-nvim
     hlchunk-nvim
@@ -30,9 +29,6 @@ let
     ts-error-translator-nvim
     vim-stylus
     vimdoc-ja
-
-    # Agent
-    avante-nvim
 
     # Plugin manager
     lazy-nvim
@@ -83,10 +79,6 @@ let
     copilot-cmp
     luasnip
     nvim-cmp
-
-    # GitHub Copilot
-    # copilot-lua
-    CopilotChat-nvim
 
     # Git
     gitsigns-nvim
