@@ -1,7 +1,28 @@
 {
+    "conform-nvim": {
+        "cargoLock": null,
+        "date": "2026-01-18",
+        "extract": null,
+        "name": "conform-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "stevearc",
+            "repo": "conform.nvim",
+            "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
+            "sha256": "sha256-M2mGNF8iARiQ6MzIFSSE/2BRDSj1+XEP/C44dwg8MQ8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "c2526f1cde528a66e086ab1668e996d162c75f4f"
+    },
     "copilot-lua": {
-        "cargoLocks": null,
-        "date": "2025-12-20",
+        "cargoLock": null,
+        "date": "2026-02-06",
         "extract": null,
         "name": "copilot-lua",
         "passthru": null,
@@ -13,15 +34,15 @@
             "name": null,
             "owner": "zbirenbaum",
             "repo": "copilot.lua",
-            "rev": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64",
-            "sha256": "sha256-879050VUJpWBrHxUA3hRpcYbn3KgBGpVpKLdSVOwbIA=",
+            "rev": "3faffefbd6ddeb52578535ec6b730e0b72d7fd1a",
+            "sha256": "sha256-pZjz2W9DERdHHNJS6ilLsfnCIdB7N0NaDYxjcyOvTKU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64"
+        "version": "3faffefbd6ddeb52578535ec6b730e0b72d7fd1a"
     },
     "gitlinker-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "gitlinker-nvim",
@@ -29,14 +50,14 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-XtWiSvasYBjsjBB9kugoGyplbUxeyYaOAHikhkL+8TM=",
+            "sha256": "sha256-eocovfFgevBrHSdTjm2Rn6I6JnfwhvOZNTTBg/wXiNY=",
             "type": "url",
-            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.3.0.tar.gz"
+            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.4.0.tar.gz"
         },
-        "version": "5.3.0"
+        "version": "5.4.0"
     },
     "hlchunk-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "hlchunk-nvim",
@@ -51,7 +72,7 @@
         "version": "1.3.0"
     },
     "mdx-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2025-12-05",
         "extract": null,
         "name": "mdx-nvim",
@@ -72,7 +93,7 @@
         "version": "30222997ed4c0c7cc7447c4fce360fce87101bbf"
     },
     "noice-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "noice-nvim",
@@ -87,7 +108,7 @@
         "version": "4.10.0"
     },
     "nvim-lspconfig": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "nvim-lspconfig",
@@ -95,14 +116,14 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-qkamikHFhRM2vE/MGRuEAkIMq9W1mVqO0Bc9CvVAX6Y=",
+            "sha256": "sha256-BdPsL1aQ6N6Vo6HkLtngmRK6HRsq9mIWPCXx/vSdgss=",
             "type": "url",
-            "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.5.0.tar.gz"
+            "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.6.0.tar.gz"
         },
-        "version": "2.5.0"
+        "version": "2.6.0"
     },
     "snacks-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "snacks-nvim",
@@ -117,7 +138,7 @@
         "version": "2.30.0"
     },
     "ts-error-translator-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "ts-error-translator-nvim",
@@ -132,7 +153,7 @@
         "version": "2.0.1"
     },
     "vim-stylus": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2023-02-03",
         "extract": null,
         "name": "vim-stylus",
@@ -153,8 +174,8 @@
         "version": "99031823d216c4433fb5c2661a33a43fbebaff61"
     },
     "vimdoc-ja": {
-        "cargoLocks": null,
-        "date": "2025-12-30",
+        "cargoLock": null,
+        "date": "2026-02-15",
         "extract": null,
         "name": "vimdoc-ja",
         "passthru": null,
@@ -166,11 +187,11 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "6bd30665b5d023cfd735fd12ec232716b8b6cd7b",
-            "sha256": "sha256-t+OXWqa2k6Y78O5IFuUq+S0VXwCDAhuEsB9RwPVozZA=",
+            "rev": "2442f1944cf7cff66cf1c2432092debc341c9cdd",
+            "sha256": "sha256-Ei9Su6JQmX93gJ2fImb9n112qCc2jDDbL/vKBO1gwQ8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "6bd30665b5d023cfd735fd12ec232716b8b6cd7b"
+        "version": "2442f1944cf7cff66cf1c2432092debc341c9cdd"
     }
 }

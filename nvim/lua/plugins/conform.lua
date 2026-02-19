@@ -15,6 +15,7 @@ return {
         local neoconf = require("neoconf")
         local util = require("conform.util")
 
+        local oxfmt_for_project = merge_table_immutable(require("conform.formatters.oxfmt"), { require_cwd = true })
         local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), {
             require_cwd = true,
             args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
@@ -22,7 +23,7 @@ return {
         local prettier_for_project =
             merge_table_immutable(require("conform.formatters.prettier"), { require_cwd = true })
         local prettier_like_formatters =
-            { "biome_for_project", "prettier_for_project", "prettier", stop_after_first = true }
+            { "oxfmt_for_project", "biome_for_project", "prettier_for_project", "prettier", stop_after_first = true }
 
         -- If denols is attached as LSP, use `deno fmt`
         -- Otherwise, use formatters for Node.js like environment
@@ -34,14 +35,27 @@ return {
             local clients = vim.lsp.get_clients()
             for _, client in pairs(clients) do
                 if client.name == "denols" then
-                    return { "biome_for_project", "prettier_for_project", "deno_fmt", stop_after_first = true }
+                    return {
+                        "oxfmt_for_project",
+                        "biome_for_project",
+                        "prettier_for_project",
+                        "deno_fmt",
+                        stop_after_first = true,
+                    }
                 end
             end
-            return { "biome_for_project", "prettier_for_project", "prettier", stop_after_first = true }
+            return {
+                "oxfmt_for_project",
+                "biome_for_project",
+                "prettier_for_project",
+                "prettier",
+                stop_after_first = true,
+            }
         end
 
         require("conform").setup({
             formatters = {
+                oxfmt_for_project = oxfmt_for_project,
                 biome_for_project = biome_for_project,
                 prettier_for_project = prettier_for_project,
                 stylua = { require_cwd = true },

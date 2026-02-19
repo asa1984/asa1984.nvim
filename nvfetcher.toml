@@ -1,3 +1,8 @@
+[conform-nvim]
+src.git = "https://github.com/stevearc/conform.nvim"
+src.branch = "master"
+fetch.github = "stevearc/conform.nvim"
+
 [copilot-lua]
 src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"

@@ -19,6 +19,7 @@ let
   plugins = with pkgs.vimPlugins; [
     # Overlays
     copilot-lua
+    conform-nvim
     gitlinker-nvim
     hlchunk-nvim
     mdx-nvim
@@ -65,9 +66,6 @@ let
     # Rust
     rustaceanvim
     crates-nvim
-
-    # Formatter
-    conform-nvim
 
     # Completion
     blink-cmp
