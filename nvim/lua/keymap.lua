@@ -1,3 +1,5 @@
+vim.keymap.set("v", "p", "P")
+
 -- Save file
 vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>")
 vim.keymap.set("i", "<C-s>", "<Cmd>w<CR>")

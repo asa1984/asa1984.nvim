@@ -7,6 +7,7 @@ return {
         suggestion = {
             enabled = true,
             auto_trigger = true,
+            keymap = { accept = "<C-l>" },
         },
         filetypes = {
             markdown = false,
