@@ -9,6 +9,7 @@ pkgs: {
     deno
     eslint
     graphql-language-service-cli
+    just-lsp
     lua-language-server
     mdx-language-server
     nil

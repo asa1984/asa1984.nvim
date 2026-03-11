@@ -160,6 +160,7 @@ return {
             "dockerls", -- Docker
             "graphql", -- GraphQL
             "jsonls", -- JSON
+            "just", -- justfile
             "prismals", -- Prisma ORM
             "taplo", -- TOML
             "yamlls", -- YAML
