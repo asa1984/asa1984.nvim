@@ -123,11 +123,6 @@ return {
             },
         })
 
-        vim.lsp.config("oxlint", {
-            cmd = { utils.find_node_modules_bin("oxlint"), "--lsp" },
-            root_markers = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlintrc.config.ts" },
-        })
-
         -- Typst
         vim.lsp.config("tinymist", {
             offset_encoding = "utf-8",
