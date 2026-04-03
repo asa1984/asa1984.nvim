@@ -15,7 +15,14 @@ return {
         local neoconf = require("neoconf")
         local util = require("conform.util")
 
-        local oxfmt_for_project = merge_table_immutable(require("conform.formatters.oxfmt"), { require_cwd = true })
+        local oxfmt_for_project = merge_table_immutable(require("conform.formatters.oxfmt"), {
+            require_cwd = true,
+            cwd = require("conform.util").root_file({
+                ".oxfmtrc.json",
+                ".oxfmtrc.jsonc",
+                "oxfmt.config.ts",
+            }),
+        })
         local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), {
             require_cwd = true,
             args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
