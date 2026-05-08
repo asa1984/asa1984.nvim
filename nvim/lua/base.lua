@@ -51,6 +51,37 @@ vim.opt.updatetime = 500
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.mouse = "a" -- Disable mouse
 
+-- Use OSC 52 for clipboard over SSH.
+-- Many terminals (e.g. WezTerm) do not allow OSC 52 read for security reasons,
+-- so paste falls back to a local cache of the last copied text. To paste from
+-- the host clipboard, use the terminal's native paste shortcut in insert mode.
+if vim.env.SSH_TTY then
+    local osc52 = require("vim.ui.clipboard.osc52")
+    local cache = { ["+"] = { "" }, ["*"] = { "" } }
+    local function make_copy(reg)
+        local inner = osc52.copy(reg)
+        return function(lines, regtype)
+            cache[reg] = lines
+            inner(lines, regtype)
+        end
+    end
+    vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+            ["+"] = make_copy("+"),
+            ["*"] = make_copy("*"),
+        },
+        paste = {
+            ["+"] = function()
+                return cache["+"]
+            end,
+            ["*"] = function()
+                return cache["*"]
+            end,
+        },
+    }
+end
+
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
