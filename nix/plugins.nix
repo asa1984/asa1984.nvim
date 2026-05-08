@@ -85,6 +85,7 @@ let
     # UI
     alpha-nvim
     heirline-nvim
+    neo-tree-nvim
     nvim-scrollbar
     nvim-ufo
     nvim-web-devicons

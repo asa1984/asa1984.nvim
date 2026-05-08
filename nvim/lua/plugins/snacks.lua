@@ -5,7 +5,6 @@ return {
     lazy = false,
     opts = {
         bufdelete = { enabled = true },
-        explorer = { enabled = true },
         gitbrowse = { enabled = true },
         lazygit = { enabled = true },
         notifier = { enabled = true },
@@ -26,32 +25,6 @@ return {
                 Snacks.bufdelete.delete({ force = true })
             end,
             desc = "Delete buffer (force)",
-        },
-
-        -- File Explorer
-        {
-            "<leader>e",
-            function()
-                Snacks.explorer({
-                    git_status_open = true,
-                    replace_netrw = true,
-                    win = {
-                        list = {
-                            keys = {
-                                ["<c-l>"] = function()
-                                    local keys = vim.api.nvim_replace_termcodes("<C-w>l", true, true, true)
-                                    vim.api.nvim_feedkeys(keys, "n", false)
-                                end,
-                                ["<c-h>"] = function()
-                                    local keys = vim.api.nvim_replace_termcodes("<C-w>h", true, true, true)
-                                    vim.api.nvim_feedkeys(keys, "n", false)
-                                end,
-                            },
-                        },
-                    },
-                })
-            end,
-            desc = "File Explorer",
         },
 
         -- Picker
