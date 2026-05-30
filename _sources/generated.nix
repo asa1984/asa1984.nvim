@@ -90,6 +90,14 @@
       sha256 = "sha256-SSLrY2+0shDy/gvZeFmMGlLEZdtbMQT7XBS0WvF8X98=";
     };
   };
+  rustowl-nvim = {
+    pname = "rustowl-nvim";
+    version = "0.4.0";
+    src = fetchurl {
+      url = "https://github.com/cordx56/rustowl/archive/refs/tags/v0.4.0.tar.gz";
+      sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    };
+  };
   vim-stylus = {
     pname = "vim-stylus";
     version = "99031823d216c4433fb5c2661a33a43fbebaff61";
