@@ -51,7 +51,21 @@ return {
                 desc = "Move cursor left pane",
             },
             {
+                "<A-h>",
+                function()
+                    require("smart-splits").move_cursor_left()
+                end,
+                desc = "Move cursor left pane",
+            },
+            {
                 "<C-j>",
+                function()
+                    require("smart-splits").move_cursor_down()
+                end,
+                desc = "Move cursor down pane",
+            },
+            {
+                "<A-j>",
                 function()
                     require("smart-splits").move_cursor_down()
                 end,
@@ -65,7 +79,21 @@ return {
                 desc = "Move cursor up pane",
             },
             {
+                "<A-k>",
+                function()
+                    require("smart-splits").move_cursor_up()
+                end,
+                desc = "Move cursor up pane",
+            },
+            {
                 "<C-l>",
+                function()
+                    require("smart-splits").move_cursor_right()
+                end,
+                desc = "Move cursor right pane",
+            },
+            {
+                "<A-l>",
                 function()
                     require("smart-splits").move_cursor_right()
                 end,
