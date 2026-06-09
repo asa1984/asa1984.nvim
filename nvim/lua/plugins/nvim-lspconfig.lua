@@ -65,6 +65,28 @@ return {
             workspace_required = true,
         })
 
+        -- tsgo (typescript-go native LSP, provided by nvim-lspconfig).
+        -- lspconfig's tsgo config only runs `tsgo` from PATH, so resolve and
+        -- run the project-local `node_modules/.bin/tsgo` ourselves. Only attach
+        -- when that binary exists, so tsgo is used solely for projects that
+        -- ship it; otherwise the LspAttach handler keeps vtsls.
+        vim.lsp.config("tsgo", {
+            cmd = function(dispatchers, config)
+                local bin = config.root_dir .. "/node_modules/.bin/tsgo"
+                return vim.lsp.rpc.start({ bin, "--lsp", "--stdio" }, dispatchers, {
+                    cwd = config.cmd_cwd,
+                    env = config.cmd_env,
+                })
+            end,
+            root_dir = function(bufnr, on_dir)
+                local fname = vim.api.nvim_buf_get_name(bufnr)
+                local root = vim.fs.root(fname, { "package.json", ".git" })
+                if root and vim.uv.fs_stat(root .. "/node_modules/.bin/tsgo") then
+                    on_dir(root)
+                end
+            end,
+        })
+
         -- Deno
         vim.lsp.config("denols", {
             settings = {
@@ -75,14 +97,25 @@ return {
             },
         })
 
-        -- Disable denols if working with Node.js
+        -- Resolve overlapping TypeScript servers.
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
                 local bufnr = args.buf
                 vim.schedule(function()
-                    local nodejsLSPClients = vim.lsp.get_clients({ name = "vtsls", bufnr = bufnr })
+                    local tsgoLSPClients = vim.lsp.get_clients({ name = "tsgo", bufnr = bufnr })
+                    local vtslsLSPClients = vim.lsp.get_clients({ name = "vtsls", bufnr = bufnr })
                     local denoLSPClients = vim.lsp.get_clients({ name = "denols", bufnr = bufnr })
-                    if #nodejsLSPClients > 0 and #denoLSPClients > 0 then
+
+                    -- Prefer project-local tsgo over vtsls.
+                    if #tsgoLSPClients > 0 then
+                        for _, vtslsLSPClient in ipairs(vtslsLSPClients) do
+                            vim.lsp.stop_client(vtslsLSPClient.id)
+                        end
+                        vtslsLSPClients = {}
+                    end
+
+                    -- Disable denols if working with Node.js.
+                    if (#tsgoLSPClients > 0 or #vtslsLSPClients > 0) and #denoLSPClients > 0 then
                         for _, denoLSPClient in ipairs(denoLSPClients) do
                             vim.lsp.stop_client(denoLSPClient.id)
                         end
@@ -192,6 +225,7 @@ return {
             "oxlint",
             "svelte",
             "tailwindcss",
+            "tsgo",
             "vtsls",
             "vuels",
 
