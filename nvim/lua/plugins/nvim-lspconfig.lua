@@ -29,6 +29,27 @@ return {
             end)()
         )
 
+        -- Astro
+        -- Prefer a project-local `astro-ls` (node_modules/.bin) when present so
+        -- the project's own Astro/TypeScript versions are used. Otherwise fall
+        -- back to the one on PATH. filetypes/root_markers/init_options are
+        -- inherited from lspconfig.
+        vim.lsp.config("astro", {
+            cmd = function(dispatchers, config)
+                local bin = "astro-ls"
+                if config.root_dir then
+                    local local_bin = config.root_dir .. "/node_modules/.bin/astro-ls"
+                    if vim.uv.fs_stat(local_bin) then
+                        bin = local_bin
+                    end
+                end
+                return vim.lsp.rpc.start({ bin, "--stdio" }, dispatchers, {
+                    cwd = config.cmd_cwd,
+                    env = config.cmd_env,
+                })
+            end,
+        })
+
         -- CSS
         vim.lsp.config("cssls", {
             filetypes = {
