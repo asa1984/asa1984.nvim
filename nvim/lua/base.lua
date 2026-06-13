@@ -86,6 +86,13 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Detect .mdx files as the `mdx` filetype (used by the MDX LSP, formatter, etc.)
+vim.filetype.add({
+    extension = {
+        mdx = "mdx",
+    },
+})
+
 -- Lua indent settings
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",

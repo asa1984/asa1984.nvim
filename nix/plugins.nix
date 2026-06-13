@@ -22,7 +22,6 @@ let
     conform-nvim
     gitlinker-nvim
     hlchunk-nvim
-    mdx-nvim
     noice-nvim
     nvim-lspconfig
     snacks-nvim
@@ -99,7 +98,6 @@ let
     zen-mode-nvim
     nvim-highlight-colors
     hmts-nvim
-    presence-nvim
 
     # Internal libraries
     dressing-nvim

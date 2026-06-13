@@ -48,6 +48,11 @@ let
         local treesitter_parser_paths = os.getenv("TREESITTER_PARSER_PATHS")
         vim.opt.runtimepath:append(treesitter_parser_paths)
 
+        -- main-branch nvim-treesitter ships its highlight/etc. queries under
+        -- `runtime/queries`, which is not on the runtimepath by default. Add it so
+        -- Neovim can find queries for languages it does not bundle itself.
+        vim.opt.runtimepath:append("${plugins.nvim_treesitter}/runtime")
+
         local config_path = os.getenv("NVIM_LUA_CONFIG_DIR")
         vim.opt.rtp:prepend(config_path)
         local init = config_path .. "/init.lua"

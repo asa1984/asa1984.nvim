@@ -1,7 +1,7 @@
 {
     "conform-nvim": {
         "cargoLock": null,
-        "date": "2026-03-09",
+        "date": "2026-05-24",
         "extract": null,
         "name": "conform-nvim",
         "passthru": null,
@@ -13,16 +13,16 @@
             "name": null,
             "owner": "stevearc",
             "repo": "conform.nvim",
-            "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
-            "sha256": "sha256-aJIUkAcFdaOWBQ3HNLLvhqALzch0BqPUZPtb2cmIeCE=",
+            "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
+            "sha256": "sha256-pMWvC7sqOFjsMUhxTzMcoSifn7E5CVindvQVl9dEfB8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "086a40dc7ed8242c03be9f47fbcee68699cc2395"
+        "version": "619363c30309d29ffa631e67c8183f2a72caa373"
     },
     "copilot-lua": {
         "cargoLock": null,
-        "date": "2026-03-30",
+        "date": "2026-06-12",
         "extract": null,
         "name": "copilot-lua",
         "passthru": null,
@@ -34,12 +34,12 @@
             "name": null,
             "owner": "zbirenbaum",
             "repo": "copilot.lua",
-            "rev": "faa347cef2a9429eec14dada549e000a3b8d0fc9",
-            "sha256": "sha256-K3jeiJGyvT8dNtPNjd2cMwTjAewd9d6NB7akkdTl4Yk=",
+            "rev": "b54c05349d406f7af11b150824efa8e4f90015c6",
+            "sha256": "sha256-dY/Xn24czEjb5LGeKeIED6N0/bg4pzL8U87M6LNDfKw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "faa347cef2a9429eec14dada549e000a3b8d0fc9"
+        "version": "b54c05349d406f7af11b150824efa8e4f90015c6"
     },
     "gitlinker-nvim": {
         "cargoLock": null,
@@ -50,11 +50,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-eocovfFgevBrHSdTjm2Rn6I6JnfwhvOZNTTBg/wXiNY=",
+            "sha256": "sha256-UVCVLZT9VdgiwFSQFFIf7wEaMUZGsIJjikJpxjuL97g=",
             "type": "url",
-            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.4.0.tar.gz"
+            "url": "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.5.0.tar.gz"
         },
-        "version": "5.4.0"
+        "version": "5.5.0"
     },
     "hlchunk-nvim": {
         "cargoLock": null,
@@ -70,27 +70,6 @@
             "url": "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v1.3.0.tar.gz"
         },
         "version": "1.3.0"
-    },
-    "mdx-nvim": {
-        "cargoLock": null,
-        "date": "2026-03-30",
-        "extract": null,
-        "name": "mdx-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "davidmh",
-            "repo": "mdx.nvim",
-            "rev": "c2644328587bbd58eede41b2cd0c1ccc99175661",
-            "sha256": "sha256-1yFasKL2UKRd/j9nn8mjiFZOs9sR2GKomoCejtL1XIs=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "c2644328587bbd58eede41b2cd0c1ccc99175661"
     },
     "noice-nvim": {
         "cargoLock": null,
@@ -116,11 +95,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-b20Zv0ghf6oFlvzMg1ArP0XGWa+8+bDzxES7Gdjuaho=",
+            "sha256": "sha256-IEmmnlGVUEefdylHO0u7fshr1XNCGR4vGQ9+QXioC7o=",
             "type": "url",
-            "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.7.0.tar.gz"
+            "url": "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.10.0.tar.gz"
         },
-        "version": "2.7.0"
+        "version": "2.10.0"
     },
     "snacks-nvim": {
         "cargoLock": null,
@@ -175,7 +154,7 @@
     },
     "vimdoc-ja": {
         "cargoLock": null,
-        "date": "2026-04-02",
+        "date": "2026-06-13",
         "extract": null,
         "name": "vimdoc-ja",
         "passthru": null,
@@ -187,11 +166,11 @@
             "name": null,
             "owner": "vim-jp",
             "repo": "vimdoc-ja",
-            "rev": "64da7ea42aa7f68df7ddad06b39b2435fc2d2ffc",
-            "sha256": "sha256-Vsees2QcLH68TRBFDKFlb9vBgwD6Vmt2xSL4dYwXRNk=",
+            "rev": "9f9502dcfc988530d8ba66719fdfe327b5101b08",
+            "sha256": "sha256-BZejV6wvjXkxqzDsWMoX45YAL1yPkL4W1a3TKEp9hd4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "64da7ea42aa7f68df7ddad06b39b2435fc2d2ffc"
+        "version": "9f9502dcfc988530d8ba66719fdfe327b5101b08"
     }
 }
