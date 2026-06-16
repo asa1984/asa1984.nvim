@@ -43,6 +43,11 @@ src.git = "https://github.com/wavded/vim-stylus"
 src.branch = "master"
 fetch.github = "wavded/vim-stylus"
 
+[rustowl-nvim]
+src.github = "cordx56/rustowl"
+src.prefix = "v"
+fetch.url = "https://github.com/cordx56/rustowl/archive/refs/tags/v$ver.tar.gz"
+
 [vimdoc-ja]
 src.git = "https://github.com/vim-jp/vimdoc-ja"
 src.branch = "master"
