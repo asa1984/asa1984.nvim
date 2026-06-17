@@ -87,9 +87,15 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Detect .mdx files as the `mdx` filetype (used by the MDX LSP, formatter, etc.)
+-- Detect Pkl files (`.pkl`, `.pcf`, `PklProject`) as the `pkl` filetype.
 vim.filetype.add({
     extension = {
         mdx = "mdx",
+        pkl = "pkl",
+        pcf = "pkl",
+    },
+    filename = {
+        PklProject = "pkl",
     },
 })
 

@@ -47,6 +47,10 @@ pkgs: {
     ocamlPackages.ocaml-lsp
     ocamlformat
 
+    # Pkl
+    pkl
+    pkl-lsp
+
     # Protocol Buffers
     buf
 

@@ -156,6 +156,22 @@ return {
             },
         })
 
+        -- Pkl (apple/pkl-lsp). nvim-lspconfig ships no `pkl` definition, so the
+        -- command, filetypes and root markers are spelled out in full here.
+        vim.lsp.config("pkl", {
+            cmd = { "pkl-lsp" },
+            filetypes = { "pkl" },
+            root_markers = { ".pkl-lsp", "PklProject", ".git" },
+            settings = {
+                ["pkl.cli.path"] = "pkl",
+            },
+            init_options = {
+                extendedClientCapabilities = {
+                    actionableRuntimeNotifications = true,
+                },
+            },
+        })
+
         -- Typst
         vim.lsp.config("tinymist", {
             offset_encoding = "utf-8",
@@ -225,6 +241,9 @@ return {
 
             -- Ocaml
             "ocamllsp",
+
+            -- Pkl
+            "pkl",
 
             -- Python
             "pyright",
