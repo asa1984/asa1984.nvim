@@ -14,11 +14,11 @@ pkgs: {
     mdx-language-server
     nil
     nixfmt-rfc-style
-    nodePackages."@astrojs/language-server"
-    nodePackages."@tailwindcss/language-server"
-    nodePackages.dockerfile-language-server-nodejs
-    nodePackages.prettier
-    nodePackages.vscode-langservers-extracted
+    astro-language-server
+    tailwindcss-language-server
+    dockerfile-language-server-nodejs
+    prettier
+    vscode-langservers-extracted
     prisma-language-server
     pyright
     ruff
@@ -31,7 +31,7 @@ pkgs: {
 
   secondary = with pkgs; [
     # Bash
-    nodePackages.bash-language-server
+    bash-language-server
 
     # C/C++
     clang-tools
