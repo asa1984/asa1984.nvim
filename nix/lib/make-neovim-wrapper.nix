@@ -3,7 +3,8 @@
   pkgs,
 }:
 {
-  tools ? [ ],
+  # LSPs / formatters / linters injected into Neovim's PATH only.
+  editorTools ? [ ],
 }:
 let
   plugins = import ../plugins.nix pkgs;
@@ -69,7 +70,7 @@ let
         "--suffix"
         "PATH"
         ":"
-        (pkgs.lib.makeBinPath tools)
+        (pkgs.lib.makeBinPath editorTools)
       ];
     }
   );
