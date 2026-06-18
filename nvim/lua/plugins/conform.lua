@@ -23,14 +23,61 @@ return {
                 "oxfmt.config.ts",
             }),
         })
+
+        -- Vite+ keeps oxfmt config in vite.config.ts, not .oxfmtrc.json. Match on file
+        -- content so plain Vite projects (which want prettier) aren't routed to oxfmt.
+        local function vite_plus_config(dirname)
+            local found = vim.fs.find({
+                "vite.config.ts",
+                "vite.config.mts",
+                "vite.config.cts",
+                "vite.config.js",
+                "vite.config.mjs",
+                "vite.config.cjs",
+            }, { path = dirname, upward = true })[1]
+            if not found then
+                return nil
+            end
+            local ok, uses_vite_plus = pcall(function()
+                for line in io.lines(found) do
+                    if line:find("vite%-plus") then
+                        return true
+                    end
+                end
+                return false
+            end)
+            return (ok and uses_vite_plus) and found or nil
+        end
+
+        -- Pass `--config` explicitly so oxfmt reads the `fmt` block from vite.config.ts.
+        local oxfmt_for_vite_plus = merge_table_immutable(require("conform.formatters.oxfmt"), {
+            require_cwd = true,
+            cwd = function(_, ctx)
+                local config = vite_plus_config(ctx.dirname)
+                return config and vim.fs.dirname(config) or nil
+            end,
+            args = function(_, ctx)
+                local config = vite_plus_config(ctx.dirname)
+                if config then
+                    return { "--config", config, "--stdin-filepath", "$FILENAME" }
+                end
+                return { "--stdin-filepath", "$FILENAME" }
+            end,
+        })
         local biome_for_project = merge_table_immutable(require("conform.formatters.biome"), {
             require_cwd = true,
             args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
         })
         local prettier_for_project =
             merge_table_immutable(require("conform.formatters.prettier"), { require_cwd = true })
-        local prettier_like_formatters =
-            { "oxfmt_for_project", "biome_for_project", "prettier_for_project", "prettier", stop_after_first = true }
+        local prettier_like_formatters = {
+            "oxfmt_for_vite_plus",
+            "oxfmt_for_project",
+            "biome_for_project",
+            "prettier_for_project",
+            "prettier",
+            stop_after_first = true,
+        }
 
         -- If denols is attached as LSP, use `deno fmt`
         -- Otherwise, use formatters for Node.js like environment
@@ -43,6 +90,7 @@ return {
             for _, client in pairs(clients) do
                 if client.name == "denols" then
                     return {
+                        "oxfmt_for_vite_plus",
                         "oxfmt_for_project",
                         "biome_for_project",
                         "prettier_for_project",
@@ -52,6 +100,7 @@ return {
                 end
             end
             return {
+                "oxfmt_for_vite_plus",
                 "oxfmt_for_project",
                 "biome_for_project",
                 "prettier_for_project",
@@ -62,6 +111,7 @@ return {
 
         require("conform").setup({
             formatters = {
+                oxfmt_for_vite_plus = oxfmt_for_vite_plus,
                 oxfmt_for_project = oxfmt_for_project,
                 biome_for_project = biome_for_project,
                 prettier_for_project = prettier_for_project,
