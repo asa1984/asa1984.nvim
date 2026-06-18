@@ -1,0 +1,31 @@
+--- a/plugin/hmts.lua	2026-06-19 01:12:08
++++ b/plugin/hmts.lua	2026-06-19 01:12:31
+@@ -124,7 +124,13 @@
+ ---@param predicate string[]
+ ---@return boolean
+ local function hmts_path_handler(match, _, bufnr, predicate)
+-	local node = match[predicate[2]]:parent()
++	-- Neovim 0.12 changed predicate/directive handlers to receive a list of
++	-- nodes per capture (`table<integer, TSNode[]>`) instead of a single node.
++	local captured = match[predicate[2]]
++	if not captured or #captured == 0 then
++		return false
++	end
++	local node = captured[#captured]:parent()
+ 	local target_path = vim.list_slice(predicate, 3, nil)
+ 
+ 	while node do
+@@ -152,7 +158,12 @@
+ ---@param predicate string[]
+ ---@param metadata table<string, string>
+ local function hmts_inject_handler(match, _, bufnr, predicate, metadata)
+-	local path_node = match[predicate[2]]
++	-- Neovim 0.12: capture entries are lists of nodes, not single nodes.
++	local captured = match[predicate[2]]
++	if not captured or #captured == 0 then
++		return
++	end
++	local path_node = captured[#captured]
+ 	local filename = find_filename_in_parent_node(path_node, bufnr)
+ 	local alias = vim.filetype.match({ filename = filename })
+ 
