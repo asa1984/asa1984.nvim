@@ -41,6 +41,7 @@ let
 
     # Core
     better-escape-nvim
+    herdr-splits-nvim
     nvim-hlslens
     smart-splits-nvim
     sort-nvim

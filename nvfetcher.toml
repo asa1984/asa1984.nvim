@@ -3,6 +3,11 @@ src.git = "https://github.com/stevearc/conform.nvim"
 src.branch = "master"
 fetch.github = "stevearc/conform.nvim"
 
+[herdr-splits-nvim]
+src.git = "https://github.com/lmilojevicc/herdr-splits.nvim"
+src.branch = "main"
+fetch.github = "lmilojevicc/herdr-splits.nvim"
+
 [copilot-lua]
 src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"

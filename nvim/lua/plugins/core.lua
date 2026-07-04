@@ -34,10 +34,12 @@ return {
         },
     },
 
-    -- Better pane navigation
+    -- Better pane navigation (tmux/smart-terminal)
+    -- Disabled inside Herdr; herdr-splits.nvim handles seamless nvim/Herdr nav.
     {
         name = "smart-splits.nvim",
         dir = "@smart_splits_nvim@",
+        cond = vim.env.HERDR_ENV ~= "1",
         opts = {
             ignored_buftypes = { "nofile", "quickfix", "qf", "prompt" },
             ignored_filetypes = { "snacks_picker_list" },
@@ -154,6 +156,82 @@ return {
                     require("smart-splits").swap_buf_right()
                 end,
                 desc = "Swap buffer right",
+            },
+        },
+    },
+
+    -- Seamless navigation/resizing between Neovim splits and Herdr panes.
+    -- Herdr-side plugin forwards <C-h/j/k/l> for movement and <M-h/j/k/l> for
+    -- resize into Neovim; this plugin receives them and delegates back to Herdr
+    -- at nvim window edges.
+    {
+        name = "herdr-splits.nvim",
+        dir = "@herdr_splits_nvim@",
+        cond = vim.env.HERDR_ENV == "1",
+        event = "VeryLazy",
+        opts = {
+            default_amount = 0.03,
+            neovim_amount = 3,
+            at_edge = "wrap",
+            ignored_buftypes = { "nofile", "quickfix", "prompt" },
+            ignored_filetypes = { "snacks_picker_list" },
+        },
+        keys = {
+            {
+                "<C-h>",
+                function()
+                    require("herdr-splits").move_cursor_left()
+                end,
+                desc = "Move cursor left",
+            },
+            {
+                "<C-j>",
+                function()
+                    require("herdr-splits").move_cursor_down()
+                end,
+                desc = "Move cursor down",
+            },
+            {
+                "<C-k>",
+                function()
+                    require("herdr-splits").move_cursor_up()
+                end,
+                desc = "Move cursor up",
+            },
+            {
+                "<C-l>",
+                function()
+                    require("herdr-splits").move_cursor_right()
+                end,
+                desc = "Move cursor right",
+            },
+            {
+                "<M-h>",
+                function()
+                    require("herdr-splits").resize_left()
+                end,
+                desc = "Resize left",
+            },
+            {
+                "<M-j>",
+                function()
+                    require("herdr-splits").resize_down()
+                end,
+                desc = "Resize down",
+            },
+            {
+                "<M-k>",
+                function()
+                    require("herdr-splits").resize_up()
+                end,
+                desc = "Resize up",
+            },
+            {
+                "<M-l>",
+                function()
+                    require("herdr-splits").resize_right()
+                end,
+                desc = "Resize right",
             },
         },
     },

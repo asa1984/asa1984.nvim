@@ -20,15 +20,15 @@
   };
   copilot-lua = {
     pname = "copilot-lua";
-    version = "b54c05349d406f7af11b150824efa8e4f90015c6";
+    version = "760912b5992e1d6437378a9c7f2b0cb950966cf5";
     src = fetchFromGitHub {
       owner = "zbirenbaum";
       repo = "copilot.lua";
-      rev = "b54c05349d406f7af11b150824efa8e4f90015c6";
+      rev = "760912b5992e1d6437378a9c7f2b0cb950966cf5";
       fetchSubmodules = false;
-      sha256 = "sha256-dY/Xn24czEjb5LGeKeIED6N0/bg4pzL8U87M6LNDfKw=";
+      sha256 = "sha256-xmGMDVfypiJ8y4LJ0zGYsClVkjyuNH8B9U5XEeE0bN4=";
     };
-    date = "2026-06-12";
+    date = "2026-06-30";
   };
   gitlinker-nvim = {
     pname = "gitlinker-nvim";
@@ -37,6 +37,18 @@
       url = "https://github.com/linrongbin16/gitlinker.nvim/archive/refs/tags/v5.5.0.tar.gz";
       sha256 = "sha256-UVCVLZT9VdgiwFSQFFIf7wEaMUZGsIJjikJpxjuL97g=";
     };
+  };
+  herdr-splits-nvim = {
+    pname = "herdr-splits-nvim";
+    version = "0926e8c375deeee19a0317a051a9ed43ca16e76c";
+    src = fetchFromGitHub {
+      owner = "lmilojevicc";
+      repo = "herdr-splits.nvim";
+      rev = "0926e8c375deeee19a0317a051a9ed43ca16e76c";
+      fetchSubmodules = false;
+      sha256 = "sha256-gogvi3a4Tzv1SHuOch+wFRYmbouexRHhX6uTXnqUWOg=";
+    };
+    date = "2026-07-02";
   };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
@@ -92,14 +104,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "9f9502dcfc988530d8ba66719fdfe327b5101b08";
+    version = "c8c3b339302b4e88be2859b3ba99a4f0a3a2f8bd";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "9f9502dcfc988530d8ba66719fdfe327b5101b08";
+      rev = "c8c3b339302b4e88be2859b3ba99a4f0a3a2f8bd";
       fetchSubmodules = false;
-      sha256 = "sha256-BZejV6wvjXkxqzDsWMoX45YAL1yPkL4W1a3TKEp9hd4=";
+      sha256 = "sha256-362QsKxCbqXrOru3p+ReoqtfwTLSSblNGzzxTE2DWoI=";
     };
-    date = "2026-06-13";
+    date = "2026-06-27";
   };
 }
