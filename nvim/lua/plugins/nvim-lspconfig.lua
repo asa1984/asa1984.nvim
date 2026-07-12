@@ -249,6 +249,9 @@ return {
             "pyright",
             "ruff",
 
+            -- Scala
+            "metals",
+
             -- SQL
             "sqls",
 

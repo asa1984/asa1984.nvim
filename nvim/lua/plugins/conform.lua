@@ -185,6 +185,7 @@ return {
                 ocaml = { "ocamlformat" },
                 python = { "ruff_format" },
                 rust = { lsp_format = "fallback" },
+                scala = { "scalafmt" },
 
                 -- Schema
                 graphql = { "prettier" },
