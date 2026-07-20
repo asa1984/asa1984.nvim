@@ -86,6 +86,10 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Project-local config: load trusted .nvim.lua from the current/parent directories.
+-- Untrusted files prompt for confirmation (see :h 'exrc' and :h vim.secure).
+vim.o.exrc = true
+
 -- Detect .mdx files as the `mdx` filetype (used by the MDX LSP, formatter, etc.)
 -- Detect Pkl files (`.pkl`, `.pcf`, `PklProject`) as the `pkl` filetype.
 vim.filetype.add({
