@@ -42,6 +42,9 @@ return {
         -- TypeScript (on Node.js)
         vim.lsp.config("vtsls", {
             workspace_required = true,
+            settings = {
+                vtsls = { autoUseWorkspaceTsdk = true },
+            },
         })
 
         -- tsgo (typescript-go native LSP, provided by nvim-lspconfig).
