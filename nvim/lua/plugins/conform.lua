@@ -26,27 +26,42 @@ return {
 
         -- Vite+ keeps oxfmt config in vite.config.ts, not .oxfmtrc.json. Match on file
         -- content so plain Vite projects (which want prettier) aren't routed to oxfmt.
+        -- In Vite+ monorepos nested packages have their own vite.config.ts without a
+        -- `fmt` block (oxfmt errors on those), so keep walking up until a config that
+        -- actually carries `fmt` is found.
         local function vite_plus_config(dirname)
-            local found = vim.fs.find({
-                "vite.config.ts",
-                "vite.config.mts",
-                "vite.config.cts",
-                "vite.config.js",
-                "vite.config.mjs",
-                "vite.config.cjs",
-            }, { path = dirname, upward = true })[1]
-            if not found then
-                return nil
-            end
-            local ok, uses_vite_plus = pcall(function()
-                for line in io.lines(found) do
-                    if line:find("vite%-plus") then
-                        return true
-                    end
+            local dir = dirname
+            while dir do
+                local found = vim.fs.find({
+                    "vite.config.ts",
+                    "vite.config.mts",
+                    "vite.config.cts",
+                    "vite.config.js",
+                    "vite.config.mjs",
+                    "vite.config.cjs",
+                }, { path = dir, upward = true })[1]
+                if not found then
+                    return nil
                 end
-                return false
-            end)
-            return (ok and uses_vite_plus) and found or nil
+                local ok, matched = pcall(function()
+                    local uses_vite_plus = false
+                    local has_fmt = false
+                    for line in io.lines(found) do
+                        uses_vite_plus = uses_vite_plus or line:find("vite%-plus") ~= nil
+                        has_fmt = has_fmt or line:find("%f[%a]fmt%s*:") ~= nil
+                    end
+                    return uses_vite_plus and has_fmt
+                end)
+                if ok and matched then
+                    return found
+                end
+                local next_dir = vim.fs.dirname(vim.fs.dirname(found))
+                if next_dir == vim.fs.dirname(found) then
+                    return nil -- reached filesystem root
+                end
+                dir = next_dir
+            end
+            return nil
         end
 
         -- Pass `--config` explicitly so oxfmt reads the `fmt` block from vite.config.ts.
