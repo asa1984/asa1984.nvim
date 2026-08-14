@@ -146,6 +146,15 @@ return {
             },
         })
 
+        -- MoonBit (`moon-lsp` from the MoonBit toolchain). nvim-lspconfig
+        -- ships no `moonbit` definition, so the command, filetypes and root
+        -- markers are spelled out in full here.
+        vim.lsp.config("moonbit", {
+            cmd = { "moon-lsp", "--stdio" },
+            filetypes = { "moonbit" },
+            root_markers = { "moon.mod.json", ".git" },
+        })
+
         -- Nix
         vim.lsp.config("nil_ls", {
             settings = {
@@ -238,6 +247,9 @@ return {
 
             -- Lua
             "lua_ls",
+
+            -- MoonBit
+            "moonbit",
 
             -- Nix
             "nil_ls",

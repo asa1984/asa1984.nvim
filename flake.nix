@@ -8,6 +8,10 @@
 
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Prebuilt MoonBit toolchains (not packaged in nixpkgs)
+    moonbit-overlay.url = "github:moonbit-community/moonbit-overlay";
+    moonbit-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -30,6 +34,7 @@
           overlays = [
             (import ./nix/overlays).default
             inputs.fenix.overlays.default
+            inputs.moonbit-overlay.overlays.default
           ];
         };
     in

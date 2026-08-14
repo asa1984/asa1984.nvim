@@ -39,6 +39,27 @@
         "type": "github"
       }
     },
+    "moonbit-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1786594533,
+        "narHash": "sha256-CvWEGL5zCu5p2XWg7b55tEjNQMf+cIN5Htox2muxTgQ=",
+        "owner": "moonbit-community",
+        "repo": "moonbit-overlay",
+        "rev": "13a7eb9bd37d8bd1795b36d1ffb22c2a2d838b6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moonbit-community",
+        "repo": "moonbit-overlay",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1785747939,
@@ -74,6 +95,7 @@
       "inputs": {
         "fenix": "fenix",
         "flake-parts": "flake-parts",
+        "moonbit-overlay": "moonbit-overlay",
         "nixpkgs": "nixpkgs"
       }
     },
@@ -91,6 +113,27 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "moonbit-overlay",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785945821,
+        "narHash": "sha256-NLSyTCW4K4ofhNBllt3omPasm6QpralXH1DBZOc91Dw=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "ae7910970dddc408fe6ab1c8e4b277bb21d72dc0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     }
