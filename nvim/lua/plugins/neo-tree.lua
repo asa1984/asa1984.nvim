@@ -34,6 +34,12 @@ return {
                 },
             },
             filesystem = {
+                -- Expand the tree down to the file in the active buffer and focus
+                -- it, the way snacks.nvim's explorer follows the current file.
+                follow_current_file = {
+                    enabled = true,
+                    leave_dirs_open = true,
+                },
                 filtered_items = {
                     hide_dotfiles = false,
                 },
