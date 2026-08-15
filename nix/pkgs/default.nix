@@ -12,6 +12,11 @@ in
 {
   vimPlugins = import ./vim-plugins {
     inherit sources;
-    inherit (pkgs) vimUtils;
+    inherit (pkgs) vimUtils lib;
+  };
+
+  copilot-language-server = import ./copilot-language-server {
+    inherit sources;
+    inherit (pkgs) stdenv unzip;
   };
 }

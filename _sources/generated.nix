@@ -18,6 +18,38 @@
     };
     date = "2026-05-24";
   };
+  copilot-language-server-darwin-arm64 = {
+    pname = "copilot-language-server-darwin-arm64";
+    version = "1.532.0";
+    src = fetchurl {
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-arm64-1.532.0.zip";
+      sha256 = "sha256-PkrLuhiA/TKTmeeE1x2eQ7mh1JjvumgFIGYokMYaDzg=";
+    };
+  };
+  copilot-language-server-darwin-x64 = {
+    pname = "copilot-language-server-darwin-x64";
+    version = "1.532.0";
+    src = fetchurl {
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-x64-1.532.0.zip";
+      sha256 = "sha256-DgFVfv65/+/JGToj/+46oS7JDRDL5asomsKqbOXn6M4=";
+    };
+  };
+  copilot-language-server-linux-arm64 = {
+    pname = "copilot-language-server-linux-arm64";
+    version = "1.532.0";
+    src = fetchurl {
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-arm64-1.532.0.zip";
+      sha256 = "sha256-LyRtoZcM9KUFcizm+woabQChU5iGsdvnzzEgTXXocec=";
+    };
+  };
+  copilot-language-server-linux-x64 = {
+    pname = "copilot-language-server-linux-x64";
+    version = "1.532.0";
+    src = fetchurl {
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-x64-1.532.0.zip";
+      sha256 = "sha256-Wz/s4RGJijrDoWfNyd30f3i9aFXzX6XmJ7AKUO/CjXo=";
+    };
+  };
   copilot-lua = {
     pname = "copilot-lua";
     version = "760912b5992e1d6437378a9c7f2b0cb950966cf5";

@@ -13,6 +13,22 @@ src.git = "https://github.com/zbirenbaum/copilot.lua"
 src.branch = "master"
 fetch.github = "zbirenbaum/copilot.lua"
 
+[copilot-language-server-darwin-arm64]
+src.github = "github/copilot-language-server-release"
+fetch.url = "https://github.com/github/copilot-language-server-release/releases/download/$ver/copilot-language-server-darwin-arm64-$ver.zip"
+
+[copilot-language-server-darwin-x64]
+src.github = "github/copilot-language-server-release"
+fetch.url = "https://github.com/github/copilot-language-server-release/releases/download/$ver/copilot-language-server-darwin-x64-$ver.zip"
+
+[copilot-language-server-linux-arm64]
+src.github = "github/copilot-language-server-release"
+fetch.url = "https://github.com/github/copilot-language-server-release/releases/download/$ver/copilot-language-server-linux-arm64-$ver.zip"
+
+[copilot-language-server-linux-x64]
+src.github = "github/copilot-language-server-release"
+fetch.url = "https://github.com/github/copilot-language-server-release/releases/download/$ver/copilot-language-server-linux-x64-$ver.zip"
+
 [gitlinker-nvim]
 src.github = "linrongbin16/gitlinker.nvim"
 src.prefix = "v"

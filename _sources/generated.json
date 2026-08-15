@@ -20,6 +20,66 @@
         },
         "version": "619363c30309d29ffa631e67c8183f2a72caa373"
     },
+    "copilot-language-server-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "copilot-language-server-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-PkrLuhiA/TKTmeeE1x2eQ7mh1JjvumgFIGYokMYaDzg=",
+            "type": "url",
+            "url": "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-arm64-1.532.0.zip"
+        },
+        "version": "1.532.0"
+    },
+    "copilot-language-server-darwin-x64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "copilot-language-server-darwin-x64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-DgFVfv65/+/JGToj/+46oS7JDRDL5asomsKqbOXn6M4=",
+            "type": "url",
+            "url": "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-x64-1.532.0.zip"
+        },
+        "version": "1.532.0"
+    },
+    "copilot-language-server-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "copilot-language-server-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-LyRtoZcM9KUFcizm+woabQChU5iGsdvnzzEgTXXocec=",
+            "type": "url",
+            "url": "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-arm64-1.532.0.zip"
+        },
+        "version": "1.532.0"
+    },
+    "copilot-language-server-linux-x64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "copilot-language-server-linux-x64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Wz/s4RGJijrDoWfNyd30f3i9aFXzX6XmJ7AKUO/CjXo=",
+            "type": "url",
+            "url": "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-x64-1.532.0.zip"
+        },
+        "version": "1.532.0"
+    },
     "copilot-lua": {
         "cargoLock": null,
         "date": "2026-06-30",

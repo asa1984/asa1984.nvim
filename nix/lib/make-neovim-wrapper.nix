@@ -17,6 +17,10 @@ let
       version = "latest";
       src = ../../nvim;
 
+      # Developer-ID-signed server binary run by copilot.lua's binary mode;
+      # see nix/pkgs/copilot-language-server
+      copilot_language_server = pkgs.copilot-language-server;
+
       installPhase = ''
         mkdir -p $out
         for file in $(find . -type f); do
