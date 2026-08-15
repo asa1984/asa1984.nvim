@@ -30,7 +30,9 @@ stdenv.mkDerivation {
 
   dontUnpack = true;
   # Keep the prebuilt binary byte-identical; stripping or patching it would
-  # invalidate the Developer ID signature.
+  # invalidate the Developer ID signature. That also leaves the linux builds
+  # without autoPatchelf, so they will not run on NixOS -- which is why the
+  # wrapper only wires this in on Darwin.
   dontFixup = true;
 
   installPhase = ''

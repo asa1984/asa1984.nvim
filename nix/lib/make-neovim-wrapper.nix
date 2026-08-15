@@ -9,6 +9,13 @@
 let
   plugins = import ../plugins.nix pkgs;
 
+  # Developer-ID-signed server binary run by copilot.lua's binary mode; see
+  # nix/pkgs/copilot-language-server. Darwin only: keeping the signature valid
+  # rules out the ELF patching the prebuilt binary would need to run on NixOS,
+  # so elsewhere copilot.lua falls back to its bundled JS server.
+  copilotLanguageServer =
+    if pkgs.stdenv.hostPlatform.isDarwin then "${pkgs.copilot-language-server}" else "";
+
   # Neovim Lua configuration with `@plugin@` placeholders substituted with actual store paths
   luaConfig = pkgs.stdenv.mkDerivation (
     plugins
@@ -17,9 +24,7 @@ let
       version = "latest";
       src = ../../nvim;
 
-      # Developer-ID-signed server binary run by copilot.lua's binary mode;
-      # see nix/pkgs/copilot-language-server
-      copilot_language_server = pkgs.copilot-language-server;
+      copilot_language_server = copilotLanguageServer;
 
       installPhase = ''
         mkdir -p $out
