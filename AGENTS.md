@@ -8,7 +8,7 @@ asa1984's personal Neovim package, bundling Neovim configuration and plugins int
 nix build           # Build neovim
 nix run             # Build and run
 nix fmt             # Format Nix code
-nvfetcher Update    # Update plugin sources
+nvfetcher build     # Update plugin sources
 stylua nvim/        # Format Lua code
 ```
 
