@@ -6,7 +6,10 @@ end
 return {
     name = "conform.nvim",
     dir = "@conform_nvim@",
-    event = "BufReadPost",
+    -- `BufReadPost` alone never fires for a file that does not exist yet, so
+    -- conform stayed unloaded (no formatters, no format-on-save) whenever a new
+    -- buffer was created with e.g. `nvim notes.md`. `BufNewFile` covers that.
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     cmd = { "ConformInfo" },
     dependencies = {
         { name = "neoconf.nvim", dir = "@neoconf_nvim@" },
