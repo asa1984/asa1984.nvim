@@ -39,6 +39,16 @@ src.github = "shellRaining/hlchunk.nvim"
 src.prefix = "v"
 fetch.url = "https://github.com/shellRaining/hlchunk.nvim/archive/refs/tags/v$ver.tar.gz"
 
+[kcl-language-server-darwin-arm64]
+src.github = "kcl-lang/kcl"
+src.prefix = "v"
+fetch.url = "https://github.com/kcl-lang/kcl/releases/download/v$ver/kclvm-v$ver-darwin-arm64.tar.gz"
+
+[kcl-language-server-darwin-amd64]
+src.github = "kcl-lang/kcl"
+src.prefix = "v"
+fetch.url = "https://github.com/kcl-lang/kcl/releases/download/v$ver/kclvm-v$ver-darwin-amd64.tar.gz"
+
 [noice-nvim]
 src.github = "folke/noice.nvim"
 src.prefix = "v"

@@ -90,6 +90,22 @@
       sha256 = "sha256-eYwifigTRrXrW6xpFqLlqYFAftt64yweRGvvAvE7o5U=";
     };
   };
+  kcl-language-server-darwin-amd64 = {
+    pname = "kcl-language-server-darwin-amd64";
+    version = "0.11.2";
+    src = fetchurl {
+      url = "https://github.com/kcl-lang/kcl/releases/download/v0.11.2/kclvm-v0.11.2-darwin-amd64.tar.gz";
+      sha256 = "sha256-dvIxCVtpll1dUuPQVNkW+5vlNeHXFy+X/Ts/aKtYLFI=";
+    };
+  };
+  kcl-language-server-darwin-arm64 = {
+    pname = "kcl-language-server-darwin-arm64";
+    version = "0.11.2";
+    src = fetchurl {
+      url = "https://github.com/kcl-lang/kcl/releases/download/v0.11.2/kclvm-v0.11.2-darwin-arm64.tar.gz";
+      sha256 = "sha256-icMVp7KAoSzUTQ6BpRNYBSKfVvi/8EyQx227ix3bFCc=";
+    };
+  };
   noice-nvim = {
     pname = "noice-nvim";
     version = "4.10.0";

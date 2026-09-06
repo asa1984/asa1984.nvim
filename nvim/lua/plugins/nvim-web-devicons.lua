@@ -2,8 +2,9 @@
 return {
     name = "nvim-web-devicons",
     dir = "@nvim_web_devicons@",
-    -- nvim-web-devicons ships no MoonBit entry, so `.mbt` / `.mbti` fall back to
-    -- the generic file icon. Colour is MoonBit's GitHub linguist colour.
+    -- nvim-web-devicons ships no MoonBit or KCL entry, so `.mbt` / `.mbti` /
+    -- `.k` fall back to the generic file icon. (CUE already has one built in.)
+    -- Colours are the GitHub linguist colours.
     opts = {
         override_by_extension = {
             mbt = {
@@ -17,6 +18,12 @@ return {
                 color = "#b92381",
                 cterm_color = "126",
                 name = "MoonBitInterface",
+            },
+            k = {
+                icon = "󰬒",
+                color = "#7ABABF",
+                cterm_color = "109",
+                name = "Kcl",
             },
         },
     },

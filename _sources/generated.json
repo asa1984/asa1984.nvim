@@ -152,6 +152,36 @@
         },
         "version": "1.3.0"
     },
+    "kcl-language-server-darwin-amd64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kcl-language-server-darwin-amd64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-dvIxCVtpll1dUuPQVNkW+5vlNeHXFy+X/Ts/aKtYLFI=",
+            "type": "url",
+            "url": "https://github.com/kcl-lang/kcl/releases/download/v0.11.2/kclvm-v0.11.2-darwin-amd64.tar.gz"
+        },
+        "version": "0.11.2"
+    },
+    "kcl-language-server-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "kcl-language-server-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-icMVp7KAoSzUTQ6BpRNYBSKfVvi/8EyQx227ix3bFCc=",
+            "type": "url",
+            "url": "https://github.com/kcl-lang/kcl/releases/download/v0.11.2/kclvm-v0.11.2-darwin-arm64.tar.gz"
+        },
+        "version": "0.11.2"
+    },
     "noice-nvim": {
         "cargoLock": null,
         "date": null,

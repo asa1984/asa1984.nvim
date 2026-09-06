@@ -239,11 +239,17 @@ return {
             -- Bash
             "bashls",
 
+            -- CUE
+            "cue",
+
             -- Go
             "gopls",
 
             -- Haskell
             "hls",
+
+            -- KCL
+            "kcl",
 
             -- Lua
             "lua_ls",

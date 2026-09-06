@@ -4,8 +4,14 @@
   lib,
 }:
 let
-  # copilot-language-server-* are prebuilt LSP server binaries, not Vim plugins
-  pluginSources = lib.filterAttrs (name: _: !(lib.hasPrefix "copilot-language-server-" name)) sources;
+  # *-language-server-* are prebuilt LSP server binaries, not Vim plugins
+  nonPluginPrefixes = [
+    "copilot-language-server-"
+    "kcl-language-server-"
+  ];
+  pluginSources = lib.filterAttrs (
+    name: _: !(lib.any (prefix: lib.hasPrefix prefix name) nonPluginPrefixes)
+  ) sources;
 in
 builtins.mapAttrs (
   key: value:

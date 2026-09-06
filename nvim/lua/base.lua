@@ -93,6 +93,7 @@ vim.o.exrc = true
 -- Detect .mdx files as the `mdx` filetype (used by the MDX LSP, formatter, etc.)
 -- Detect Pkl files (`.pkl`, `.pcf`, `PklProject`) as the `pkl` filetype.
 -- Detect MoonBit sources (`.mbt`) and interfaces (`.mbti`) as `moonbit`.
+-- Detect KCL files (`.k`) as `kcl` (Neovim maps `.k` to `kwt` by default).
 vim.filetype.add({
     extension = {
         mdx = "mdx",
@@ -100,6 +101,7 @@ vim.filetype.add({
         pcf = "pkl",
         mbt = "moonbit",
         mbti = "moonbit",
+        k = "kcl",
     },
     filename = {
         PklProject = "pkl",
