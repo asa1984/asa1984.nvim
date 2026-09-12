@@ -66,6 +66,7 @@ let
     # Rust
     rustaceanvim
     crates-nvim
+    rustowl-nvim
 
     # Completion
     blink-cmp
