@@ -8,59 +8,59 @@
 {
   conform-nvim = {
     pname = "conform-nvim";
-    version = "619363c30309d29ffa631e67c8183f2a72caa373";
+    version = "016802de402556da54c36bd7359b441266b01cdd";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "conform.nvim";
-      rev = "619363c30309d29ffa631e67c8183f2a72caa373";
+      rev = "016802de402556da54c36bd7359b441266b01cdd";
       fetchSubmodules = false;
-      sha256 = "sha256-pMWvC7sqOFjsMUhxTzMcoSifn7E5CVindvQVl9dEfB8=";
+      sha256 = "sha256-7VkQLpkDak/O5tphT/EWX/rE9r0Dd2UCF5CFbl4rK+A=";
     };
-    date = "2026-05-24";
+    date = "2026-08-11";
   };
   copilot-language-server-darwin-arm64 = {
     pname = "copilot-language-server-darwin-arm64";
-    version = "1.532.0";
+    version = "1.547.0";
     src = fetchurl {
-      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-arm64-1.532.0.zip";
-      sha256 = "sha256-PkrLuhiA/TKTmeeE1x2eQ7mh1JjvumgFIGYokMYaDzg=";
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.547.0/copilot-language-server-darwin-arm64-1.547.0.zip";
+      sha256 = "sha256-ZgHa2/aGUFsoACyZ8paCEf2P0an+ct2IQQOy702cSno=";
     };
   };
   copilot-language-server-darwin-x64 = {
     pname = "copilot-language-server-darwin-x64";
-    version = "1.532.0";
+    version = "1.547.0";
     src = fetchurl {
-      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-darwin-x64-1.532.0.zip";
-      sha256 = "sha256-DgFVfv65/+/JGToj/+46oS7JDRDL5asomsKqbOXn6M4=";
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.547.0/copilot-language-server-darwin-x64-1.547.0.zip";
+      sha256 = "sha256-+gkvqRJ6aQLHYL78C0CtI2H81sXGqpKaDzYMhFLyCSw=";
     };
   };
   copilot-language-server-linux-arm64 = {
     pname = "copilot-language-server-linux-arm64";
-    version = "1.532.0";
+    version = "1.547.0";
     src = fetchurl {
-      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-arm64-1.532.0.zip";
-      sha256 = "sha256-LyRtoZcM9KUFcizm+woabQChU5iGsdvnzzEgTXXocec=";
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.547.0/copilot-language-server-linux-arm64-1.547.0.zip";
+      sha256 = "sha256-7/dtkTzyeFwLBj3+AMTPtJ3++huNX5v6p8eayeLoJDk=";
     };
   };
   copilot-language-server-linux-x64 = {
     pname = "copilot-language-server-linux-x64";
-    version = "1.532.0";
+    version = "1.547.0";
     src = fetchurl {
-      url = "https://github.com/github/copilot-language-server-release/releases/download/1.532.0/copilot-language-server-linux-x64-1.532.0.zip";
-      sha256 = "sha256-Wz/s4RGJijrDoWfNyd30f3i9aFXzX6XmJ7AKUO/CjXo=";
+      url = "https://github.com/github/copilot-language-server-release/releases/download/1.547.0/copilot-language-server-linux-x64-1.547.0.zip";
+      sha256 = "sha256-7wkEnfEChgXDSW97KtFUZk7xN2ojHqTRNFKG2WXLi2E=";
     };
   };
   copilot-lua = {
     pname = "copilot-lua";
-    version = "760912b5992e1d6437378a9c7f2b0cb950966cf5";
+    version = "6483be53397611b63259ce08a35108a47d4fc794";
     src = fetchFromGitHub {
       owner = "zbirenbaum";
       repo = "copilot.lua";
-      rev = "760912b5992e1d6437378a9c7f2b0cb950966cf5";
+      rev = "6483be53397611b63259ce08a35108a47d4fc794";
       fetchSubmodules = false;
-      sha256 = "sha256-xmGMDVfypiJ8y4LJ0zGYsClVkjyuNH8B9U5XEeE0bN4=";
+      sha256 = "sha256-qqunTfZsgYEMiDnXaji6eyfBSbhmhFuAnh93UR7oimE=";
     };
-    date = "2026-06-30";
+    date = "2026-09-18";
   };
   gitlinker-nvim = {
     pname = "gitlinker-nvim";
@@ -72,15 +72,15 @@
   };
   herdr-splits-nvim = {
     pname = "herdr-splits-nvim";
-    version = "0926e8c375deeee19a0317a051a9ed43ca16e76c";
+    version = "94f30cf4e9ac76ddf185a3acd0977be728fa4106";
     src = fetchFromGitHub {
       owner = "lmilojevicc";
       repo = "herdr-splits.nvim";
-      rev = "0926e8c375deeee19a0317a051a9ed43ca16e76c";
+      rev = "94f30cf4e9ac76ddf185a3acd0977be728fa4106";
       fetchSubmodules = false;
-      sha256 = "sha256-gogvi3a4Tzv1SHuOch+wFRYmbouexRHhX6uTXnqUWOg=";
+      sha256 = "sha256-7rHAPSjd2n16FGOcqI/1KNHl1yCmMOVVwiJl/eEU9n8=";
     };
-    date = "2026-07-02";
+    date = "2026-08-17";
   };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
@@ -116,10 +116,10 @@
   };
   nvim-lspconfig = {
     pname = "nvim-lspconfig";
-    version = "2.10.0";
+    version = "2.11.0";
     src = fetchurl {
-      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.10.0.tar.gz";
-      sha256 = "sha256-IEmmnlGVUEefdylHO0u7fshr1XNCGR4vGQ9+QXioC7o=";
+      url = "https://github.com/neovim/nvim-lspconfig/archive/refs/tags/v2.11.0.tar.gz";
+      sha256 = "sha256-PcGmpUp/MFaEwAbF9tD5iWc/wsJG+7QMk+DhFPN19Xc=";
     };
   };
   snacks-nvim = {
@@ -152,14 +152,14 @@
   };
   vimdoc-ja = {
     pname = "vimdoc-ja";
-    version = "c8c3b339302b4e88be2859b3ba99a4f0a3a2f8bd";
+    version = "4164dee5b55da60f9fbd5c5e518323eb3d57c009";
     src = fetchFromGitHub {
       owner = "vim-jp";
       repo = "vimdoc-ja";
-      rev = "c8c3b339302b4e88be2859b3ba99a4f0a3a2f8bd";
+      rev = "4164dee5b55da60f9fbd5c5e518323eb3d57c009";
       fetchSubmodules = false;
-      sha256 = "sha256-362QsKxCbqXrOru3p+ReoqtfwTLSSblNGzzxTE2DWoI=";
+      sha256 = "sha256-DVqzJxN8iauM14sdd34KLisZ2Kgq0LhNgae9w9XCXHY=";
     };
-    date = "2026-06-27";
+    date = "2026-09-14";
   };
 }
