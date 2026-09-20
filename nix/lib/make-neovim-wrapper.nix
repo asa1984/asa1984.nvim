@@ -28,9 +28,9 @@ let
 
       installPhase = ''
         mkdir -p $out
-        for file in $(find . -type f); do
+        while IFS= read -r -d "" file; do
           substituteAllInPlace "$file"
-        done
+        done < <(find . -type f -name "*.lua" -print0)
         cp -r ./ $out
       '';
     }
@@ -48,12 +48,12 @@ let
       (builtins.concatStringsSep ",")
     ];
 
-  config = pkgs.neovimUtils.makeNeovimConfig {
+  wrappedNeovim = pkgs.wrapNeovimUnstable neovim {
     withNodeJs = true;
     withRuby = false;
     withPython3 = false;
     vimAlias = true;
-    customLuaRC = # Lua
+    luaRcContent = # Lua
       ''
         local treesitter_parser_paths = os.getenv("TREESITTER_PARSER_PATHS")
         vim.opt.runtimepath:append(treesitter_parser_paths)
@@ -70,19 +70,13 @@ let
             vim.cmd("luafile " .. init)
         end
       '';
+    wrapperArgs = [
+      "--suffix"
+      "PATH"
+      ":"
+      (pkgs.lib.makeBinPath editorTools)
+    ];
   };
-
-  wrappedNeovim = pkgs.wrapNeovimUnstable neovim (
-    config
-    // {
-      wrapperArgs = config.wrapperArgs ++ [
-        "--suffix"
-        "PATH"
-        ":"
-        (pkgs.lib.makeBinPath editorTools)
-      ];
-    }
-  );
 in
 pkgs.writeShellScriptBin "nvim" ''
   export NVIM_LUA_CONFIG_DIR="${luaConfig}"
