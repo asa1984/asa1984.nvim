@@ -2,7 +2,7 @@
   description = "asa1984's neovim";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
@@ -21,7 +21,6 @@
         "aarch64-linux"
         "x86_64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
       # nixpkgs instance carrying asa1984.nvim's own overlays. Used everywhere so
