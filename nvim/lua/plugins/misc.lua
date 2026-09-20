@@ -1,24 +1,4 @@
 return {
-    -- Improve coding experience of Markdown
-    -- {
-    -- 	name = "nvim-markdown",
-    -- 	dir = "@nvim_markdown@",
-    -- 	ft = "markdown",
-    -- },
-
-    -- Markdown preview
-    -- {
-    -- 	name = "markdown.nvim",
-    -- 	dir = "@markdown_nvim@",
-    -- 	dependencies = {
-    -- 		{ name = "nvim-treesitter", dir = "@nvim_treesitter@" },
-    -- 	},
-    -- 	event = "BufRead",
-    -- 	config = function()
-    -- 		require("render-markdown").setup({})
-    -- 	end,
-    -- },
-
     -- Zen mode
     {
         name = "zen-mode.nvim",

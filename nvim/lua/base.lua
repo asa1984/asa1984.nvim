@@ -110,6 +110,8 @@ vim.filetype.add({
 
 -- Lua indent settings
 vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("asa1984-lua-indent", { clear = true }),
+    desc = "Lua indent settings",
     pattern = "lua",
     callback = function()
         vim.bo.tabstop = 4

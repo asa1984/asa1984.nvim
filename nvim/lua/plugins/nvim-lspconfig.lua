@@ -81,6 +81,8 @@ return {
 
         -- Resolve overlapping TypeScript servers.
         vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("asa1984-lsp-attach", { clear = true }),
+            desc = "Resolve overlapping TypeScript servers",
             callback = function(args)
                 local bufnr = args.buf
                 vim.schedule(function()

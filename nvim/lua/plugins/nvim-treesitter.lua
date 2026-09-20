@@ -10,6 +10,8 @@ return {
             pcall(vim.treesitter.start)
         end
         vim.api.nvim_create_autocmd("FileType", {
+            group = vim.api.nvim_create_augroup("asa1984-treesitter-start", { clear = true }),
+            desc = "Start treesitter highlighting",
             callback = start,
         })
         -- Highlight the buffer that triggered loading (its FileType already fired).

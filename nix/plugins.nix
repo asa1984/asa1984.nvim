@@ -20,7 +20,6 @@ let
     # Overlays
     copilot-lua
     conform-nvim
-    gitlinker-nvim
     hlchunk-nvim
     noice-nvim
     nvim-lspconfig
@@ -48,15 +47,12 @@ let
     which-key-nvim
 
     # Coding
-    comment-nvim
-    nvim-ts-context-commentstring
     nvim-autopairs
     nvim-ts-autotag
     ts-comments-nvim
 
     # LSP
     SchemaStore-nvim
-    lspkind-nvim
     lspsaga-nvim
     neoconf-nvim
     neodev-nvim
@@ -69,14 +65,7 @@ let
 
     # Completion
     blink-cmp
-    cmp-buffer
-    cmp-cmdline
-    cmp-nvim-lsp
-    cmp-path
-    cmp_luasnip
-    copilot-cmp
     luasnip
-    nvim-cmp
 
     # Git
     gitsigns-nvim
@@ -93,8 +82,6 @@ let
     toggleterm-nvim
 
     # Misc
-    denops-vim
-    markdown-nvim
     twilight-nvim
     zen-mode-nvim
     nvim-highlight-colors
