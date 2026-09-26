@@ -59,6 +59,9 @@ let
     tiny-inline-diagnostic-nvim
     trouble-nvim
 
+    # Lean
+    lean-nvim
+
     # Rust
     rustaceanvim
     crates-nvim
