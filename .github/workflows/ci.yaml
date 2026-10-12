@@ -30,3 +30,20 @@ jobs:
         run: nix build
       - name: Run Neovim in headless mode
         run: nix run . -- --headless -c "q"
+      - id: generate-token
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.SWAMPMAN_APP_ID }}
+          private-key: ${{ secrets.SWAMPMAN_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            dotfiles
+      - name: Create PR to asa1984/dotfiles
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        run: |
+          gh workflow run update-flake-input.yaml \
+            --repo asa1984/dotfiles \
+            --field input="asa1984-nvim"
