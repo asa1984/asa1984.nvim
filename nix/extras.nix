@@ -7,17 +7,15 @@
 { inputs, pkgs }:
 let
   myPkgs = import ./pkgs { inherit pkgs; };
-
-  # Pick single attributes out of the toolchain overlays by calling them with
-  # final = prev = pkgs, which skips re-running the whole nixpkgs fixpoint.
-  fromOverlay = overlay: name: (overlay pkgs pkgs).${name};
 in
 myPkgs
 // {
-  fenix = fromOverlay inputs.fenix.overlays.default "fenix";
+  rust-bin = inputs.rust-overlay.lib.mkRustBin { } pkgs;
 
-  # Prebuilt MoonBit toolchains (not packaged in nixpkgs)
-  moonbit-bin = fromOverlay inputs.moonbit-overlay.overlays.default "moonbit-bin";
+  # Prebuilt MoonBit toolchains (not packaged in nixpkgs). Pick the attribute
+  # by calling the overlay with final = prev = pkgs, which skips re-running the
+  # whole nixpkgs fixpoint.
+  moonbit-bin = (inputs.moonbit-overlay.overlays.default pkgs pkgs).moonbit-bin;
 
   vimPlugins =
     pkgs.vimPlugins

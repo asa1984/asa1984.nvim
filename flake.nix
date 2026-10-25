@@ -6,8 +6,8 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    fenix.url = "github:nix-community/fenix";
-    fenix.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     # Prebuilt MoonBit toolchains (not packaged in nixpkgs)
     moonbit-overlay.url = "github:moonbit-community/moonbit-overlay";
