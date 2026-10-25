@@ -1,9 +1,10 @@
 # Home Manager module exposing asa1984's Neovim as a language-aware IDE.
 #
-# Packages are resolved from asa1984.nvim's own pinned nixpkgs (via `self.lib`),
-# so the IDE brings its own toolchain versions and does not depend on the
-# consumer's overlays (e.g. fenix).
-{ self }:
+# Packages are built from the consumer's pkgs (overlays included), so the IDE
+# shares nixpkgs with the rest of the system instead of pulling in a second
+# copy. To keep the versions this flake was tested with, have the consumer's
+# nixpkgs and this flake's follow the same input.
+{ mkIde }:
 {
   config,
   lib,
@@ -13,8 +14,7 @@
 let
   cfg = config.programs.asa1984-nvim;
 
-  asaLib = self.lib.${pkgs.stdenv.hostPlatform.system};
-  inherit (asaLib) languages baseEditorTools makeNeovimWrapper;
+  inherit (mkIde pkgs) languages baseEditorTools makeNeovimWrapper;
 
   langNames = builtins.attrNames languages;
   enabledNames = builtins.filter (name: cfg.languages.${name}.enable) langNames;
