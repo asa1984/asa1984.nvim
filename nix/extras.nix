@@ -46,6 +46,11 @@ myPkgs
             };
           }
         );
+
+        # Quint is not in nvim-treesitter's official parser list either, but
+        # nixpkgs packages its grammar; grammarToPlugin installs the upstream
+        # Neovim-compatible queries/ next to the parser.
+        quint = pkgs.neovimUtils.grammarToPlugin pkgs.tree-sitter-grammars.tree-sitter-quint;
       };
     };
 }

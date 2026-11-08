@@ -94,6 +94,7 @@ vim.o.exrc = true
 -- Detect Pkl files (`.pkl`, `.pcf`, `PklProject`) as the `pkl` filetype.
 -- Detect MoonBit sources (`.mbt`) and interfaces (`.mbti`) as `moonbit`.
 -- Detect KCL files (`.k`) as `kcl` (Neovim maps `.k` to `kwt` by default).
+-- Detect Quint specs (`.qnt`) as `quint`. (`.tla` is detected as `tla` by Neovim.)
 vim.filetype.add({
     extension = {
         mdx = "mdx",
@@ -102,6 +103,7 @@ vim.filetype.add({
         mbt = "moonbit",
         mbti = "moonbit",
         k = "kcl",
+        qnt = "quint",
     },
     filename = {
         PklProject = "pkl",

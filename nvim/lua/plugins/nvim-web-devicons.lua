@@ -2,8 +2,9 @@
 return {
     name = "nvim-web-devicons",
     dir = "@nvim_web_devicons@",
-    -- nvim-web-devicons ships no MoonBit or KCL entry, so `.mbt` / `.mbti` /
-    -- `.k` fall back to the generic file icon. (CUE already has one built in.)
+    -- nvim-web-devicons ships no MoonBit, KCL, TLA+ or Quint entry, so `.mbt` /
+    -- `.mbti` / `.k` / `.tla` / `.qnt` fall back to the generic file icon. (CUE
+    -- already has one built in.)
     -- Colours are the GitHub linguist colours.
     opts = {
         override_by_extension = {
@@ -24,6 +25,18 @@ return {
                 color = "#7ABABF",
                 cterm_color = "109",
                 name = "Kcl",
+            },
+            tla = {
+                icon = "󰬛",
+                color = "#4b0079",
+                cterm_color = "54",
+                name = "Tla",
+            },
+            qnt = {
+                icon = "󰬘",
+                color = "#9d6ce5",
+                cterm_color = "134",
+                name = "Quint",
             },
         },
     },
