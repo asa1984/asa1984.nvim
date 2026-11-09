@@ -157,6 +157,15 @@ return {
             root_markers = { "moon.mod.json", ".git" },
         })
 
+        -- Quint (`quint-language-server`). nvim-lspconfig ships no `quint`
+        -- definition, so the command, filetypes and root markers are spelled
+        -- out in full here.
+        vim.lsp.config("quint", {
+            cmd = { "quint-language-server", "--stdio" },
+            filetypes = { "quint" },
+            root_markers = { ".git" },
+        })
+
         -- Nix
         vim.lsp.config("nil_ls", {
             settings = {
@@ -271,6 +280,9 @@ return {
             -- Python
             "pyright",
             "ruff",
+
+            -- Quint
+            "quint",
 
             -- Scala
             "metals",

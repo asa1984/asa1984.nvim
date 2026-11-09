@@ -134,6 +134,11 @@ return {
                 biome_for_project = biome_for_project,
                 prettier_for_project = prettier_for_project,
                 stylua = { require_cwd = true },
+                -- conform.nvim has no built-in tlafmt definition.
+                tlafmt = {
+                    command = "tlafmt",
+                    args = { "--stdin" },
+                },
                 stylus_supremacy = {
                     command = util.from_node_modules("stylus-supremacy"),
                     stdin = false,
@@ -208,6 +213,9 @@ return {
                 -- Schema
                 graphql = { "prettier" },
                 proto = { "buf" },
+
+                -- Formal specification
+                tla = { "tlafmt" },
 
                 -- Misc
                 sh = { "shfmt" },

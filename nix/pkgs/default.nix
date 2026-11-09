@@ -30,4 +30,6 @@ in
       }
     else
       pkgs.kcl-language-server;
+
+  quint-language-server = pkgs.callPackage ./quint-language-server { };
 }
