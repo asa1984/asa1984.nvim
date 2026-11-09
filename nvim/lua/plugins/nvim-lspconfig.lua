@@ -47,24 +47,55 @@ return {
             },
         })
 
-        -- tsgo (typescript-go native LSP, provided by nvim-lspconfig).
-        -- lspconfig's tsgo config only runs `tsgo` from PATH, so resolve and
-        -- run the project-local `node_modules/.bin/tsgo` ourselves. Only attach
-        -- when that binary exists, so tsgo is used solely for projects that
-        -- ship it; otherwise the LspAttach handler keeps vtsls.
+        -- Native TypeScript language server (typescript-go). TypeScript 7+
+        -- ships it as the `typescript` package itself and installs only
+        -- `node_modules/.bin/tsc` (`tsc --lsp --stdio`), while the earlier
+        -- `@typescript/native-preview` package installs `node_modules/.bin/tsgo`.
+        -- Returns the project-local executable, or nil when `dir` has neither
+        -- (TypeScript <= 6's `tsc` has no LSP mode, so it must not be used).
+        local function native_ts_server(dir)
+            local manifest = dir .. "/node_modules/typescript/package.json"
+            if vim.fn.filereadable(manifest) == 1 then
+                local ok, pkg = pcall(vim.json.decode, table.concat(vim.fn.readfile(manifest), "\n"))
+                local major = ok and type(pkg.version) == "string" and tonumber(pkg.version:match("^(%d+)%."))
+                if major and major >= 7 then
+                    return dir .. "/node_modules/.bin/tsc"
+                end
+            end
+            local tsgo = dir .. "/node_modules/.bin/tsgo"
+            if vim.fn.executable(tsgo) == 1 then
+                return tsgo
+            end
+        end
+
+        -- tsgo (native TypeScript LSP, provided by nvim-lspconfig).
+        -- lspconfig's tsgo config only runs `tsgo`, so resolve and run the
+        -- project-local server ourselves. Root at the nearest directory whose
+        -- `node_modules` holds TypeScript (or `@typescript/native-preview`), so
+        -- monorepos with a hoisted TypeScript share one server. Only attach when
+        -- that is a native server; otherwise the LspAttach handler keeps vtsls.
         vim.lsp.config("tsgo", {
             cmd = function(dispatchers, config)
-                local bin = config.root_dir .. "/node_modules/.bin/tsgo"
-                return vim.lsp.rpc.start({ bin, "--lsp", "--stdio" }, dispatchers, {
+                return vim.lsp.rpc.start({ native_ts_server(config.root_dir), "--lsp", "--stdio" }, dispatchers, {
                     cwd = config.cmd_cwd,
                     env = config.cmd_env,
                 })
             end,
             root_dir = function(bufnr, on_dir)
                 local fname = vim.api.nvim_buf_get_name(bufnr)
-                local root = vim.fs.root(fname, { "package.json", ".git" })
-                if root and vim.uv.fs_stat(root .. "/node_modules/.bin/tsgo") then
-                    on_dir(root)
+                if fname == "" then
+                    return
+                end
+                for dir in vim.fs.parents(fname) do
+                    if
+                        vim.uv.fs_stat(dir .. "/node_modules/typescript")
+                        or vim.uv.fs_stat(dir .. "/node_modules/.bin/tsgo")
+                    then
+                        if native_ts_server(dir) then
+                            on_dir(dir)
+                        end
+                        return
+                    end
                 end
             end,
         })
