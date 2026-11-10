@@ -51,54 +51,78 @@ return {
         -- ships it as the `typescript` package itself and installs only
         -- `node_modules/.bin/tsc` (`tsc --lsp --stdio`), while the earlier
         -- `@typescript/native-preview` package installs `node_modules/.bin/tsgo`.
-        -- Returns the project-local executable, or nil when `dir` has neither
-        -- (TypeScript <= 6's `tsc` has no LSP mode, so it must not be used).
+        -- Returns the client name ("tsc" or "tsgo") and the project-local
+        -- executable, or nil when `dir` has neither (TypeScript <= 6's `tsc`
+        -- has no LSP mode, so it must not be used).
         local function native_ts_server(dir)
             local manifest = dir .. "/node_modules/typescript/package.json"
             if vim.fn.filereadable(manifest) == 1 then
                 local ok, pkg = pcall(vim.json.decode, table.concat(vim.fn.readfile(manifest), "\n"))
                 local major = ok and type(pkg.version) == "string" and tonumber(pkg.version:match("^(%d+)%."))
                 if major and major >= 7 then
-                    return dir .. "/node_modules/.bin/tsc"
+                    return "tsc", dir .. "/node_modules/.bin/tsc"
                 end
             end
             local tsgo = dir .. "/node_modules/.bin/tsgo"
             if vim.fn.executable(tsgo) == 1 then
-                return tsgo
+                return "tsgo", tsgo
             end
         end
 
-        -- tsgo (native TypeScript LSP, provided by nvim-lspconfig).
         -- lspconfig's tsgo config only runs `tsgo`, so resolve and run the
         -- project-local server ourselves. Root at the nearest directory whose
         -- `node_modules` holds TypeScript (or `@typescript/native-preview`), so
-        -- monorepos with a hoisted TypeScript share one server. Only attach when
-        -- that is a native server; otherwise the LspAttach handler keeps vtsls.
-        vim.lsp.config("tsgo", {
-            cmd = function(dispatchers, config)
-                return vim.lsp.rpc.start({ native_ts_server(config.root_dir), "--lsp", "--stdio" }, dispatchers, {
-                    cwd = config.cmd_cwd,
-                    env = config.cmd_env,
-                })
-            end,
-            root_dir = function(bufnr, on_dir)
-                local fname = vim.api.nvim_buf_get_name(bufnr)
-                if fname == "" then
-                    return
-                end
-                for dir in vim.fs.parents(fname) do
-                    if
-                        vim.uv.fs_stat(dir .. "/node_modules/typescript")
-                        or vim.uv.fs_stat(dir .. "/node_modules/.bin/tsgo")
-                    then
-                        if native_ts_server(dir) then
-                            on_dir(dir)
-                        end
+        -- monorepos with a hoisted TypeScript share one server. The server is
+        -- registered twice, as "tsc" (TypeScript 7+) and "tsgo"
+        -- (`@typescript/native-preview`), and each attaches only when the
+        -- project's server matches its name; otherwise the LspAttach handler
+        -- keeps vtsls.
+        local function native_ts_config(name)
+            return {
+                cmd = function(dispatchers, config)
+                    local _, exe = native_ts_server(config.root_dir)
+                    return vim.lsp.rpc.start({ exe, "--lsp", "--stdio" }, dispatchers, {
+                        cwd = config.cmd_cwd,
+                        env = config.cmd_env,
+                    })
+                end,
+                root_dir = function(bufnr, on_dir)
+                    local fname = vim.api.nvim_buf_get_name(bufnr)
+                    if fname == "" then
                         return
                     end
-                end
-            end,
-        })
+                    for dir in vim.fs.parents(fname) do
+                        if
+                            vim.uv.fs_stat(dir .. "/node_modules/typescript")
+                            or vim.uv.fs_stat(dir .. "/node_modules/.bin/tsgo")
+                        then
+                            if native_ts_server(dir) == name then
+                                on_dir(dir)
+                            end
+                            return
+                        end
+                    end
+                end,
+                -- Let tsconfig `contentMappers` (TypeScript 7.1+) run. The
+                -- server only accepts this as an initialization option, not
+                -- as a `--lsp` flag (`--runExternalCode` is for builds only).
+                -- Mappers run code from the project's `node_modules`, which
+                -- the server above already does, so this adds no new trust.
+                init_options = { runExternalCode = true },
+            }
+        end
+
+        -- Reuse lspconfig's filetypes and settings (inlay hints) for "tsc",
+        -- which lspconfig does not define.
+        local tsgo_defaults = vim.lsp.config.tsgo
+        vim.lsp.config("tsgo", native_ts_config("tsgo"))
+        vim.lsp.config(
+            "tsc",
+            vim.tbl_extend("force", native_ts_config("tsc"), {
+                filetypes = tsgo_defaults.filetypes,
+                settings = tsgo_defaults.settings,
+            })
+        )
 
         -- Deno
         vim.lsp.config("denols", {
@@ -117,12 +141,15 @@ return {
             callback = function(args)
                 local bufnr = args.buf
                 vim.schedule(function()
-                    local tsgoLSPClients = vim.lsp.get_clients({ name = "tsgo", bufnr = bufnr })
+                    local nativeLSPClients = vim.list_extend(
+                        vim.lsp.get_clients({ name = "tsc", bufnr = bufnr }),
+                        vim.lsp.get_clients({ name = "tsgo", bufnr = bufnr })
+                    )
                     local vtslsLSPClients = vim.lsp.get_clients({ name = "vtsls", bufnr = bufnr })
                     local denoLSPClients = vim.lsp.get_clients({ name = "denols", bufnr = bufnr })
 
-                    -- Prefer project-local tsgo over vtsls.
-                    if #tsgoLSPClients > 0 then
+                    -- Prefer the project-local native server over vtsls.
+                    if #nativeLSPClients > 0 then
                         for _, vtslsLSPClient in ipairs(vtslsLSPClients) do
                             vim.lsp.stop_client(vtslsLSPClient.id)
                         end
@@ -130,7 +157,7 @@ return {
                     end
 
                     -- Disable denols if working with Node.js.
-                    if (#tsgoLSPClients > 0 or #vtslsLSPClients > 0) and #denoLSPClients > 0 then
+                    if (#nativeLSPClients > 0 or #vtslsLSPClients > 0) and #denoLSPClients > 0 then
                         for _, denoLSPClient in ipairs(denoLSPClients) do
                             vim.lsp.stop_client(denoLSPClient.id)
                         end
@@ -274,6 +301,7 @@ return {
             "oxlint",
             "svelte",
             "tailwindcss",
+            "tsc",
             "tsgo",
             "vtsls",
             "vuels",
