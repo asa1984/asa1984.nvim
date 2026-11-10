@@ -108,6 +108,19 @@ vim.filetype.add({
     filename = {
         PklProject = "pkl",
     },
+    pattern = {
+        -- Files of an extension that a tsconfig content mapper claims (e.g.
+        -- `.model.wts`) and nothing else detects take the extension's last
+        -- part as their filetype (`wts`). Without a filetype, FileType never
+        -- fires, so no language server (here `tsc`) would start for them.
+        [".*"] = {
+            function(path)
+                local ext = require("content_mapper").extension(path)
+                return ext and ext:match("([^.]+)$")
+            end,
+            { priority = -math.huge },
+        },
+    },
 })
 
 -- Lua indent settings
