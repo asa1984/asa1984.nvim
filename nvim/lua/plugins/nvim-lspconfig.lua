@@ -302,6 +302,9 @@ return {
             -- KCL
             "kcl",
 
+            -- Koka
+            "koka",
+
             -- Lua
             "lua_ls",
 
