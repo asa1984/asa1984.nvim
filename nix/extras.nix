@@ -51,6 +51,11 @@ myPkgs
         # nixpkgs packages its grammar; grammarToPlugin installs the upstream
         # Neovim-compatible queries/ next to the parser.
         quint = pkgs.neovimUtils.grammarToPlugin pkgs.tree-sitter-grammars.tree-sitter-quint;
+
+        # Koka likewise: nixpkgs packages the grammar but not the parser. The
+        # grammar's own queries/ are written for Helix, so highlights.scm is
+        # overridden with a Neovim port in nvim/queries/koka/.
+        koka = pkgs.neovimUtils.grammarToPlugin pkgs.tree-sitter-grammars.tree-sitter-koka;
       };
     };
 }
